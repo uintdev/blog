@@ -1,0 +1,29 @@
+title = "uintdev blog"
+description = "a few technical insights"
+
+# The URL the site will be built for
+base_url = "https://blog.uint.dev"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# When set to "true", the HTML output files will be minified
+minify_html = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+
+# Generates info for RSS readers
+generate_feed = true
+feed_filename = "rss.xml"
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+
+[extra]
+# Put all your custom variables here
+author = "uintdev"
+github_account = "uintdev"
+main_website = "https://uint.dev/"

@@ -1,0 +1,18 @@
+{% macro post_in_list(post) %}
+{% if post.extra.unlisted %}
+{% else %}
+<a href="{{ post.permalink | safe }}" class="card">
+    <time datetime="{{ post.date | date(format="%+") }}">{{ post.date | date(format="%B %d, %Y") }}</time>
+    <div class="title">{{ post.title }}</div>
+</a>
+{% endif %}
+{% endmacro post_in_list %}
+
+{% macro rel_url(path, trailing_slash=false, cachebust=false) %}
+    {%- set url = get_url(path=path, trailing_slash=trailing_slash, cachebust=cachebust) | replace(from=config.base_url, to="") -%}
+    {%- if url is starting_with("//") -%}
+        /{{- url | trim_start_matches(pat="//") -}}
+    {%- else -%}
+        {{- url -}}
+    {%- endif -%}
+{% endmacro rel_url %}

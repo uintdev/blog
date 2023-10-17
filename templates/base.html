@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="utf-8">
+
+    {% block title %}
+    <title>{{ config.title }}</title>
+    {% endblock content %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ get_url(path="style.css", trailing_slash=false) | safe }}">
+
+    <meta property="og:url" content="{{ config.base_url | safe }}{%if page.path %}{{ page.path | safe}}{% endif %}">
+    <meta property="og:site_name" content="{{ config.title }}">
+
+    {% if page.title %}
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta property="og:title" content="{{ page.title }}">
+    {% else %}
+    <meta name="twitter:title" content="{{ config.title }}">
+    <meta property="og:title" content="{{ config.title }}">
+    {% endif %}
+
+    {% if page.description %}
+    <meta name="description" content="{{ page.description | safe }}" />
+    <meta name="twitter:description" content="{{ page.description | safe }}">
+    <meta property="og:description" content="{{ page.description | safe }}">
+    {% else %}
+    <meta name="description" content="{{ config.description | safe }}">
+    <meta name="twitter:description" content="{{ config.description | safe }}">
+    <meta property="og:description" content="{{ config.description | safe }}">
+    {% endif %}
+
+    {% block meta_content %}
+    <meta name="twitter:card" content="summary">
+    <meta property="og:type" content="website">
+    {% endblock meta_content %}
+
+    <link rel="icon" href="{{ get_url(path="images/favicon.png") }}">
+    <link rel="apple-touch-icon" href="{{ get_url(path="images/favicon.png") }}">
+
+    {% block rss %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml', trailing_slash=false) }}">
+    {% endblock %}
+</head>
+<body>
+    <header>
+        {% block nav %}
+        <nav>
+            <a href="/">
+                <div>
+                    <h1>{{ config.title }}</h1>
+                    <span>{{ config.description }}</span>
+                </div>
+            </a>
+            <div>
+                <a aria-label="Link to my main website" href="{{ config.extra.main_website }}">
+                    main website
+                </a> • <a aria-label="Link to my Github account" href="https://github.com/{{ config.extra.github_account }}">
+                    github
+                </a>
+            </div>
+        </nav>
+        {% endblock nav %}
+    </header>
+    <main>
+        {% block content %}
+        Nothing here
+        {% endblock content %}
+    </main>
+    <footer>
+        <span>© {{ config.extra.author }} {{ now() | date(format="%Y") }}</span>
+        <div>
+            <span>made with <span class="heart">❤</span></span>
+        </div>
+    </footer>
+</body>
+</html>
