@@ -2,7 +2,7 @@ title = "uintdev blog"
 description = "a few technical insights"
 
 # The URL the site will be built for
-base_url = "https://blog.page.uint.dev"
+base_url = "https://blog.uint.dev"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
