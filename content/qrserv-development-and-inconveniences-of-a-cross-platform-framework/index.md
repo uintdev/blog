@@ -12,6 +12,7 @@ unlisted = false
 QRServ is a cross-platform Flutter application that hosts a HTTP server of which presents a QR code of a URL that by default allows a browser or download client to download the file selection. It is officially available via [GitHub](https://github.com/uintdev/qrserv) and [Google Play Store](https://play.google.com/store/apps/details?id=dev.uint.qrserv).
 
 The concept was inspired by [3dsend](https://github.com/MeatReed/3dsend/tree/1.5.0) ([web archive](https://web.archive.org/web/20230403093912/https://github.com/MeatReed/3dsend/tree/1.5.0)), an Electron-built application.
+
 The idea originally was to be able to scan QR codes for use in software featuring 'download via QR code' support to take advantage of on a Nintendo 3DS console with CFW (custom firmware). [Did you know that it's very easy to hack a 3DS?](https://3ds.hacks.guide/)
 
 Having thought about it, it could be useful for helping get content over to other devices fairly quickly, such as getting a photo from Android to iOS.
@@ -23,6 +24,7 @@ Mainly, I wanted for this to be on a phone for the sake of convenience. I did no
 ### Keeping it simple
 
 This collectively means that there should absolutely be no dependency on having a new app to handle receiving of the data to transfer over. This is a hard requirement. No exceptions. Not for Bluetooth, not for mDNS-SD (for device discovery). Tempting, but no.
+
 The application is also intended to be very simple and for a specific sort of use case, rather than acting like a swiss-army knife.
 
 Yes, this limits the potential of the application, but I was more of developing the application for myself with the intent to distribute for anyone who might find it useful (and it had proved so).
@@ -30,6 +32,7 @@ Yes, this limits the potential of the application, but I was more of developing 
 ### Similar applications exist
 
 Many Android applications at the time already existed for transferring files. The QR code feature or working natively with what is already available on devices (like a browser) weren't exactly in the forefront, however.
+
 The closest I came across at the time was an app that looked very dated and had a QR code button, so the QR code would not immediately be visible. What worsened things is that it depended on an external application for QR code encoding.
 
 As there wasn't an application out there that checked all the boxes, it was in my hands to do something about it.
@@ -55,6 +58,7 @@ There are some high and low hanging bugs in Flutter (that had not been resolved 
 ### Inconsistent build behaviour
 
 Something I should mention is that debug builds behave very differently in general for the sake of fast debugging but the app itself can function very differently too in comparison to a release build. For example, a state might visibly update in the debug build but not do so at all on the release build.
+
 So, it's crucial to test both builds when making large changes just in case whatever issue might be lurking about cannot be worked around (without large compromises). This sort of behaviour had happened various times and it's no fun to deal with. Save yourself the headache.
 
 ### In general
@@ -78,6 +82,7 @@ The problem with dependencies is that.. well.. it's someone else's existing work
 ### Bad practices
 
 I wanted my application to be as robust as possible. So when the file picker did not give out platform exceptions from the operating system for myself to handle and instead simply assumes it's some file picker user cancellation, that was a very bad approach and went against what I was aiming to achieve.
+
 In this case, I decided to contribute via GitLab -- hardly ideal for me but it is what it is. This ended up being a mess, as a final crucial adjustment I sent off for merging did not get merged (meaning a possible non-user-facing crash up-on a platform exception). I then stuck with my own fork with the appropriate changes as the dependency.
 
 ### Abandoned or barely maintained
@@ -93,6 +98,7 @@ Another example of a troublesome dependency that is not being actively being mai
 ### The conclusion
 
 This is overall essentially the case of having to do everything yourself if you want it more or less to your liking. Especially in the case of platform integration.
+
 It's not great to be in such a position too often, especially when it involves dependencies. It's bad enough as it is to try deciphering the madness from crash reports that would normally be far more detailed and specific in natively built applications (yes, I included debug symbols).
 I don't want to have to waste too much of my time. Time matters.
 
@@ -119,6 +125,7 @@ Some users had noticed how QRServ can take time with large files while importing
 #### Yes, I know
 
 During initial development, it was intended to directly access the files from where it would be stored at that very moment. Although, due to the move to scoped storage and the pre-existing Flutter packages (even at the time of writing) used to help make file selections, these only resulted in the copying of the selected files from Android's built-in documents / files picker UI and sharesheet into the application's cache folder.
+
 This essentially means making a copy of the file selection at first, using up additional internal storage temporarily. These Flutter packages do not expose the full direct path to the file selection.
 
 #### Performance hold ups
@@ -185,6 +192,7 @@ I would say that it's perhaps more ideal for not-so-method-channel-reliant appli
 
 I plan to continue maintaining QRServ where necessary.
 If I were to create new applications that involve the Android platform (or Windows, for now), Flutter would be my go-to at this time. Only because it's the more convenient option, knowing how to work with it far more than Kotlin or C++ with WinUI (I don't plan to develop anything with C# any time soon). Although that side of things is far more likely to be done professionally for the time being.
+
 Tauri is what I aim to use for Windows GUI applications in the future, with none of the JavaScript or web views.
 
 ### Reconsidering the approach
@@ -201,9 +209,11 @@ This sort of experience with Flutter has been interesting, but ultimately, I mos
 
 If you should use the Flutter framework or not is not up to me.
 The information I present here is intended to be a 'heads up' on the sort of things to expect. To adjust expectations. Depending on the approach taken, it might be worth it. Maybe dependencies won't be so much of a concern if native platform code can be written yourself. Perhaps some issues can be worked around without too much inconvenience.
+
 Make use of the information as you will and draw your own conclusions.
 
 I haven't gave myself that much of an opportunity to explore further into other avenues again for quite some time. Usually, this comes down to the lack of ideas of what to produce. Maybe I just need to look around for more inspiration, like how I've done so for graphical illustrations in the past.
+
 ~~There might be 'test' music I had thrown together on my main website.~~
 
 I've been exploring other programming languages and technologies. One I had been very satisfied with is Rust. Yes, it's as good as many are making it out to be. 'Rust Analyzer' can be a bit buggy at times, but it's nowhere as much of a pain to deal with. Overall, it's a gift that keeps on giving.

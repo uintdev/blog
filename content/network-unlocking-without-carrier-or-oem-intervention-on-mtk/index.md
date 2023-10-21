@@ -13,6 +13,7 @@ Initially, it was the terrible performing Windows laptops and there was the comm
 ## On the hunt
 
 Something that caught our eye was a rack full of around €30 smartphones. More specifically, a phone in a lime coloured box labeled with the carrier 'Yettel' (formerly 'Telenor'). This phone was the 'Navon SPT1100`.
+
 Knowing how insecure very low budget MediaTek devices are, we went ahead and picked one up.
 
 ## Getting right into it
@@ -70,11 +71,13 @@ What I was mainly looking for involves the network unlock code. What would be de
 ## It does not get any better
 
 I noticed how the app was setting a preference to the device's settings app regarding the unlock status (`slu_unlocked`). Shortly after, that it would send a broadcast to the MTK Engineering mode application to send an `AT+EGMR` command to the modem. The device would then be rebooted.
+
 This turned out to be far less of an effort than expected. Allow for me to explain.
 
 ## The engineer's key
 
 Under the `SimLockUnlockFragment` class, there was a method named `isRightPasswords`, of which had a string parameter. This would be the user provided code.
+
 This check goes through multiple methods of what would end up being seen as a valid network unlock code to then be checked against the data that the user had provided. One of the conditions was however slightly different from the others.
 
 ```java
@@ -94,6 +97,7 @@ private Boolean isRightPasswords(String param1String) {
 ```
 
 One of the conditions was checking the user provided data against a hardcoded string. This hardcoded string was `20150327`. If this matches, it would return `true`. Otherwise, it would fall back to method 3 as the final method to validate against.
+
 After entering the hardcoded string as the network unlock code, this successfully network unlocked the device. The phone no longer refused SIM cards from other networks.
 
 ## Using GSIs, custom ROMs & persistence
@@ -112,7 +116,10 @@ When purchasing a very low end device, let alone one utilising a MediaTek SoC, t
 
 The engineering software on such devices tend to not have much effort put into protecting themselves against unintended users and can damage the software or potentially hardware if misused. If you have no full backup, the device might be very much screwed if there is nothing available online to help get it back up and running.
 
-That said, this sort of find was disappointing but not surprising. Sure, it allows the user to kind of have the freedom they should've had in the first place in situations such as this. But this also can be misused. Making it almost effortless to find a working code, let alone a static one, is not a great thing. There are other issues that would likely make it possible to perform the same task, but this one is very low hanging fruit.
+That said, this sort of find was disappointing but not surprising. Sure, it allows the user to kind of have the freedom they should've had in the first place in situations such as this. But this also can be misused.
+
+Making it almost effortless to find a working code, let alone a static one, is not a great thing. There are other issues that would likely make it possible to perform the same task, but this one is very low hanging fruit.
+
 This is not the sort of tool that should be left around in release builds, especially the functionality that it ties into within the `MTK Engineering Mode` application.
 
 Needless to say, if your device is not supposed to be network unlocked yet (i.e. contract), please refrain from doing so.
@@ -130,7 +137,9 @@ If you want a device to play around with and to get familiar with the world of o
 The carrier after so long eventually came back with the NCK. Unfortunately, the NCK was not considered valid for that device.
 
 This is concerning, as the OEM had failed to ensure that the network unlock functionality for a truly persistent network unlock works. This also raises the question of if the carrier had even tested if this would work in the case of a user wanting to network unlock such a device that would originally be locked to their network.
+
 I mean, they seemed very confident about selling such device that there were so many in a rack. But then again, maybe it was solely the OEM's responsibility to check ahead of time and it was expected to just work.
+
 If the contract between the carrier and OEM covers this.. well.. that might get interesting.
 
 So it appears that at the time of writing, what is essentially the test NCK is probably the best way to go (especially on the stock operating system) in such a case.
