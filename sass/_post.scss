@@ -1,4 +1,6 @@
 article {
+    line-height: 1.4rem;
+
     h2,
     h3,
     h4,
@@ -30,7 +32,7 @@ article {
                 border-radius: 10px;
                 background-color: white;
                 color: black;
-                font-size: 0.85em;
+                font-size: 0.8rem;
             }
         }
     }
@@ -59,6 +61,11 @@ article {
         margin-block-end: 0em;
     }
 
+    tt,
+    code {
+        font-family: 'Berkeley Mono Variable', monospace;
+    }
+
     code {
         padding: 0 5px;
         border: 1px dotted white;
@@ -72,6 +79,7 @@ article {
         overflow: auto;
         background-color: rgba(39, 42, 45, 1) !important;
         line-height: 1.5em;
+        font-size: 0.8rem;
 
         code {
             filter: saturate(160%);
@@ -102,7 +110,8 @@ article {
             margin-top: 15px;
             text-align: center;
             color: rgba(186, 186, 186, 1);
-            font-size: 14px;
+            font-size: 0.8rem;
+            line-height: 1.2rem;
         }
     }
 
@@ -116,8 +125,11 @@ article {
         .callout-title {
             font-weight: bold;
             margin-bottom: 15px;
+            font-size: 0.96rem;
         }
         .callout-body {
+            line-height: 1.5rem;
+            font-size: 0.84rem;
             p:first-of-type {
                 margin-block-start: 0em;
                 margin-block-end: 0em;
