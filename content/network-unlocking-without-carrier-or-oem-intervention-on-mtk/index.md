@@ -24,13 +24,13 @@ There was a lot done, such as using [MTK Client](https://github.com/bkerler/mtkc
 
 While using [Activity Launcher](https://play.google.com/store/apps/details?id=de.szalkowski.activitylauncher) to find any hidden applications, something we had came across was an application named `NCK` (com.forest.simlock, 1.0).
 
-{% figure(src="assets/activity_launcher.png", alt="Activity Launcher entry") %}
+{% figure(src="assets/activity_launcher.webp", alt="Activity Launcher entry") %}
 Quite the package name
 {% end %}
 
 This was a basic network (un)lock tool that would ask for a network code key. This would offer 5 attempts.
 
-{% figure(src="assets/nck.png", alt="NCK application UI") %}
+{% figure(src="assets/nck.webp", alt="NCK application UI") %}
 Relatively straight-forward UI
 {% end %}
 
@@ -38,7 +38,7 @@ Relatively straight-forward UI
 
 Now, this was a strange one because the phone should have not even been network locked in the first place. Yettel could not network unlock it themselves and would need to contact the OEM for that information.
 
-{% figure(src="assets/carrier_resp.png", alt="Carrier response") %}
+{% figure(src="assets/carrier_resp.webp", alt="Carrier response") %}
 Carrier was not prepared for this one
 {% end %}
 
@@ -126,7 +126,7 @@ Needless to say, if your device is not supposed to be network unlocked yet (i.e.
 
 At the end of the day, like the hardware, it's the sort of thing that is just thrown together cheap without much consideration for user experience and how hardened the device should be. It just has to do the bare minimum.
 
-{% figure(src="assets/phone_internals.png", alt="Phone internals") %}
+{% figure(src="assets/phone_internals.webp", alt="Phone internals") %}
 Generic main board and low-end components
 {% end %}
 
