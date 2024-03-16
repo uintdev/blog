@@ -1,3 +1,4 @@
+{% import "macros.html" as macros %}
 <!DOCTYPE html>
 <html lang="{{ lang }}">
 <head>
@@ -8,7 +9,7 @@
     {% endblock content %}
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ get_url(path="style.css", trailing_slash=false) | safe }}">
+    <link rel="stylesheet" href="{{ macros::rel_url(path=get_url(path="style.css", trailing_slash=false), trailing_slash=false) | safe }}">
 
     <meta property="og:url" content="{{ config.base_url | safe }}{%if page.path %}{{ page.path | safe}}{% endif %}">
     <meta property="og:site_name" content="{{ config.title }}">
@@ -36,11 +37,11 @@
     <meta property="og:type" content="website">
     {% endblock meta_content %}
 
-    <link rel="icon" href="{{ get_url(path="images/favicon.png") }}">
-    <link rel="apple-touch-icon" href="{{ get_url(path="images/favicon.png") }}">
+    <link rel="icon" href="{{ macros::rel_url(path=get_url(path="images/favicon.png"), trailing_slash=false) }}">
+    <link rel="apple-touch-icon" href="{{ macros::rel_url(path=get_url(path="images/favicon.png"), trailing_slash=false) }}">
 
     {% block rss %}
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml', trailing_slash=false) }}">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ macros::rel_url(path=get_url(path='rss.xml', trailing_slash=false), trailing_slash=false) }}">
     {% endblock %}
 </head>
 <body>
