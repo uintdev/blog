@@ -3,6 +3,3 @@ public/
 
 # macOS Desktop Services Store
 .DS_Store
-
-# Font
-static/fonts/

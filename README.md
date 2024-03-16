@@ -19,6 +19,6 @@ zola build
 
 For the web server of your choice, point the document root for the virtual host to the `public/` directory (or its results) that was created from the build process.
 
-## Licencing
+## Licensing
 
-The '[MIT license](LICENSE)' is used for this project.
+The '[MIT license](LICENSE)' is used for this project. The font is under [Apache 2.0](static/fonts/LICENSE.txt) -- more details can be found here [here](https://fonts.google.com/specimen/Roboto+Mono).
