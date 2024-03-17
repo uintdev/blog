@@ -1,16 +1,18 @@
 article {
+    font-size: 1.1em;
     line-height: 1.4rem;
     color: rgba(220, 220, 220, 1);
 
     h1 {
-        font-size: 1.6em;
+        font-size: 1.8em;
+        line-height: 1.7rem;
     }
 
     h2 {
-        font-size: 1.4em;
+        font-size: 1.3em;
     }
 
-    h2 {
+    h3 {
         font-size: 1.2em;
     }
 
@@ -22,8 +24,9 @@ article {
         display: flex;
         margin-block-start: 1.4em;
         margin-block-end: 1em;
-        font-weight: bold;
+        font-weight: 500;
         color: white;
+        line-height: 1.7rem;
     }
 
     img {
@@ -33,10 +36,10 @@ article {
     }
 
     .post_header {
+        font-size: 0.9em;
         text-align: center;
         .post_title {
             color: white;
-            line-height: 1.6rem;
         }
         .post_date_read {
             color: rgba(140, 141, 158, 1);
@@ -50,15 +53,16 @@ article {
                 padding: 10px 15px;
                 border-radius: 10px;
                 background-color: white;
-                color: black;
-                font-size: 0.8rem;
+                color: #1d1f21;
+                font-size: 0.9em;
             }
         }
     }
 
     blockquote {
         background-color: white;
-        color: #171820;
+        color: #1d1f21;
+        font-size: 0.85em;
         padding: 6px 20px;
         border-radius: 6px;
         margin-inline-start: 0;
@@ -85,7 +89,7 @@ article {
         overflow: auto;
         background-color: rgba(39, 42, 45, 1) !important;
         line-height: 1.5em;
-        font-size: 0.8rem;
+        font-size: 0.85em;
 
         code {
             filter: saturate(160%);
@@ -138,17 +142,17 @@ article {
             border-radius: 4px;
         }
         .callout-body {
-            color: black;
+            color: #1d1f21;
             line-height: 1.5rem;
             p:first-of-type {
                 margin-block-start: 0;
                 margin-block-end: 0;
             }
             a {
-                color: black;
+                color: #1d1f21;
             }
             code {
-                border-color: black;
+                border-color: #1d1f21;
             }
         }
     }
