@@ -1,5 +1,18 @@
 article {
     line-height: 1.4rem;
+    color: rgba(220, 220, 220, 1);
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
 
     h2,
     h3,
@@ -9,6 +22,8 @@ article {
         display: flex;
         margin-block-start: 1.4em;
         margin-block-end: 1em;
+        font-weight: bold;
+        color: white;
     }
 
     img {
@@ -19,6 +34,9 @@ article {
 
     .post_header {
         text-align: center;
+        .post_title {
+            color: white;
+        }
         .post_date_read {
             color: rgba(140, 141, 158, 1);
         }
