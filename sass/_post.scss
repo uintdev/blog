@@ -122,6 +122,7 @@ article {
     }
 
     .callout {
+        color: rgba(119, 194, 255, 1);
         background-color: rgba(119, 194, 255, 1);
         padding: 20px 25px;
         border-radius: 10px;
@@ -135,7 +136,6 @@ article {
             display: inline-block;
             padding: 6px 14px;
             border-radius: 4px;
-            color: white;
         }
         .callout-body {
             color: black;
@@ -153,9 +153,11 @@ article {
         }
     }
     .callout-type-warn {
+        color: rgba(255, 249, 89, 1);
         background-color: rgba(255, 249, 89, 1);
     }
     .callout-type-important {
+        color: rgba(255, 84, 84, 1);
         background-color: rgba(255, 84, 84, 1);
     }
 }
