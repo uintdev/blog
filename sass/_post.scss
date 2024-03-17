@@ -25,7 +25,7 @@ article {
         margin-block-start: 1.4em;
         margin-block-end: 1em;
         font-weight: 500;
-        color: white;
+        color: var(--color-secondary);
         line-height: 1.7rem;
     }
 
@@ -39,7 +39,7 @@ article {
         font-size: 0.9em;
         text-align: center;
         .post_title {
-            color: white;
+            color: var(--color-secondary);
         }
         .post_date_read {
             color: rgba(140, 141, 158, 1);
@@ -52,16 +52,16 @@ article {
                 box-sizing: border-box;
                 padding: 10px 15px;
                 border-radius: 10px;
-                background-color: white;
-                color: #1d1f21;
+                background-color: var(--color-secondary);
+                color: var(--color-primary);
                 font-size: 0.9em;
             }
         }
     }
 
     blockquote {
-        background-color: white;
-        color: #1d1f21;
+        background-color: var(--color-secondary);
+        color: var(--color-primary);
         font-size: 0.85em;
         padding: 6px 20px;
         border-radius: 6px;
@@ -78,7 +78,7 @@ article {
 
     code {
         padding: 0 5px;
-        border: 1px dotted white;
+        border: 1px dotted var(--color-secondary);
         border-radius: 2px;
     }
 
@@ -136,23 +136,23 @@ article {
         .callout-title {
             font-weight: bold;
             margin-bottom: 10px;
-            background-color: #1d1f21;
+            background-color: var(--color-primary);
             display: inline-block;
             padding: 6px 14px;
             border-radius: 4px;
         }
         .callout-body {
-            color: #1d1f21;
+            color: var(--color-primary);
             line-height: 1.5rem;
             p:first-of-type {
                 margin-block-start: 0;
                 margin-block-end: 0;
             }
             a {
-                color: #1d1f21;
+                color: var(--color-primary);
             }
             code {
-                border-color: #1d1f21;
+                border-color: var(--color-primary);
             }
         }
     }
