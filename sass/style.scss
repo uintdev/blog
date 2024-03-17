@@ -41,6 +41,8 @@ header {
 
 main {
     flex: 1;
+    padding-top: 10px;
+    padding-bottom: 10px;
 
     @import 'index';
     @import 'post';
