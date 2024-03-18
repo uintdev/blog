@@ -1,7 +1,7 @@
 {% macro post_in_list(post) %}
 {% if post.extra.unlisted %}
 {% else %}
-<a href="{{macros::rel_url(path=post.permalink, trailing_slash=false) | safe}}" class="card">
+<a href="{{post.permalink | safe}}" class="card">
     <div class="title">{{ post.title }}</div>
     <div class="description">{{ post.description }}</div>
     <div class="metadata"><time datetime="{{ post.date | date(format="%+") }}">{{ post.date | date(format="%b %d, %Y") }}</time> • {{ post.reading_time }} minute read</div>
