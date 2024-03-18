@@ -69,7 +69,7 @@ I decided to take a look into the `NCK` application. I took the system image fil
 
 Using 7-Zip, the `classes.dex` file was extracted from the APK file. This was then used with [dex2jar](https://github.com/pxb1988/dex2jar) by using the following command:
 
-```cmd
+```ps1
 ./d2j-dex2jar.bat -f -o SimlockSecretCode_M4009Y.jar .\SimlockSecretCode_M4009Y.apk
 ```
 
