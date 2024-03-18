@@ -13,14 +13,20 @@
         padding: 20px 25px;
         box-sizing: border-box;
 
-        time {
-            display: block;
-            box-sizing: border-box;
-            margin-bottom: 12px;
-            font-size: 0.9em;
-        }
         .title {
-            font-size: 0.98em;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            font-weight: bold;
+            line-height: 1.2em;
+        }
+        .description {
+            font-size: 0.97em;
+            margin-bottom: 10px;
+            line-height: 1.2em;
+        }
+        .metadata {
+            box-sizing: border-box;
+            font-size: 0.9em;
         }
     }
 }
