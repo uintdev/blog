@@ -8,6 +8,12 @@ unlisted = false
 +++
 
 <br>
+{% callout(type="important") %}
+This information is for educational research purposes only.
+<br>
+Needless to say: if your device is not supposed to be network unlocked yet (i.e. ongoing contract), refrain from doing so.
+{% end %}
+
 {% callout(type="info") %}
 This post had been updated on March 18th 2024 with a follow-up at the end.
 {% end %}
@@ -127,8 +133,6 @@ That said, this sort of find was disappointing but not surprising. Sure, it allo
 Making it almost effortless to find a working code, let alone a static one, is not a great thing. There are other issues that would likely make it possible to perform the same task, but this one is very low hanging fruit.
 
 This is not the sort of tool that should be left around in release builds, especially the functionality that it ties into within the `MTK Engineering Mode` application.
-
-Needless to say, if your device is not supposed to be network unlocked yet (i.e. contract), please refrain from doing so.
 
 At the end of the day, like the hardware, it's the sort of thing that is just thrown together cheap without much consideration for user experience and how hardened the device should be. It just has to do the bare minimum.
 
