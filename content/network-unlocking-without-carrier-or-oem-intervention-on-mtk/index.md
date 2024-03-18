@@ -15,7 +15,7 @@ Needless to say: if your device is not supposed to be network unlocked yet (i.e.
 {% end %}
 
 {% callout(type="info") %}
-This post had been updated on March 18th 2024 with a follow-up at the end.
+This post has been updated on March 18th 2024 with a follow-up at the end.
 {% end %}
 <br>
 
