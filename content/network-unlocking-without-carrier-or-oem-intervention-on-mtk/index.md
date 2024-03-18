@@ -7,12 +7,18 @@ date = 2022-11-24
 unlisted = false
 +++
 
+<br>
+{% callout(type="info") %}
+This post had been updated on March 18th 2024 with a follow-up at the end.
+{% end %}
+<br>
+
 While I was on holiday in Hungary to stay with a friend, one of the ideas that came up was to go to a technology store to see the terrible quality products that would be around. There were a lot.
 Initially, it was the terrible performing Windows laptops and there was the common theme of demo software crashing in a loop. Meanwhile in the Apple section, things were far more sane. Wonder why was that.
 
 ## On the hunt
 
-Something that caught our eye was a rack full of around €30 smartphones. More specifically, a phone in a lime coloured box labeled with the carrier 'Yettel' (formerly 'Telenor'). This phone was the 'Navon SPT1100`.
+Something that caught our eye was a rack full of around €30 smartphones. More specifically, a phone in a lime coloured box labeled with the carrier 'Yettel' (formerly 'Telenor'). This phone was the `Navon SPT1100`.
 
 Knowing how insecure very low budget MediaTek devices are, we went ahead and picked one up.
 
@@ -143,3 +149,15 @@ I mean, they seemed very confident about selling such device that there were so 
 If the contract between the carrier and OEM covers this.. well.. that might get interesting.
 
 So it appears that at the time of writing, what is essentially the test NCK is probably the best way to go (especially on the stock operating system) in such a case.
+
+## The company behind Navon
+
+Navon was a brand by `Hungaro Flotta KFT.` ([privacy policy](https://smartnavon.eu/adatvedelmi-tajekoztato/) [[archived](https://web.archive.org/web/20240317232751/https://smartnavon.eu/adatvedelmi-tajekoztato/)]). Noticed how that's in past tense?
+
+`Hungaro Flotta KFT.` (an LLC) filed for bankruptcy late Q2 2023. This was noted, among other information about the proceedings, on their now defunct website.
+<br>
+The archived copy can be found [here](https://web.archive.org/web/20231128115509/http://hungaroflotta.hu/). The archive is broken, so search for the mention of `FELHÍVÁS` on the page to find the relevant section.
+
+Some company information regarding liquidation can be found [here](https://www.nemzeticegtar.hu/hungaro-flotta-kft-c1909509036.html).
+
+I'm taking it that the device is not going to be properly network unlocked any time soon.
