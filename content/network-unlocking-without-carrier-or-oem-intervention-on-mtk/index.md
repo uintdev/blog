@@ -65,7 +65,7 @@ What does make this all the more interesting was that there were `build.prop` pr
 
 ## We must go deeper
 
-I decided to take a look into the `NCK` application. I took the system image file that was extracted from the super partition (dynamic partition containing platform, vendor and system partitions -- used for very low storage devices) and opened it up using 7-Zip. This was thanks to the aforementioned MTKClient and the extraction of the super partition image. I then looked into `/system/app` to find a directory named `SimlockSecretCode_M4009Y`. Within this was `SimlockSecretCode_M4009Y.apk`.
+I decided to take a look into the `NCK` application. I took the system image file that was extracted from the super partition (dynamic partition containing platform, vendor and system partitions -- the `b` slot was blanked out due to the insufficient 8GB of storage) and opened it up using 7-Zip. This was thanks to the aforementioned MTKClient and the extraction of the super partition image. I then looked into `/system/app` to find a directory named `SimlockSecretCode_M4009Y`. Within this was `SimlockSecretCode_M4009Y.apk`.
 
 Using 7-Zip, the `classes.dex` file was extracted from the APK file. This was then used with [dex2jar](https://github.com/pxb1988/dex2jar) by using the following command: `./d2j-dex2jar.bat -f -o SimlockSecretCode_M4009Y.jar .\SimlockSecretCode_M4009Y.apk`
 
