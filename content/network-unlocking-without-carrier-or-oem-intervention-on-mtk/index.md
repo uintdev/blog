@@ -30,7 +30,7 @@ Knowing how insecure very low budget MediaTek devices are, we went ahead and pic
 
 ## Getting right into it
 
-There was a lot done, such as using [MTK Client](https://github.com/bkerler/mtkclient) to make a full backup of the device and getting it rooted that way. For the scope of this blog post however, I will be focusing on one of the many findings.
+There was a lot done, such as using [MTKClient](https://github.com/bkerler/mtkclient) to make a full backup of the device and getting it rooted that way. For the scope of this blog post however, I will be focusing on one of the many findings.
 
 ## Unexpected hidden application
 
@@ -65,7 +65,7 @@ What does make this all the more interesting was that there were `build.prop` pr
 
 ## We must go deeper
 
-I decided to take a look into the `NCK` application. I took the system image file that was extracted from the super partition (dynamic partition containing platform, vendor and system partitions -- used for very low storage devices) and opened it up using 7-Zip. This was thanks to the aforementioned MTK Client and the extraction of the super partition image. I then looked into `/system/app` to find a directory named `SimlockSecretCode_M4009Y`. Within this was `SimlockSecretCode_M4009Y.apk`.
+I decided to take a look into the `NCK` application. I took the system image file that was extracted from the super partition (dynamic partition containing platform, vendor and system partitions -- used for very low storage devices) and opened it up using 7-Zip. This was thanks to the aforementioned MTKClient and the extraction of the super partition image. I then looked into `/system/app` to find a directory named `SimlockSecretCode_M4009Y`. Within this was `SimlockSecretCode_M4009Y.apk`.
 
 Using 7-Zip, the `classes.dex` file was extracted from the APK file. This was then used with [dex2jar](https://github.com/pxb1988/dex2jar) by using the following command: `./d2j-dex2jar.bat -f -o SimlockSecretCode_M4009Y.jar .\SimlockSecretCode_M4009Y.apk`
 
@@ -140,7 +140,7 @@ At the end of the day, like the hardware, it's the sort of thing that is just th
 Generic main board and low-end components
 {% end %}
 
-If you want a device to play around with and to get familiar with the world of old & low end MediaTek SoCs, it's a nice little playground. Just make sure to do a full backup before doing anything else. The device in this case has some test and engineering tools scattered around and you can recover all or individual partitions should something break. USB 2.0 must be used when using the MTK Client tool or there will be connection drop-outs.
+If you want a device to play around with and to get familiar with the world of old & low end MediaTek SoCs, it's a nice little playground. Just make sure to do a full backup before doing anything else. The device in this case has some test and engineering tools scattered around and you can recover all or individual partitions should something break. USB 2.0 must be used when using the MTKClient tool or there will be connection drop-outs.
 
 ## An update on the official network unlock
 
