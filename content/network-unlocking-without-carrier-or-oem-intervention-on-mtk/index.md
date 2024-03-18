@@ -1,6 +1,6 @@
 +++
 title = "Network Unlocking without Carrier or OEM Intervention on MediaTek"
-description = "Debugging and network unlocking"
+description = "Low-end MediaTek-powered device Vs. reverse engineering"
 date = 2022-11-24
 
 [extra]
