@@ -1,6 +1,8 @@
 # uintdev blog
 
-This is the source code of the Zola site assets that are used as part of building a static website for '[blog.uint.dev](https://blog.uint.dev/)'.
+This is the source code of the Zola site assets that are used as part of building a static website for [blog.uint.dev](https://blog.uint.dev/).
+
+This website is hosted using Cloudflare Pages.
 
 ## Setup
 
@@ -21,4 +23,4 @@ For the web server of your choice, point the document root for the virtual host 
 
 ## Licensing
 
-The '[MIT license](LICENSE)' is used for this project. The font is under [Apache 2.0](static/fonts/LICENSE.txt) -- more details can be found here [here](https://fonts.google.com/specimen/Roboto+Mono).
+The [MIT license](LICENSE) is used for this project. The font is under [Apache 2.0](static/fonts/LICENSE.txt) -- more details can be found [here](https://fonts.google.com/specimen/Roboto+Mono).
