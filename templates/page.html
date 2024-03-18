@@ -20,6 +20,9 @@
 <article>
     <div class="post_header">
         <h1 class="post_title">{{ page.title }}</h1>
+        {% if page.description %}
+        <div class="post_description">{{ page.description }}</div>
+        {% endif %}
         {% if page.date %}
         <label class="post_date_read"><time datetime="{{ page.date | date(format="%+") }}">{{ page.date | date(format="%b %d, %Y") }}</time> • {{ page.reading_time }} minute read</label>
         {% endif %}

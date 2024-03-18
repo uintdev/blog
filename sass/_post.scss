@@ -41,6 +41,11 @@ article {
         .post_title {
             color: var(--color-secondary);
         }
+        .post_description {
+            font-size: 1.1em;
+            margin-top: -1em;
+            margin-bottom: 1em;
+        }
         .post_date_read {
             color: rgba(140, 141, 158, 1);
         }
