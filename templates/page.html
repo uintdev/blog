@@ -34,9 +34,9 @@
         </div>
         {% endif %}
     </div>
-    <br>
-
-    {{ page.content | safe }}
+    <div class="post_body">
+        {{ page.content | safe }}
+    </div>
 
 </article>
 {% endblock content %}

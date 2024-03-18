@@ -7,7 +7,6 @@ date = 2022-11-24
 unlisted = false
 +++
 
-<br>
 {% callout(type="important") %}
 This information is for educational research purposes only.
 <br>

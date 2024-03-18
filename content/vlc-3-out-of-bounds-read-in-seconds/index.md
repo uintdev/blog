@@ -7,7 +7,6 @@ date = 2022-12-07
 unlisted = false
 +++
 
-<br>
 {% callout(type="info") %}
 References of `secstotimestr` were from before it was renamed to `vlc_tick_to_str` as a result of a commit found [here](https://code.videolan.org/videolan/vlc/-/commit/3475f8e972a2d54343ec36c2b35424f5406f7d56).
 `i_seconds` was also renamed to `ticks` with the type `vlc_tick_t` in [this commit](https://code.videolan.org/videolan/vlc/-/commit/a59cb66257cfee50568fd4868c795f4e25f1fe98). For the purposes of keeping it simple, the parameter change will not be reflected here.
