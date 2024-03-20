@@ -77,12 +77,16 @@ article {
         color: var(--color-primary);
         font-size: 0.85em;
         line-height: 1.8em;
-        padding: 6px 20px;
+        padding: 16px 20px;
         border-radius: 6px;
         margin-inline-start: 0;
         margin-inline-end: 0;
         margin-block-start: 0;
         margin-block-end: 0;
+
+        p {
+            margin: 0;
+        }
     }
 
     tt,
