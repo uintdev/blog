@@ -55,6 +55,9 @@ article {
             line-height: 1.3em;
         }
         .post_date_read {
+            display: inline-block;
+            line-height: 1.3em;
+            word-break: break-word;
             color: rgba(150, 150, 150, 1);
         }
     }
