@@ -62,7 +62,6 @@ article {
             flex-direction: row;
             justify-content: left;
             .tag {
-                box-sizing: border-box;
                 padding: 10px 15px;
                 border-radius: 10px;
                 background-color: var(--color-secondary);
@@ -150,7 +149,6 @@ article {
         background-color: rgba(119, 194, 255, 1);
         padding: 20px 25px;
         border-radius: 10px;
-        box-sizing: border-box;
         font-size: 0.84em;
 
         .callout-title {
