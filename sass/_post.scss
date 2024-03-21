@@ -57,18 +57,6 @@ article {
         .post_date_read {
             color: rgba(150, 150, 150, 1);
         }
-        .tag_container {
-            display: flex;
-            flex-direction: row;
-            justify-content: left;
-            .tag {
-                padding: 10px 15px;
-                border-radius: 10px;
-                background-color: var(--color-secondary);
-                color: var(--color-primary);
-                font-size: 0.9em;
-            }
-        }
     }
 
     blockquote {

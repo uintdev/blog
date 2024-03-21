@@ -24,14 +24,10 @@
         <div class="post_description">{{ page.description }}</div>
         {% endif %}
         {% if page.date %}
-        <label class="post_date_read"><time datetime="{{ page.date | date(format="%+") }}">{{ page.date | date(format="%b %d, %Y") }}</time> • {{ page.reading_time }} minute read</label>
-        {% endif %}
-        {% if page.extra.unlisted %}
-        <br>
-        <br>
-        <div class="tag_container">
-            <span class="tag">Unlisted</span>
-        </div>
+        <label class="post_date_read">
+            <time datetime="{{ page.date | date(format="%+") }}">
+                {{ page.date | date(format="%b %d, %Y") }}</time> • {{ page.reading_time }} minute read {% if page.extra.unlisted %}• Unlisted{% endif %}
+        </label>
         {% endif %}
     </div>
     <div class="post_body">
