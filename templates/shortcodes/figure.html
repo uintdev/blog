@@ -2,7 +2,9 @@
     {% if link %} <a href="{{ link }}}"> {% endif %}
         <img src="{{ src }}" {%- if alt %}alt="{{ alt }}"{% endif %}>
     {% if link %} </a> {% endif %}
-    <figcaption>
-        {{ body | markdown(inline=true) | safe }}
-    </figcaption>
+    {% if body %}
+        <figcaption>
+            {{ body | markdown(inline=true) | safe }}
+        </figcaption>
+    {% endif %}
 </figure>
