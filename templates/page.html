@@ -7,9 +7,9 @@
 {% block meta_content %}
 <meta property="og:type" content="article">
 
-{% if page.extra.embed_card_image %}
-    <meta property="twitter:image" content="{{config.base_url | safe}}{{ page.extra.embed_card_image }}">
-    <meta property="og:image" content="{{config.base_url | safe}}{{ page.extra.embed_card_image }}">
+{% if page.extra.image %}
+    <meta property="twitter:image" content="{{ config.extra.base_domain | safe }}{%if page.path %}{{ page.path | safe}}{% endif %}image.webp">
+    <meta property="og:image" content="{{ config.extra.base_domain | safe }}{%if page.path %}{{ page.path | safe}}{% endif %}image.webp">
     <meta name="twitter:card" content="summary_large_image">
 {% else %}
     <meta name="twitter:card" content="summary">
@@ -30,6 +30,9 @@
         </label>
         {% endif %}
     </div>
+    {% if page.extra.image %}
+        <img src="image.webp" alt="{{ page.title | safe }}" class="post_image">
+    {% endif %}
     <div class="post_body">
         {{ page.content | safe }}
     </div>
