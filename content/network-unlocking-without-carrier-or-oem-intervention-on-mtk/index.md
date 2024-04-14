@@ -4,6 +4,7 @@ description = "Low-end MediaTek-powered device vs. reverse engineering"
 date = 2022-11-24
 
 [extra]
+image = true
 unlisted = false
 +++
 
