@@ -9,7 +9,7 @@
     {% endblock content %}
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ get_url(path="style.css", trailing_slash=false) | safe }}">
+    <link rel="stylesheet" href="{{ get_url(path="main.css", trailing_slash=false) | safe }}">
 
     <meta property="og:url" content="{{ config.extra.base_domain | safe }}{%if page.path %}{{ page.path | safe}}{% endif %}">
     <meta property="og:site_name" content="{{ config.title }}">
