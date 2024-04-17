@@ -13,6 +13,12 @@
         var(--color-secondary) 80%,
         var(--color-primary)
     );
+    --color-accent: rgba(90, 254, 99, 1);
+}
+
+::selection {
+    color: var(--color-primary);
+    background-color: var(--color-accent);
 }
 
 html {
