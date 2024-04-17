@@ -16,6 +16,17 @@
         padding: 20px 25px;
         box-sizing: border-box;
         width: 100%;
+        transition: background-color 0.2s;
+
+        &:focus {
+            background-color: var(--color-secondary-focus);
+        }
+
+        @media (hover: hover) {
+            &:hover {
+                background-color: var(--color-secondary-hover);
+            }
+        }
 
         .title {
             font-size: 1.2em;

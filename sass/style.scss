@@ -3,6 +3,16 @@
 :root {
     --color-primary: rgba(29, 31, 33, 1);
     --color-secondary: rgba(240, 240, 240, 1);
+    --color-secondary-focus: color-mix(
+        in srgb,
+        var(--color-secondary) 90%,
+        var(--color-primary)
+    );
+    --color-secondary-hover: color-mix(
+        in srgb,
+        var(--color-secondary) 80%,
+        var(--color-primary)
+    );
 }
 
 html {
