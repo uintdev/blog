@@ -42,6 +42,7 @@
     <link rel="apple-touch-icon" href="{{ get_url(path="images/favicon.png") }}">
 
     {% block rss %}
+    <link rel="alternate" type="application/atom+xml" title="RSS" href="{{ get_url(path='atom.xml', trailing_slash=false) }}">
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml', trailing_slash=false) }}">
     {% endblock %}
 </head>
