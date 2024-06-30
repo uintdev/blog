@@ -1,5 +1,6 @@
 title = "uintdev blog"
 description = "a few technical insights"
+author = "uintdev"
 
 # The URL the site will be built for
 base_url = "/"
