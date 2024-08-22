@@ -13,8 +13,6 @@ References of `secstotimestr` were from before it was renamed to `vlc_tick_to_st
 `i_seconds` was also renamed to `ticks` with the type `vlc_tick_t` in [this commit](https://code.videolan.org/videolan/vlc/-/commit/a59cb66257cfee50568fd4868c795f4e25f1fe98). For the purposes of keeping it simple, the parameter change will not be reflected here.
 {% end %}
 
-## Expectations of specially crafted WEBM
-
 Like any other day on Discord, I would come across specially crafted WEBM files that would mess around with the duration of the video.
 This usually results in media players:
 

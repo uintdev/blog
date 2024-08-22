@@ -7,8 +7,6 @@ date = 2023-04-03
 unlisted = false
 +++
 
-## The origins
-
 QRServ is a cross-platform Flutter application that hosts a HTTP server of which presents a QR code of a URL that by default allows a browser or download client to download the file selection. It is officially available via [GitHub](https://github.com/uintdev/qrserv) and [Google Play Store](https://play.google.com/store/apps/details?id=dev.uint.qrserv).
 
 The concept was inspired by [3dsend](https://github.com/MeatReed/3dsend/tree/1.5.0) ([web archive](https://web.archive.org/web/20230403093912/https://github.com/MeatReed/3dsend/tree/1.5.0)), an Electron-built application.
