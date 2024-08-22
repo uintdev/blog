@@ -17,7 +17,6 @@ Needless to say: if your device is not supposed to be network unlocked yet (i.e.
 {% callout(type="info") %}
 This post has been updated on March 18th 2024 with a follow-up at the end.
 {% end %}
-<br>
 
 While I was on holiday in Hungary to stay with a friend, one of the ideas that came up was to go to a technology store to see the terrible quality products that would be around. There were a lot.
 Initially, it was the terrible performing Windows laptops and there was the common theme of demo software crashing in a loop. Meanwhile in the Apple section, things were far more sane. Wonder why was that.
