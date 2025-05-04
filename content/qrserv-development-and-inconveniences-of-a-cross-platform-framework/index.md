@@ -4,6 +4,7 @@ description = "The troubles of a cross-platform framework"
 date = 2023-04-03
 
 [extra]
+image = true
 unlisted = false
 +++
 
