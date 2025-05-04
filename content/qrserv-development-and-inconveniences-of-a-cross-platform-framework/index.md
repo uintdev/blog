@@ -7,6 +7,10 @@ date = 2023-04-03
 unlisted = false
 +++
 
+{% callout(type="info") %}
+This post has been updated on May 4th 2025.
+{% end %}
+
 QRServ is a cross-platform Flutter application that hosts a HTTP server of which presents a QR code of a URL that by default allows a browser or download client to download the file selection. It is officially available via [GitHub](https://github.com/uintdev/qrserv) and [Google Play Store](https://play.google.com/store/apps/details?id=dev.uint.qrserv).
 
 The concept was inspired by [3dsend](https://github.com/MeatReed/3dsend/tree/1.5.0) ([web archive](https://web.archive.org/web/20230403093912/https://github.com/MeatReed/3dsend/tree/1.5.0)), an Electron-built application.
@@ -17,7 +21,9 @@ Having thought about it, it could be useful for helping get content over to othe
 
 ## Determining the requirements
 
-Mainly, I wanted for this to be on a phone for the sake of convenience. I did not want to limit what files were allowed, as that would most certainly be inconvenient. I especially did not want to use technologies that requires use of JavaScript. No inefficient or ~~Facebook~~ Meta technologies.
+Mainly, I wanted for this to be on a phone for the sake of convenience. I did not want to limit what files were allowed, as that would most certainly be inconvenient.
+<br>
+I especially did not want to use technologies that requires use of JavaScript. No inefficient or ~~Facebook~~ Meta technologies. React Native at least involves native platform widgets (which if aiming for a native experience is better than painting on a canvas), but it also has some pitfalls.
 
 ### Keeping it simple
 
@@ -25,7 +31,9 @@ This collectively means that there should absolutely be no dependency on having 
 
 The application is also intended to be very simple and for a specific sort of use case, rather than acting like a swiss-army knife.
 
-Yes, this limits the potential of the application, but I was more of developing the application for myself with the intent to distribute for anyone who might find it useful (and it had proved so).
+There are applications such as LocalSend. Very useful when it comes to cross-platform transfer and especially in the case of one's own devices, but it ultimately depends on the same application being installed on the recieving device. This would not work for how QRServ is intended to be used. The use of either application depends on the user's intent and how convenient it might be in their case. As with anything and everything, there will be pros and cons. Use what tool works best.
+
+Yes, this limits the potential of the application, but I was more of developing the application for myself with the intent to distribute for anyone who might find it useful. Since then, it has been evident that it has proved useful for at least a thousand users.
 
 ### Similar applications exist
 
@@ -47,11 +55,11 @@ Flutter is good as a UI framework, I can say that much. Fairly simple to get one
 
 ### Theming and deprecations
 
-It could be a little better when it comes to reliably theming elements with standard names without deprecating them so often or complicating the process of how to theme specific element types. This sort of thing did use up a fair bit of time throughout various Flutter updates. This is probably becoming less of a pain point as Material 3 is gradually becoming a thing (despite some existing imperfections at the time of writing).
+It could be a little better when it comes to reliably theming elements with standard names without deprecating them so often or complicating the process of how to theme specific element types. This sort of thing did use up a sizable amount of time throughout various Flutter updates. This is probably becoming less of a pain point as Material 3 was gradually becoming a thing (there typically being some imperfections with the theme that is trying to mimick the real platform widgets).
 
 ### Long unresolved bugs
 
-There are some high and low hanging bugs in Flutter (that had not been resolved for years), but usually these can be worked around.. after a lot of time. As for issues that can't be worked around.. well.. just hope they won't be a real roadblock.
+There are some high and low hanging bugs in Flutter that had not been resolved for years, but usually these can be worked around.. after a lot of time. As for issues that can't be worked around.. well.. just hope they won't be a real roadblock.
 
 ### Inconsistent build behaviour
 
@@ -63,7 +71,7 @@ So, it's crucial to test both builds when making large changes just in case what
 
 There had been numerous build issues and so forth as time went on, but I'll get into that shortly.
 
-## Being dependant on 3rd party packages
+## Being very dependant on 3rd party packages
 
 There's a lot I could go on about in great detail, but one of the notable larger pitfalls I had noticed with the Flutter framework was the availability and quality of the 3rd party Flutter packages. This itself carries a lot of issues.
 
@@ -75,7 +83,7 @@ One of the core features I needed was a way to at least navigate and select file
 
 If you want to use very specific native platform features that the framework normally does not have hooks into, chances are that you will need to either rely on an existing dependency or put together something yourself.
 
-The problem with dependencies is that.. well.. it's someone else's existing work to depend on for the functionality it offers. You end up relying on the maintainer to get things right. Usually, dependencies are there for the convenience. And they can work exactly as expected to the T. Unfortunately, when it came to some of the packages I went with, it was quite the contrary.
+The problem with dependencies is that.. well.. it's someone else's existing work to depend on for the functionality it offers. You end up relying on the maintainer to get things right. Usually, dependencies can work exactly as expected. Unfortunately, when it came to some of the packages I went with, it was quite the contrary.
 
 ### Bad practices
 
@@ -87,11 +95,11 @@ In this case, I decided to contribute via GitLab -- hardly ideal for me but it i
 
 When it comes to other packages, they can eventually cause build errors due to eventual dependency version conflicts or relying on old unsupported Gradle versions. Those packages tend to be abandoned, so there would be no point in issuing a pull request. These had to be forked and depended on with the much needed adjustments.
 
-During the point of when Flutter was beginning to enforce null safety, I was one of those who went helping out with making the packages I rely on null safe, even issuing some pull requests for the actively maintained projects. Where there isn't active maintenance at the time, I published new Flutter packages denoting that they're null safe with the `_ns` suffix. When some got maintained again to officially make their needed adjustments, I unlisted my publications as appropriate.
+During the point of when Flutter was beginning to enforce null safety when it came to Dart, I was one of those who went helping out with making the packages I rely on null safe, even issuing some pull requests for the actively maintained projects. Where there isn't active maintenance at the time, I published new Flutter packages denoting that they're null safe with the `_ns` suffix. When some got maintained again to officially make their needed adjustments, I unlisted my publications as appropriate.
 
 ### Instability
 
-Another example of a troublesome dependency that is not being actively being maintained is the share intent package. The Google Play Console vaguely reported a crash coming from the dependency relating to getting the duration of a video file. As I did not need that specific functionality, I had essentially cut that functionality off rather than finding a real fix for that in the Kotlin code that is called via method channel.
+Another example of a troublesome dependency that is not being actively being maintained is the share intent package. The Google Play Console vaguely reported a crash coming from the dependency relating to getting the duration of a video file. As I did not need that specific functionality, I had essentially cut that functionality off rather than finding a real fix for that in the Kotlin code that is called via method channel. This was eventually resolved with a larger rewrite by the maintainer, but this took a long while.
 
 ### The conclusion
 
@@ -100,7 +108,7 @@ This is overall essentially the case of having to do everything yourself if you 
 It's not great to be in such a position too often, especially when it involves dependencies. It's bad enough as it is to try deciphering the madness from crash reports that would normally be far more detailed and specific in natively built applications (yes, I included debug symbols).
 I don't want to have to waste too much of my time. Time matters.
 
-Open source is open source. You get what you pay for.
+When it comes to free and open source software (FOSS), if something is wrong, sometimes it lands on you to put in the effort to fix it yourself if you really want to get what you want. That is how it is in general, but it's even worse when you can't simply make certain platform API calls without depending on or creating your own wrapper.
 
 ## The elephant in the room
 
@@ -153,7 +161,7 @@ These sort of struggles are going to especially happen when working with a frame
 
 As much as I love challenges, having to try working around highly visible bugs and putting up with the inconveniences (that a lot of them are long unresolved bugs) for a huge amount of the development time (of which I haven't mentioned the half of the issues) that are mainly to do with the framework itself (let alone the dependencies out there) is terrible. No amount of hot reloading or fancy features will make up for that.
 
-### Getting burnout
+### Getting close to burnout
 
 I'd rather for that time to go towards implementing functionality and fixing bugs that I end up creating myself.
 
@@ -163,15 +171,15 @@ For something that is supposed to ease (cross-platform) application development,
 
 When I began working on QRServ, I expected challenges. That's exactly what I got. But it was also far more than I bargained for. The sort that causes way too much friction that really puts a hold on things from every corner. Occasional issues to iron out that weren't issues before. Or I happen to use something I haven't used before (in a certain way) only to find out it doesn't work correctly.
 
-Truth is, it was never intended for it take a lot of time to put together. But it did. It took an unnecessarily long time to get it where it is today, let alone before the first stable release. Hours add up fast.
+It was never intended for it take a lot of time to put together. But it did. It took an unnecessarily long time to get it where it is today, let alone before the first stable release. Hours add up fast.
 
 #### Bugs will always be a thing
 
-Bugs will happen in programming languages, frameworks, and libraries. But I would hope that low-hanging issues, especially in basic functionality, does not stay in limbo for years as if it's something on Bugzilla (Mozilla bug tracker). Especially if it's to be used in production. This is unlike anything I've seen before, and I've seen bad. It's to the point where it does not feel it should be used for anything 'serious'.
+Bugs will happen in programming languages, frameworks, and libraries. Anything involving human input being made into logic. But I would hope that low-hanging issues, especially in basic functionality, does not stay in limbo for years as if it's something on Bugzilla (Mozilla bug tracker). Especially if it's to be used in production. This is unlike anything I've seen before, and I've seen bad. It's to the point where it does not feel it should be used for anything 'serious'.
 
 #### The strain
 
-Software development can be enjoyable. But like anything, if you keep hitting brick walls with no satisfying (enough) resolutions or having to severely compromise the idea you're trying to make into a reality, it can get very taxing. That you're fighting against rather than working with that framework.
+Software development can be enjoyable. But like anything, if you keep hitting brick walls with no satisfying (enough) resolutions or having to severely compromise the idea you're trying to make into a reality, it can get very taxing. That you're fighting against rather than working with it.
 
 Like how stepping back for a bit can help bring ideas of how to approach an issue, it also helps if you're getting exhausted by something out-right not playing ball. To re-evaluate the approach and try to regain the motivation. Or do something else entirely until you feel you're ready to take a fresh look at it once more.
 
@@ -180,11 +188,11 @@ Like how stepping back for a bit can help bring ideas of how to approach an issu
 Bashing out code is not the only thing I'm good at. It's just one of the things I focus on doing the most. The main thing. Perhaps I should try out the other hobbies more. Widen up some avenues in other departments.
 In general, that would be wise in any case. Never place all your eggs in one basket.
 
-There is technically a bit of 'jack of all trades, master of none' vibes if I were to exclude software development from the list. Even then, there are some that I had focused on far more than others. Some of which also tend to interconnect.
+There is a bit of 'jack of all trades, master of none' if I were to exclude software development from the list. Even then, there are some that I had focused on far more than others. Some of which also tend to interconnect.
 
 ### Good in some cases
 
-I would say that it's perhaps more ideal for not-so-method-channel-reliant applications (unless you would be willing to write platform native code to an extent) or something too complex, but apparently there's numerous bugs with things as basic as forms & text fields too. So, have fun with that.
+I would say that it's perhaps more ideal for not-so-method-channel-reliant applications (unless you would be willing to write platform native code to an extent) or something too complex, but apparently even so there's numerous bugs with things as basic as forms & text fields. So, have fun with that.
 
 ### Decisions
 
@@ -210,10 +218,10 @@ The information I present here is intended to be a 'heads up' on the sort of thi
 
 Make use of the information as you will and draw your own conclusions.
 
-I haven't gave myself that much of an opportunity to explore further into other avenues again for quite some time. Usually, this comes down to the lack of ideas of what to produce. Maybe I just need to look around for more inspiration, like how I've done so for graphical illustrations in the past.
+I haven't gave myself that much of an opportunity to explore further into other avenues again for some time. Usually, this comes down to the lack of ideas of what to produce. Maybe I just need to look around for more inspiration, like how I've done so for graphical illustrations in the past.
 
 ~~There might be 'test' music I had thrown together on my main website.~~
 
 I've been exploring other programming languages and technologies. One I had been very satisfied with is Rust. Yes, it's as good as many are making it out to be. 'Rust Analyzer' can be a bit buggy at times, but it's nowhere as much of a pain to deal with. Overall, it's a gift that keeps on giving.
 
-Our past (mistakes) makes us who we are today. We may not be able to change the past, but we can learn from it and change future outcomes. Do what would help give you satisfaction and happiness in the long run.
+Our past (mistakes) makes us who we are today. We may not be able to change the past, but we can learn from it and change future outcomes. Do what would help give you satisfaction, happiness and overall better results in the long run.
