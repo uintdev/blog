@@ -2,7 +2,7 @@ name = "uintdev-blog"
 compatibility_date = "2025-06-04"
 
 routes = [
-    { pattern = "worker.blog.uint.dev", custom_domain = true }
+    { pattern = "testblog.uint.dev", custom_domain = true }
 ]
 
 workers_dev = false
