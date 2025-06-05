@@ -2,7 +2,7 @@
 
 This is the source code of the Zola site assets that are used as part of building a static website for [blog.uint.dev](https://blog.uint.dev/).
 
-This website is hosted using Cloudflare Pages.
+This website is hosted using Cloudflare Workers.
 
 ## Setup
 
