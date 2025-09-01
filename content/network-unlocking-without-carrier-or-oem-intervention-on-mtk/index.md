@@ -58,8 +58,6 @@ Carrier was not prepared for this one
 > We have started a request towards the manufacturer, as soon as we receive it we'll notify you in another SMS.
 > Regards: Yettel
 
-<br>
-
 What does make this all the more interesting was that there were `build.prop` properties explicitly marking the device as network locked too. There would be a comment stating what the 1 and 0 values represent.
 
 ## We must go deeper
