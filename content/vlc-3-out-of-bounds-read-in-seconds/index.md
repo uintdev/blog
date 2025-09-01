@@ -134,8 +134,6 @@ As `i_seconds` would remain in the negatives, it would be in a position where it
 
 To better observe the behaviour, I had created a test program with the specific affected parts of the code.
 
-`vuldemo.cpp`
-
 ```cpp
 #include <stdio.h>
 #include <stdlib.h>
