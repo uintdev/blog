@@ -248,7 +248,9 @@ There had been talk about it writing code as well as identifying issues. So, why
 The following is a snippet of what came back after the prompt to look out for any security vulnerabilities or bugs:
 
 > Second, the code calls `secstotimestr` recursively without checking for a maximum recursion depth. This could cause a stack overflow if the input `i_seconds` is negative and large enough.
+> <br>
 > Third, the code does not check for integer overflow when converting the input `i_seconds` to a string. This could cause an incorrect string to be returned or even a crash if the input is large enough.
+> <br>
 > Finally, the code does not check the size of the `psz_buffer` array before writing to it. This could cause a buffer overflow if the input `¡_seconds` is large and the `psz_buffer` array is not big enough to hold the resulting string.
 
 This is not completely accurate but it mostly is. More than enough to raise red flags that this was not written safely.
