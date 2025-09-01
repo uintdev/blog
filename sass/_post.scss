@@ -69,8 +69,8 @@ article {
 
     .post_body {
         blockquote {
-            background-color: var(--color-secondary);
-            color: var(--color-primary);
+            background-color: var(--color-article-block);
+            color: var(--color-secondary);
             font-size: 0.85em;
             line-height: 1.8em;
             padding: 16px 20px;
@@ -79,6 +79,7 @@ article {
             margin-inline-end: 0;
             margin-block-start: 0;
             margin-block-end: 0;
+            border-left: 6px solid var(--color-secondary);
 
             p {
                 margin: 0;
@@ -101,7 +102,7 @@ article {
             border: 0;
             border-radius: 10px;
             overflow: auto;
-            background-color: rgba(37, 39, 42, 1) !important;
+            background-color: var(--color-article-block) !important;
             line-height: 1.5em;
             font-size: 0.85em;
             cursor: text;
