@@ -11,20 +11,21 @@
     .card {
         text-decoration: none;
         border-radius: 10px;
-        background-color: var(--color-secondary);
-        color: var(--color-primary);
+        background-color: rgba(var(--color-secondary), 1);
+        color: rgba(var(--color-primary), 1);
         padding: 20px 25px;
         box-sizing: border-box;
         width: 100%;
+        border: 1px solid rgba(var(--color-primary), 0.4);
         transition: background-color 0.2s;
 
         &:focus {
-            background-color: var(--color-secondary-focus);
+            background-color: rgba(var(--color-secondary-focus), 1);
         }
 
         @media (hover: hover) {
             &:hover {
-                background-color: var(--color-secondary-hover);
+                background-color: rgba(var(--color-secondary-hover), 1);
             }
         }
 

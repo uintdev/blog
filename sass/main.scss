@@ -1,26 +1,18 @@
 @import 'fonts';
 
 :root {
-    --color-primary: rgba(29, 31, 33, 1);
-    --color-secondary: rgba(240, 240, 240, 1);
-    --color-secondary-focus: color-mix(
-        in srgb,
-        var(--color-secondary) 90%,
-        var(--color-primary)
-    );
-    --color-secondary-hover: color-mix(
-        in srgb,
-        var(--color-secondary) 85%,
-        var(--color-primary)
-    );
-    --color-accent: rgba(56, 255, 97, 1);
-    --color-article-text: rgba(220, 220, 220, 1);
-    --color-article-block: rgba(39, 42, 45, 1);
+    --color-primary: 240, 240, 240;
+    --color-secondary: 29, 31, 33;
+    --color-secondary-focus: 35, 37, 39;
+    --color-secondary-hover: 40, 42, 44;
+    --color-accent: 56, 255, 97;
+    --color-article-text: 220, 220, 220;
+    --color-article-block: 39, 42, 45;
 }
 
 ::selection {
-    color: var(--color-primary);
-    background-color: var(--color-accent);
+    color: rgba(var(--color-secondary), 1);
+    background-color: rgba(var(--color-accent), 1);
 }
 
 html {
@@ -32,8 +24,8 @@ html {
 
 body {
     height: 100%;
-    background-color: var(--color-primary);
-    color: var(--color-secondary);
+    background-color: rgba(var(--color-secondary), 1);
+    color: rgba(var(--color-primary), 1);
     font-family: 'Roboto Mono', monospace;
     display: flex;
     flex-direction: column;
@@ -52,7 +44,7 @@ header {
     box-sizing: border-box;
     margin-bottom: 20px;
     a {
-        color: var(--color-secondary);
+        color: rgba(var(--color-primary), 1);
         text-decoration: none;
         div {
             h1 {
@@ -71,6 +63,6 @@ main {
     @import 'post';
 
     a {
-        color: var(--color-secondary);
+        color: rgba(var(--color-primary), 1);
     }
 }
