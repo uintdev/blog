@@ -26,7 +26,7 @@
         {% if page.date %}
         <label class="post_date_read">
             <time datetime="{{ page.date | date(format="%+") }}">
-                {{ page.date | date(format="%b %d, %Y") }}</time> • {{ page.reading_time }} minute read {% if page.extra.unlisted %}• Unlisted{% endif %}
+                {{ page.date | date(format="%Y-%m-%d") }}</time> • {{ page.reading_time }} minute read {% if page.extra.unlisted %}• Unlisted{% endif %}
         </label>
         {% endif %}
     </div>
