@@ -23,4 +23,4 @@ For the web server of your choice, point the document root for the virtual host 
 
 ## Licensing
 
-The [MIT license](LICENSE) is used for this project. The font is under [Apache 2.0](static/fonts/LICENSE.txt) -- more details can be found [here](https://fonts.google.com/specimen/Roboto+Mono).
+The [MIT license](LICENSE) is used for this project. The font is under [OFL](static/fonts/OFL.txt) -- more details can be found [here](https://fonts.google.com/specimen/Nunito).
