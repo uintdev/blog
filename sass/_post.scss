@@ -148,13 +148,12 @@ article {
             margin-bottom: 30px;
 
             .callout-title {
-                color: rgba(var(--color-article-text), 1);
+                color: rgba(var(--color-secondary), 1);
                 font-weight: 600;
-                margin-bottom: 15px;
-                background-color: rgba(var(--color-secondary), 1);
+                margin-bottom: 10px;
                 display: inline-block;
-                padding: 6px 14px;
-                border-radius: 4px;
+                font-weight: 600;
+                font-size: 1.2em;
             }
             .callout-body {
                 line-height: 1.5em;
