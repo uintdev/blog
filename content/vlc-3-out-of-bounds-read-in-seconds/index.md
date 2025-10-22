@@ -77,8 +77,6 @@ GDB also helped reveal the fake duration that would have been shown at first.
 
 Reviewing the commit found [here](https://code.videolan.org/videolan/vlc/-/blob/cc129a71d75220c0600727aa1f7b984e60f83c0c/src/misc/mtime.c#L41) (`src/misc/mtime.c`), the code looked very off.
 
-`src/misc/mtime.c`
-
 ```cpp
 char *secstotimestr( char *psz_buffer, int32_t i_seconds )
 {
