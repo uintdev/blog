@@ -9,33 +9,33 @@ unlisted = false
 +++
 
 {% callout(type="info") %}
-References of `secstotimestr` were from before it was renamed to `vlc_tick_to_str` as a result of a commit found [here](https://code.videolan.org/videolan/vlc/-/commit/3475f8e972a2d54343ec36c2b35424f5406f7d56).
-`i_seconds` was also renamed to `ticks` with the type `vlc_tick_t` in [this commit](https://code.videolan.org/videolan/vlc/-/commit/a59cb66257cfee50568fd4868c795f4e25f1fe98). For the purposes of keeping it simple, the parameter change will not be reflected here.
+References to `secstotimestr` are from before it was renamed to `vlc_tick_to_str` as a result of a commit found [here](https://code.videolan.org/videolan/vlc/-/commit/3475f8e972a2d54343ec36c2b35424f5406f7d56).
+`i_seconds` was also renamed to `ticks`, with the type `vlc_tick_t`, in [this commit](https://code.videolan.org/videolan/vlc/-/commit/a59cb66257cfee50568fd4868c795f4e25f1fe98). For simplicity, the parameter change will not be reflected here.
 {% end %}
 
-Like any other day on Discord, I would come across specially crafted WEBM files that would mess around with the duration of the video.
+Like any other day on Discord, I come across specially crafted WEBM files that mess with the video’s duration.
 This usually results in media players:
 
--   Video duration being the same as the current duration count (incrementing as the play time exceeds the fake video duration time)
--   Videos being able to seemingly stop early
--   Very long video duration that is never reached (video stops at its actual total playback time)
+-   The video duration being the same as the current duration count (incrementing as the play time exceeds the fake video duration)
+-   Videos seemingly stopping early
+-   A very long video duration that is never reached (the video stops at its actual total playback time)
 
 ## The unusual encounter
 
-On January 14 2021, I had came across a video named `chinax.webm` (can be downloaded [here](assets/chinax.webm)).
-When playing back the video on Discord in the Electron desktop application, it presented something I had never seen before. The times shown were in the negatives.
+On January 14, 2021, I came across a video named `chinax.webm` (it can be downloaded [here](assets/chinax.webm)).
+When playing back the video on Discord in the Electron desktop application, it presented something I had never seen before: the times shown were in the negatives.
 
 {% figure(src="assets/discord_playback.webp", alt="Discord media player") %}
 Discord media player duration looking a little out of wack
 {% end %}
 
-On Google Chrome, this shown slightly different behaviour.
+In Google Chrome, this showed slightly different behavior.
 
 {% figure(src="assets/chrome_playback.webp", alt="Chrome media player") %}
-Chrome media player has not too dissimilar behaviour in comparison
+Chrome's media player behaves similarly in comparison
 {% end %}
 
-It is worth noting that Discord uses a modified version of the media player. Yes, this did result in some unique bugs that went as far as crashing the entire client.
+It is worth noting that Discord uses a modified version of the media player. This resulted in some unique bugs that went so far as to crash the entire client.
 
 Now, what about VLC media player? Lets check that one ou--
 
@@ -47,9 +47,9 @@ Ah, right.
 
 ## Digging in
 
-My first attempt to try debugging this was by running VLC via CMD with the verbose flag. There was no output at all. It so turns out that if I want a clearer picture of what is going on, I have to use something else.
+My first attempt at debugging this was running VLC via CMD with the verbose flag. There was no output at all. It turns out that if I want a clearer picture of what is going on, I will have to use something else.
 
-I had spun up a Ubuntu virtual machine. I then re-attempted. It said nothing really new. Just that there was a segmentation fault.
+I spun up an Ubuntu virtual machine and tried again. It said nothing new-just that there was a segmentation fault.
 
 {% figure(src="assets/vlc_seg1.webp", alt="VLC media player segfault 1") %}
 Segmentation faults in the first few attempts
@@ -65,13 +65,13 @@ Evidently, not very useful. Plan B? GDB. That is the correct approach to debuggi
 GDB to the rescue!
 {% end %}
 
-This revealed that the at-the-time `secstotimestr` was causing the application to crash.
+This revealed that at the time, `secstotimestr` was causing the application to crash.
 
 {% figure(src="assets/gdb_2.webp", alt="GDB outputted the meta duration") %}
 The duration in the negatives
 {% end %}
 
-GDB also helped reveal the fake duration that would have been shown at first.
+GDB also helped reveal the fake duration that would have been shown first.
 
 ## The source
 
@@ -93,11 +93,11 @@ char *secstotimestr( char *psz_buffer, int32_t i_seconds )
 }
 ```
 
-To get a better understanding of the issue, I decided to compile a few builds.
+To better understand the issue, I decided to compile a few builds.
 
 ## VLC 4 dev compilation and testing
 
-My initial assumption was that the long unreleased VLC 4 dev build would be affected as it appeared to have the same code. Au contraire, mon ami.
+My initial assumption was that the long-unreleased VLC 4 dev build would be affected, as it appeared to have the same code. Au contraire, mon ami.
 
 {% figure(src="assets/vlc4_compilation.webp", alt="VLC 4 dev compilation") %}
 Compiling VLC 4 dev
@@ -111,11 +111,11 @@ Testing playback on VLC 4 dev
 Nothing appeared to have changed in terms of the meta duration
 {% end %}
 
-VLC 4 appeared to be unaffected. This may have been as a result of the adjustments made under [this commit](https://code.videolan.org/videolan/vlc/-/commit/a59cb66257cfee50568fd4868c795f4e25f1fe98).
+VLC 4 appeared to be unaffected. This may have been a result of the adjustments made under [this commit](https://code.videolan.org/videolan/vlc/-/commit/a59cb66257cfee50568fd4868c795f4e25f1fe98).
 
 ## VLC 3 compilation and debugging
 
-After compiling (unoptimised) the most recent VLC 3 build at the time, I tested the video again and it still crashed. I then went and used GDB. This painted a clear image as to what was going on.
+After compiling the most recent VLC 3 build (unoptimized) at the time, I tested the video again, and it still crashed. I then used GDB, which painted a clear picture of what was happening.
 
 {% figure(src="assets/gdb_unopt.webp", alt="VLC 3 unoptimised build GDB with crash presented") %}
 Buffer out-of-bounds read in action
@@ -123,14 +123,14 @@ Buffer out-of-bounds read in action
 
 ## The bug
 
-There was an integer overflow with `i_seconds` of which was using the type `int32_t` (32-bit signed integer).
-The urinary operator has undefined behaviour when it comes to overflowed or underflowed integers. Basically, it ended up not making the integer into a positive number and so it remained in the negatives.
+There was an integer overflow with `i_seconds`, which used the type `int32_t` (a 32-bit signed integer).
+The unary operator has undefined behavior when applied to overflowed or underflowed integers. It didn’t convert the integer to a positive number, so it remained negative.
 
-As `i_seconds` would remain in the negatives, it would be in a position where it would keep meeting the condition and the function would recursively call itself. It would as a result keep incrementing and going through the buffer. This goes through the application's own memory. Eventually, it causes a memory violation and then the application's process ends with SIGSEGV signal (segmentation fault).
+Because `i_seconds` remained negative, it kept meeting the condition and the function recursively called itself. As a result, it kept incrementing and traversing the buffer, which traversed the application's own memory. Eventually, this caused a memory violation, and the application's process ended with a SIGSEGV signal (segmentation fault).
 
 ## Further visualising the issue
 
-To better observe the behaviour, I had created a test program with the specific affected parts of the code.
+To better observe the behavior, I created a test program containing the specifically affected parts of the code.
 
 ```cpp
 #include <stdio.h>
@@ -239,11 +239,11 @@ Pre-seconds: -2147483648
 
 ## A second pair of eyes
 
-At the time of writing, there is this trend of using the GPT-3.5 based ChatGPT AI (while it is still 'free').
+At the time of writing, there is a trend of people using GPT-3.5 under ChatGPT (while it is still 'free').
 
-There had been talk about it writing code as well as identifying issues. So, why not give it my test code as something to review?
+There has been talk about its ability to write code as well as identify issues. So why not give it my test code to review?
 
-The following is a snippet of what came back after the prompt to look out for any security vulnerabilities or bugs:
+The following is a snippet of what came back after the prompt to look for any security vulnerabilities or bugs:
 
 > Second, the code calls `secstotimestr` recursively without checking for a maximum recursion depth. This could cause a stack overflow if the input `i_seconds` is negative and large enough.
 > <br>
@@ -251,9 +251,9 @@ The following is a snippet of what came back after the prompt to look out for an
 > <br>
 > Finally, the code does not check the size of the `psz_buffer` array before writing to it. This could cause a buffer overflow if the input `¡_seconds` is large and the `psz_buffer` array is not big enough to hold the resulting string.
 
-This is not completely accurate but it mostly is. More than enough to raise red flags that this was not written safely.
+This is not completely accurate, but it is more than enough, for the most part, to raise red flags that this was not written safely.
 
 ## Severity of the issue
 
-Considering that there are protections against ROP ([return-oriented programming](https://en.wikipedia.org/wiki/Return-oriented_programming)), I do not see a clear path of exploiting this issue through a specially crafted video file when it comes to production builds.
-If anything, this is a lesson of what not to do in C++.. or any memory unsafe languages for that matter.
+Considering that there are protections against ROP ([return-oriented programming](https://en.wikipedia.org/wiki/Return-oriented_programming)), I do not see a clear path to exploiting this issue through a specially crafted video file in production builds.
+If anything, this is a lesson in what not to do in C++-or any memory-unsafe language, for that matter.
