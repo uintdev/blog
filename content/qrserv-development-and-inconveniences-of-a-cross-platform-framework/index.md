@@ -60,7 +60,7 @@ It could do a better job of reliably theming elements with standard names withou
 
 ### Long unresolved bugs
 
-There are some high and low-hanging bugs in Flutter that have not been resolved for years, but these can usually be worked around after a lot of time. As for issues that can not be worked around, well, just hope they won't be a real roadblock.
+There are some high and low-hanging bugs in Flutter that have not been resolved for years, but these can usually be worked around after a lot of time. As for issues that cannot be worked around, well, just hope they won't be a real roadblock.
 
 ### Inconsistent build behaviour
 
@@ -122,7 +122,7 @@ Yes, it is not great to claim "cross-platform" when the more recent builds do no
 
 As I used Flutter more, issues and limitations became more apparent. Race conditions happened easily and far too often. It took a while to iron those out as much as possible before release. This sort of issue held the `v2.0` release back a little longer than expected when I began working on QRServ again. Even before working on `v2.0`, this was an issue.
 
-One of the major issues that I'm not willing to deal with involves the file import process.
+One of the major issues that I am not willing to deal with involves the file import process.
 
 ### File importation inconveniences
 
@@ -162,13 +162,13 @@ As much as I love challenges, having to work around highly visible bugs and put 
 
 ### Getting close to burnout
 
-I'd rather have that time go toward implementing functionality and fixing bugs that I end up creating myself.
+I would rather have that time go toward implementing functionality and fixing bugs that I end up creating myself.
 
 For something that is supposed to ease cross-platform application development, sure, it is easy to put together a basic app that runs right out of the gate on various platforms, and the UI is not difficult to customize. However, it certainly does not put me at ease when it comes to the functional side of things. The amount of time I spent dealing with issues that should not be happening in the first place... it is ridiculous.
 
 #### I did not sign up to this
 
-When I began working on QRServ, I expected challenges. That's exactly what I got. But it was also far more than I bargained for-the sort that causes too much friction and really puts a hold on things from every corner. Occasional issues to iron out that were not issues before. Or I use something I have not used before (in a certain way), only to find out it does not work correctly.
+When I began working on QRServ, I expected challenges. That is exactly what I got. But it was also far more than I bargained for-the sort that causes too much friction and really puts a hold on things from every corner. Occasional issues to iron out that were not issues before. Or I use something I have not used before (in a certain way), only to find out it does not work correctly.
 
 It was never intended to take a lot of time to put together, but it did. It took an unnecessarily long time to get it where it is today, let alone before the first stable release. Hours add up fast.
 
@@ -178,9 +178,9 @@ Bugs will happen in programming languages, frameworks, and libraries-anything in
 
 #### The strain
 
-Software development can be enjoyable, but like anything, if you keep hitting brick walls with no sufficiently satisfying resolutions or have to severely compromise the idea you're trying to make a reality, it can be very taxing. You end up fighting against it rather than working with it.
+Software development can be enjoyable, but like anything, if you keep hitting brick walls with no sufficiently satisfying resolutions or have to severely compromise the idea you are trying to make a reality, it can be very taxing. You end up fighting against it rather than working with it.
 
-Just as stepping back for a bit can help you figure out how to approach an issue, it also helps if you're exhausted by something outright not playing ball. Reevaluate your approach and try to regain your motivation, or do something else entirely until you feel ready to take a fresh look at it once more.
+Just as stepping back for a bit can help you figure out how to approach an issue, it also helps if you are exhausted by something outright not playing ball. Reevaluate your approach and try to regain your motivation, or do something else entirely until you feel ready to take a fresh look at it once more.
 
 #### Laying out the cards
 
@@ -213,14 +213,14 @@ The Windows app does work and has been useful, but it feels half-baked-at least 
 This sort of experience with Flutter has been interesting, but ultimately I feel discouraged from making serious use of it in the future. Which really is a shame.
 
 Whether you should use the Flutter framework is not up to me.
-The information I present here is intended as a heads-up on the sort of things to expect-to adjust expectations. Depending on the approach taken, it might be worth it. Maybe dependencies won't be as much of a concern if you can write native platform code yourself. Perhaps some issues can be worked around without too much inconvenience.
+The information I present here is intended as a heads-up on the sort of things to expect-to adjust expectations. Depending on the approach taken, it might be worth it. Maybe dependencies will not be as much of a concern if you can write native platform code yourself. Perhaps some issues can be worked around without too much inconvenience.
 
 Make use of the information as you will, and draw your own conclusions.
 
-I haven't given myself much of an opportunity to explore other avenues again for some time. Usually, this comes down to a lack of ideas about what to produce. Maybe I just need to look around for more inspiration, as I did for graphical illustrations in the past.
+I have not given myself much of an opportunity to explore other avenues again for some time. Usually, this comes down to a lack of ideas about what to produce. Maybe I just need to look around for more inspiration, as I did for graphical illustrations in the past.
 
 ~~There might be 'test' music I had thrown together on my main website.~~
 
-I've been exploring other programming languages and technologies. One I have been very satisfied with is Rust. Yes, it is as good as many are making it out to be. 'Rust Analyzer' can be a bit buggy at times, but it is nowhere near as much of a pain to deal with. Overall, it is a gift that keeps on giving.
+I have been exploring other programming languages and technologies. One I have been very satisfied with is Rust. Yes, it is as good as many are making it out to be. 'Rust Analyzer' can be a bit buggy at times, but it is nowhere near as much of a pain to deal with. Overall, it is a gift that keeps on giving.
 
 Our past mistakes make us who we are today. We may not be able to change the past, but we can learn from it and change future outcomes. Do what will give you satisfaction, happiness, and better results in the long run.

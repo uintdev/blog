@@ -118,11 +118,11 @@ After entering the hardcoded string as the network unlock code, the device unloc
 
 If you manage to get a GSI running on a device (as with the device used in this blog post after many partition-modification attempts) or a custom ROM, you may end up with the network lock code prompt. In the case of the device tested in this blog post, the same hardcoded network code key worked.
 
-From further testing, it appears that on reboot, the network code key is prompted for again, as if it were a temporary code that you could use again. In contrast, the stock ROM didn't do this (perhaps `slu_unlocked` might be causing it to skip that keyguard persistently until set to `0`).
+From further testing, it appears that on reboot, the network code key is prompted for again, as if it were a temporary code that you could use again. In contrast, the stock ROM did not do this (perhaps `slu_unlocked` might be causing it to skip that keyguard persistently until set to `0`).
 
 The solution to keep it truly network-unlocked is to have the real network code key and use it through the Android network code key keyguard rather than the `NCK` application. So this does at least look more like a temporary solution once you step out of the stock ROM.
 
-My suspicion is that `NCK` is an engineering tool that bypasses the normal network code key check and is intended to allow valid not-so-persistent codes to be persistent-like on the ROM it's configured for. At least, it would make sense for it to be made for testing purposes. Can't say the same about how others might use it, though.
+My suspicion is that `NCK` is an engineering tool that bypasses the normal network code key check and is intended to allow valid not-so-persistent codes to be persistent-like on the ROM it is configured for. At least, it would make sense for it to be made for testing purposes. I cannot say the same about how others might use it, though.
 
 ## Conclusion
 
@@ -130,19 +130,19 @@ When purchasing a very low-end device-let alone one using a MediaTek SoC-there s
 
 The engineering software on such devices tends not to have much effort put into protecting itself against unintended users and can damage the software or potentially the hardware if misused. If you have no full backup, the device might be completely screwed if there is nothing available online to help get it back up and running.
 
-That said, this sort of find was disappointing but not surprising. Sure, it allows the user to have the freedom they should've had in the first place in situations such as this, but it also can be misused.
+That said, this sort of find was disappointing but not surprising. Sure, it allows the user to have the freedom they should have had in the first place in situations such as this, but it also can be misused.
 
 Making it almost effortless to find a working code, let alone a static one, is not a great thing. There are other issues that would likely make it possible to perform the same task, but this one is very low-hanging fruit.
 
 This is not the sort of tool that should be left around in release builds, especially the functionality that it ties into within the `MTK Engineering Mode` application.
 
-At the end of the day, like the hardware, it's the sort of thing that is just thrown together cheaply, without much consideration for user experience and how hardened the device should be. It just has to do the bare minimum.
+At the end of the day, like the hardware, it is the sort of thing that is just thrown together cheaply, without much consideration for user experience and how hardened the device should be. It just has to do the bare minimum.
 
 {% figure(src="assets/phone_internals.webp", alt="Phone internals") %}
 Generic main board and low-end components
 {% end %}
 
-If you want a device to play around with and get familiar with the world of old and low-end MediaTek SoCs, it's a nice little playground. Just make sure to do a full backup before doing anything else. The device in this case has some test and engineering tools scattered around, and you can recover all or individual partitions should something break. USB 2.0 must be used when using the MTKClient tool, or there will be connection dropouts.
+If you want a device to play around with and get familiar with the world of old and low-end MediaTek SoCs, it is a nice little playground. Just make sure to do a full backup before doing anything else. The device in this case has some test and engineering tools scattered around, and you can recover all or individual partitions should something break. USB 2.0 must be used when using the MTKClient tool, or there will be connection dropouts.
 
 ## An update on the official network unlock
 
@@ -158,7 +158,7 @@ So, at the time of writing, what is essentially the test NCK is probably the bes
 
 ## The company behind Navon
 
-Navon was a brand by `Hungaro Flotta KFT.` ([privacy policy](https://smartnavon.eu/adatvedelmi-tajekoztato/) [[archived](https://web.archive.org/web/20240317232751/https://smartnavon.eu/adatvedelmi-tajekoztato/)]). Notice how that's in the past tense?
+Navon was a brand by `Hungaro Flotta KFT.` ([privacy policy](https://smartnavon.eu/adatvedelmi-tajekoztato/) [[archived](https://web.archive.org/web/20240317232751/https://smartnavon.eu/adatvedelmi-tajekoztato/)]). Notice how that is in the past tense?
 
 `Hungaro Flotta KFT.` (an LLC) filed for bankruptcy in late Q2 2023. This was noted, among other information about the proceedings, on their now-defunct website.
 <br>
@@ -166,4 +166,4 @@ The archived copy can be found [here](https://web.archive.org/web/20231128115509
 
 Some company information regarding liquidation can be found [here](https://www.nemzeticegtar.hu/hungaro-flotta-kft-c1909509036.html).
 
-I'm taking it that the device is not going to be properly network-unlocked any time soon.
+I am taking it that the device is not going to be properly network-unlocked any time soon.
