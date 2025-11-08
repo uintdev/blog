@@ -1,6 +1,6 @@
 +++
 title = "QRServ Development and Inconveniences of a Cross-platform Framework"
-description = "Cross-platform troubles"
+description = "Cross-platform framework misadventures"
 date = 2023-04-03
 
 [extra]
