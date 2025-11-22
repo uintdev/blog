@@ -1,2 +1,5 @@
 /*
     Cache-Control: public, max-age=14400, must-revalidate
+
+/rss.xml
+    Content-Type: application/rss+xml
