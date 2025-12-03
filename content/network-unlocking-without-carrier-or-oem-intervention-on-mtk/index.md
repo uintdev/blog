@@ -77,8 +77,8 @@ The resulting `SimlockSecretCode_M4009Y.jar` was imported into [JD GUI](https://
 
 Having done some digging, I made a few discoveries:
 
--   The code attempt counter is saved via the app's own shared preferences, meaning that clearing the app data is enough to reset the counter.
--   The app can network-lock the device using the same code.
+- The code attempt counter is saved via the app's own shared preferences, meaning that clearing the app data is enough to reset the counter.
+- The app can network-lock the device using the same code.
 
 What I was mainly looking for involves the network unlock code. Validity is determined entirely offline and is calculated based on the device's own information.
 

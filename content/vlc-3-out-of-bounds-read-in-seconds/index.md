@@ -16,9 +16,9 @@ References to `secstotimestr` are from before it was renamed to `vlc_tick_to_str
 Like any other day on Discord, I come across specially crafted WEBM files that mess with the video’s duration.
 This usually results in media players:
 
--   The video duration being the same as the current duration count (incrementing as the play time exceeds the fake video duration)
--   Videos seemingly stopping early
--   A very long video duration that is never reached (the video stops at its actual total playback time)
+- The video duration being the same as the current duration count (incrementing as the play time exceeds the fake video duration)
+- Videos seemingly stopping early
+- A very long video duration that is never reached (the video stops at its actual total playback time)
 
 ## The unusual encounter
 
