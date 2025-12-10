@@ -57,10 +57,15 @@
         text-align: center;
         margin-left: auto;
         margin-right: auto;
+        line-height: 2.5rem;
 
         .title {
             font-weight: 500;
-            font-size: 1.3em;
+            font-size: 64px;
+        }
+
+        .body {
+            font-size: 1.05rem;
         }
     }
 }
