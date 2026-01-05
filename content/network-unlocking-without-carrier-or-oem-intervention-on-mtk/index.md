@@ -94,7 +94,7 @@ Under the `SimLockUnlockFragment` class, there was a method named `isRightPasswo
 
 This check goes through multiple methods to determine what is considered a valid network unlock code, which is then checked against the data the user provided. One of the conditions, however, was slightly different from the others.
 
-```java
+```java, linenos
 private Boolean isRightPasswords(String param1String) {
     Boolean bool = Boolean.TRUE;
     Log.i("yzheng", "---isRightPasswords---");

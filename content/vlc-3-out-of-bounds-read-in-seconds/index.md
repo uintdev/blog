@@ -77,7 +77,7 @@ GDB also helped reveal the fake duration that would have been shown first.
 
 Reviewing the commit found [here](https://code.videolan.org/videolan/vlc/-/blob/cc129a71d75220c0600727aa1f7b984e60f83c0c/src/misc/mtime.c#L41) (`src/misc/mtime.c`), the code looked very off.
 
-```cpp
+```cpp, linenos, linenostart=41, hide_lines=10-21, name=mtime.c
 char *secstotimestr( char *psz_buffer, int32_t i_seconds )
 {
     if( unlikely(i_seconds < 0) )
@@ -86,9 +86,19 @@ char *secstotimestr( char *psz_buffer, int32_t i_seconds )
         *psz_buffer = '-';
         return psz_buffer;
     }
-
     // ...
+    div_t d;
 
+    d = div( i_seconds, 60 );
+    i_seconds = d.rem;
+    d = div( d.quot, 60 );
+
+    if( d.quot )
+        snprintf( psz_buffer, MSTRTIME_MAX_SIZE, "%u:%02u:%02u",
+                 d.quot, d.rem, i_seconds );
+    else
+        snprintf( psz_buffer, MSTRTIME_MAX_SIZE, "%02u:%02u",
+                  d.rem, i_seconds );
     return psz_buffer;
 }
 ```
@@ -117,7 +127,7 @@ VLC 4 appeared to be unaffected. This may have been a result of the adjustments 
 
 After compiling the most recent VLC 3 build (unoptimized) at the time, I tested the video again, and it still crashed. I then used GDB, which painted a clear picture of what was happening.
 
-{% figure(src="assets/gdb_unopt.webp", alt="VLC 3 unoptimised build GDB with crash presented") %}
+{% figure(src="assets/gdb_unopt.webp", alt="VLC 3 unoptimized build GDB with crash presented") %}
 Buffer out-of-bounds read in action
 {% end %}
 
@@ -128,11 +138,11 @@ The unary operator has undefined behavior when applied to overflowed or underflo
 
 Because `i_seconds` remained negative, it kept meeting the condition and the function recursively called itself. As a result, it kept incrementing and traversing the buffer, which traversed the application's own memory. Eventually, this caused a memory violation, and the application's process ended with a SIGSEGV signal (segmentation fault).
 
-## Further visualising the issue
+## Further visualizing the issue
 
 To better observe the behavior, I created a test program containing the specifically affected parts of the code.
 
-```cpp
+```cpp, linenos, name=vuldemo.cpp
 #include <stdio.h>
 #include <stdlib.h>
 
