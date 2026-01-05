@@ -120,10 +120,23 @@ article {
                 }
             }
 
-            code > table > tbody > tr > td:first-child {
-                column-width: 30px;
-                -webkit-user-select: none;
-                user-select: none;
+            code > table {
+                border-collapse: collapse;
+            }
+
+            code > table > tbody > tr {
+                td:first-child {
+                    column-width: 20px;
+                    -webkit-user-select: none;
+                    user-select: none;
+                    text-align: right;
+                    padding-right: 10px;
+                    color: rgba(255, 255, 255, 0.5);
+                    border-right: 1px solid rgba(255, 255, 255, 0.6);
+                }
+                td:last-child {
+                    padding-left: 15px;
+                }
             }
         }
 
