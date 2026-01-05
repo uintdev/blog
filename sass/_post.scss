@@ -56,10 +56,10 @@ article {
             line-height: 1.3em;
         }
         .post_date_read {
-            display: inline-block;
-            line-height: 1.3em;
-            word-break: break-word;
+            display: inline-flex;
             color: rgba(175, 175, 175, 1);
+            display: flex;
+            gap: 10px;
         }
     }
 
