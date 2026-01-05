@@ -141,16 +141,15 @@ article {
         }
 
         .callout {
-            color: rgba(var(--color-secondary), 1);
-            background-color: rgba(119, 194, 255, 1);
+            background-color: rgba(119, 194, 255, 0.5);
+            border: 1px solid rgba(119, 194, 255, 0.6);
+            color: rgba(212, 227, 240, 1);
             padding: 20px 25px;
             border-radius: 10px;
             font-size: 0.87em;
             margin-bottom: 30px;
 
             .callout-title {
-                color: rgba(var(--color-secondary), 1);
-                font-weight: 600;
                 margin-bottom: 10px;
                 display: inline-block;
                 font-weight: 600;
@@ -171,10 +170,14 @@ article {
             }
         }
         .callout-type-warn {
-            background-color: rgba(255, 249, 89, 1);
+            background-color: rgba(255, 249, 89, 0.5);
+            border: 1px solid rgba(255, 249, 89, 0.6);
+            color: rgba(238, 237, 205, 1);
         }
         .callout-type-important {
-            background-color: rgba(255, 84, 84, 1);
+            background-color: rgba(255, 84, 84, 0.5);
+            border: 1px solid rgba(255, 84, 84, 0.6);
+            color: rgba(244, 226, 226, 1);
         }
     }
 }
