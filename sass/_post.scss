@@ -101,41 +101,33 @@ article {
             border-radius: 10px;
             overflow: auto;
             background-color: rgba(0, 0, 0, 0.2) !important;
-            line-height: 1.7em;
+            line-height: 1.2em;
             font-size: 0.92em;
             cursor: text;
 
-            code,
-            code > table > tbody > tr > td {
+            code {
                 filter: saturate(200%);
                 padding: 0;
                 border: 0;
                 border-radius: 0;
                 background-color: unset;
-
-                mark {
-                    display: block;
-                    background-color: rgba(254, 252, 232, 0.2);
-                    color: rgba(192, 197, 206, 1);
-                }
             }
 
             code > table {
                 border-collapse: collapse;
             }
 
-            code > table > tbody > tr {
-                td:first-child {
-                    column-width: 20px;
+            code .giallo-l {
+                .giallo-ln {
                     -webkit-user-select: none;
                     user-select: none;
                     text-align: right;
                     padding-right: 10px;
                     color: rgba(255, 255, 255, 0.5);
                     border-right: 1px solid rgba(255, 255, 255, 0.6);
+                    margin-right: 20px;
                 }
-                td:last-child {
-                    padding-left: 15px;
+                span:last-child {
                     padding-right: 20px;
                 }
             }
