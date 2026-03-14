@@ -1,5 +1,9 @@
 @import "fonts";
 
+@view-transition {
+    navigation: auto;
+}
+
 :root {
     --color-primary: 205, 215, 240;
     --color-secondary: 30, 30, 45;
