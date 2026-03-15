@@ -127,7 +127,7 @@ article {
                     border-right: 1px solid rgba(255, 255, 255, 0.6);
                     margin-right: 20px;
                 }
-                span:last-child {
+                span:last-child:not(.giallo-ln) {
                     padding-right: 20px;
                 }
             }
