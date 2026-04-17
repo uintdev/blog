@@ -9,32 +9,30 @@ unlisted = false
 +++
 
 {% callout(type="info") %}
-This post was updated on 2025-05-04.
+This post was updated on 2026-04-16.
 {% end %}
 
-QRServ is a cross-platform Flutter application that hosts an HTTP server, which presents a QR code for a URL that, by default, allows a browser or download client to download the selected files. It is officially available via [GitHub](https://github.com/uintdev/qrserv) and the [Google Play Store](https://play.google.com/store/apps/details?id=dev.uint.qrserv).
+QRServ is a Flutter application that hosts an HTTP server, and presents a QR code for a URL that, by default, allows a browser or download client to download the selected files. It is officially available via [GitHub](https://github.com/uintdev/qrserv), [Google Play Store](https://play.google.com/store/apps/details?id=dev.uint.qrserv), and the [IzzyOnDroid F-Droid repository](https://apt.izzysoft.de/fdroid/index/apk/dev.uint.qrserv).
 
 The concept was inspired by [3dsend](https://github.com/MeatReed/3dsend/tree/1.5.0) ([web archive](https://web.archive.org/web/20230403093912/https://github.com/MeatReed/3dsend/tree/1.5.0)), an Electron-based application.
 
-The original idea was to scan QR codes for use in software featuring 'download via QR code' support on a Nintendo 3DS console with CFW (custom firmware). [Did you know that it is very easy to hack a 3DS?](https://3ds.hacks.guide/)
+The original idea was to scan QR codes for use in software featuring "download via QR code" support on a Nintendo 3DS console with CFW (custom firmware). [Did you know that it is very easy to hack a 3DS?](https://3ds.hacks.guide/)
 
-Having thought about it, it could be useful for getting content onto other devices quickly, such as sharing a photo from Android to iOS.
+Having thought about it, it could also be useful for getting content onto other devices quickly, such as sharing a photo from Android to iOS.
 
 ## Determining the requirements
 
-Mainly, I wanted this to be on a phone for the sake of convenience. I did not want to limit which files were allowed, as that would most certainly be inconvenient.
+Mainly, I wanted this to be on a phone for convenience. I did not want to limit which files were allowed, as that would be inconvenient.
 <br>
-I especially did not want to use technologies that require JavaScript. No inefficient or ~~Facebook~~ Meta technologies. React Native at least involves native platform widgets (which, if aiming for a native experience, is better than painting on a canvas), but it also has some pitfalls.
+I especially did not want to use technologies that involve JavaScript. No inefficient or ~~Facebook~~ Meta technologies. Credit where it's due: React Native at least uses native platform widgets (which, if you're aiming for a native experience, is better than painting on a canvas \[which is what Flutter does\]), but it also has some pitfalls. I won't get into that side of things in this post, though.
 
 ### Keeping it simple
 
-This collectively means there should be absolutely no dependency on having a new app to handle receiving the data. This is a hard requirement. No exceptions. Not for Bluetooth, not for mDNS-SD (for device discovery). Tempting, but no.
+The project's aim was to keep its operation simple. This means there should be absolutely no dependency on a new app to handle receiving data. No exceptions. Not for Bluetooth, not for mDNS-SD (for device discovery). Tempting, but no. It has a specific use case rather than being a Swiss Army knife.
 
-The application is also intended to be very simple and for a specific use case rather than a Swiss Army knife.
+There are applications such as LocalSend. They are very useful for cross-platform transfer, especially for one's own devices, but they ultimately depend on the same application being installed on the receiving device. This would not work for how QRServ is intended to be used. The use of either application depends on the user's intent and how convenient it might be in their case. As with everything, there will be pros and cons. Use the tool that works best.
 
-There are applications such as LocalSend. They are very useful for cross-platform transfer, especially for one's own devices, but they ultimately depend on the same application being installed on the receiving device. This would not work for how QRServ is intended to be used. The use of either application depends on the user's intent and how convenient it might be in their case. As with anything and everything, there will be pros and cons. Use the tool that works best.
-
-Yes, this limits the potential of the application, but I developed the application for myself with the intent to distribute it to anyone who might find it useful. Since then, it has proved useful for at least a thousand users.
+Yes, this limits the potential of the application, but I developed the application for myself with the intent to distribute it to anyone who might find it useful. Since then, it has proved useful to a sizable number of users.
 
 ### Similar applications exist
 
@@ -56,25 +54,25 @@ Flutter is good as a UI framework; I can say that much. It is fairly simple to g
 
 ### Theming and deprecations
 
-It could do a better job of reliably theming elements with standard names without deprecating them so often or complicating how to theme specific element types. This used up a sizable amount of time throughout various Flutter updates. This is probably becoming less of a pain point as Material 3 has gradually become a thing (there are typically some imperfections in the theme that tries to mimic the real platform widgets).
+It could do a better job of reliably theming elements with standard names without deprecating them so often or complicating how to theme specific element types. This used up a sizable amount of time across various Flutter updates. This is probably becoming less of a pain point as Material 3 has gradually become a thing (there are typically some imperfections in the theme that tries to mimic the real platform widgets).
 
 ### Long unresolved bugs
 
-There are some high and low-hanging bugs in Flutter that have not been resolved for years, but these can usually be worked around after a lot of time. As for issues that cannot be worked around, well, just hope they won't be a real roadblock.
+There are some high- and low-hanging bugs in Flutter that have not been resolved for years, but these can usually be worked around after a substantial amount of time. As for issues that cannot be worked around, well, just hope they won't be a real roadblock.
 
-### Inconsistent build behaviour
+### Inconsistent build behavior
 
-Something I should mention is that debug builds behave very differently in general for the sake of fast debugging, but the app itself can function very differently, too, in terms of expected behavior compared to release builds. For example, a state might visibly update in the debug build but not do so at all in the release build.
+One thing to note is that debug builds generally behave very differently for the sake of fast debugging, and the app itself can also function differently in terms of expected behavior compared to release builds. For example, a state might visibly update in the debug build but not in the release build.
 
-So, it is crucial to test both builds when making large changes, just in case an issue lurking about cannot be worked around (without large compromises). This sort of behavior has happened various times, and it is no fun to deal with. Save yourself the headache.
+So it is crucial to test both builds when making large changes, just in case an issue lurking about cannot be worked around without major compromises. This sort of behavior has happened many times, and it is no fun to deal with. Save yourself the headache.
 
 ### In general
 
-There had been numerous build issues and so forth as time went on, but I will get into that shortly.
+There had been numerous build issues and so forth as time went on, but I will get into them shortly.
 
-## Being very dependant on 3rd party packages
+## Being very dependent on 3rd party packages
 
-There is a lot I could go on about in great detail, but one of the notable pitfalls I noticed with the Flutter framework was the availability and quality of third-party Flutter packages. This itself carries a lot of issues.
+There's a lot I could go into in great detail, but one notable pitfall I noticed with the Flutter framework was the availability and quality of third-party Flutter packages. This, in itself, carries many issues.
 
 ### Limited availability
 
@@ -88,7 +86,7 @@ The problem with dependencies is that... well... it is someone else's work you d
 
 ### Bad practices
 
-I wanted my application to be as robust as possible. So, when the file picker did not properly surface platform exceptions from the operating system for me to handle and instead simply assumed it was a file picker user cancellation, that was a very bad approach and went against what I was aiming to achieve.
+I wanted my application to be as robust as possible. So when the file picker did not properly surface platform exceptions from the operating system for me to handle, and instead simply assumed it was a file picker user cancellation, that was a very bad approach and went against what I was aiming to achieve.
 
 In this case, I decided to contribute via GitLab-hardly ideal for me, but it is what it is. This ended up being a mess, as a final crucial adjustment I sent off for merging did not get merged (meaning a possible non-user-facing crash upon a platform exception). I then stuck with my own fork, with the appropriate changes, as the dependency.
 
@@ -100,23 +98,21 @@ When Flutter began enforcing null safety in Dart, I helped make the packages I r
 
 ### Instability
 
-Another troublesome example of a rarely maintained dependency was the share intent package. The Google Play Console vaguely reported a crash from the dependency related to getting a video file’s duration. Since I didn’t need that specific functionality, I removed it rather than finding a real fix in the Kotlin code called via the method channel. This was eventually resolved with a larger rewrite by the maintainer, but it took a long time.
+Another troublesome example of a rarely maintained dependency was the share intent package. The Google Play Console vaguely reported a crash from the dependency related to getting a video file's duration. Since I didn't need that specific functionality, I removed it rather than finding a real fix in the Kotlin code called via the method channel. This was eventually resolved with a larger rewrite by the maintainer, but it took a long time.
 
 ### The conclusion
 
-This is essentially a case of having to do everything yourself if you want it more or less to your liking, especially with platform integration.
+This is essentially a case of having to do everything yourself if you want it more or less to your liking, notably with platform integration.
 
-It’s not great to be in such a position too often, especially when it involves dependencies. It’s bad enough as it is to decipher the madness from crash reports that would normally be far more detailed and specific in natively built applications (yes, I included debug symbols). I don’t want to waste too much of my time. Time matters.
+It's not great to be in such a position too often, especially when it involves dependencies. It's bad enough as it is to decipher the madness from crash reports that would normally be far more detailed and specific in natively built applications (yes, I included debug symbols). I don't want to waste too much of my time. Time matters.
 
-When it comes to free and open-source software (FOSS), if something is wrong, it sometimes falls on you to put in the effort to fix it yourself if you really want what you want. That is how it is in general, but it’s even worse when you cannot make certain platform API calls without depending on, or creating, your own wrapper.
+When it comes to free and open-source software (FOSS), if something is wrong, it sometimes falls on you to put in the effort to fix it yourself if you really want what you want. That is how it is in general, but it's even worse when you cannot make certain platform API calls without depending on, or creating, your own wrapper.
 
 ## The elephant in the room
 
 Something that may have been noticed is that the latest desktop builds are on `v1.1.1`. Since then, there have been many changes. There is a known bug where the app can fatally crash when selecting certain ZIP archive files-the reason is unknown, but the vague crash log cites the Flutter dynamic library as the source. Whether the bug would still be present if it were built now, I do not know.
 
 Due to the inconvenience of building and testing the applications (especially Linux builds), I do not plan to create such builds anymore. In theory, however, they should build fine. If not, rebuilding those platform directories and manually adjusting the window sizing should do the trick.
-
-Yes, it is not great to claim "cross-platform" when the more recent builds do not include more than one platform, but the desktop builds do exist and function. The specific release entry is also linked in the README.
 
 ## The large compromise
 
@@ -126,11 +122,11 @@ One of the major issues that I am not willing to deal with involves the file imp
 
 ### File importation inconveniences
 
-Some users noticed that QRServ can take time to import large files.
+Some users have noticed that QRServ can take time to import large files.
 
 #### Yes, I know
 
-During initial development, the intent was to access files directly from their current storage location. However, due to the move to scoped storage and the preexisting Flutter packages (even at the time of writing) used to facilitate file selection, the selected files were copied from Android's built-in documents/files picker UI and sharesheet into the application's cache folder.
+During initial development, the intent was to access files directly from their current storage locations. However, due to the move to scoped storage and the preexisting Flutter packages (even at the time of writing) used to facilitate file selection, the selected files were copied from Android's built-in documents/files picker UI and sharesheet into the application's cache folder.
 
 This means a copy of the selected files is made initially, temporarily consuming additional internal storage. These Flutter packages do not expose the full direct path to the selected files.
 
@@ -150,7 +146,7 @@ During the file import process, sufficient storage is required to initially acco
 
 Various Android applications developed with Flutter that involve importing files on Android unfortunately suffer from the same limitations.
 
-Technically, this may be possible to resolve. However, this would involve platform-specific code to call platform APIs in a very specific way. Given how involved that might be, and considering how things function now, there is absolutely no desire to go that route.
+Technically, this may be possible to resolve. However, this would involve platform-specific code to call platform APIs in a very specific way. Given how involved that might be and considering how things function now, there is absolutely no desire to go that route.
 
 #### Expectations
 
@@ -158,9 +154,9 @@ These sorts of struggles are especially likely when working with a framework exp
 
 ## The future
 
-As much as I love challenges, having to work around highly visible bugs and put up with the inconveniences (that a lot of them are long unresolved bugs) for a huge amount of the development time (of which I have not mentioned the half of the issues) that are mainly to do with the framework itself, let alone the dependencies out there, is terrible. No amount of hot reloading or fancy features will make up for that.
+As much as I love challenges, having to work around highly visible bugs and put up with the inconveniences-many of which are long-unresolved-for a huge portion of the development time-of which I haven't mentioned half the issues-mainly due to the framework itself, let alone its dependencies, is terrible. No amount of hot reloading or fancy features will make up for that.
 
-### Getting close to burnout
+### Superficially simple
 
 I would rather have that time go toward implementing functionality and fixing bugs that I end up creating myself.
 
@@ -174,9 +170,9 @@ It was never intended to take a lot of time to put together, but it did. It took
 
 #### Bugs will always be a thing
 
-Bugs will happen in programming languages, frameworks, and libraries-anything involving human input being turned into logic. But I would hope that low-hanging issues, especially in basic functionality, do not stay in limbo for years as if they were something on Bugzilla (Mozilla’s bug tracker), if they are to be used in production. This is unlike anything I have seen before, and I have seen bad. It is to the point where it does not feel like it should be used for anything “serious.”
+Bugs will happen in programming languages, frameworks, and libraries-anything involving human input being turned into logic. But I would hope that low-hanging issues, especially in basic functionality, do not stay in limbo for years as if they were something on Bugzilla (Mozilla's bug tracker), if they are to be used in production. This is unlike anything I have seen before, and I have seen bad. It is to the point where it does not feel like it should be used for anything “serious.”
 
-#### The strain
+#### Strain
 
 Software development can be enjoyable, but like anything, if you keep hitting brick walls with no sufficiently satisfying resolutions or have to severely compromise the idea you are trying to make a reality, it can be very taxing. You end up fighting against it rather than working with it.
 
@@ -187,40 +183,34 @@ Just as stepping back for a bit can help you figure out how to approach an issue
 Bashing out code is not the only thing I am good at; it is just one of the things I focus on most-the main thing. Perhaps I should try my other hobbies more and widen some avenues in other departments.
 In general, that would be wise in any case. Never place all your eggs in one basket.
 
-There is a bit of 'jack of all trades, master of none' if I were to exclude software development from the list. Even then, there are some that I have focused on far more than others, some of which also tend to interconnect.
+There is a bit of "jack of all trades, master of none" if I were to exclude software development from the list. Even then, there are some that I have focused on far more than others, some of which also tend to interconnect to different extents.
 
 ### Good in some cases
 
-I would say it is more suitable for applications that are not so method-channel-reliant (unless you are willing to write some platform-native code) or for something complex, but apparently there are numerous bugs with basics like forms and text fields. So have fun with that.
+I would say it's more suitable for applications that aren't so method-channel-reliant (unless you're willing to write some platform-native code) or for something complex, but apparently there are numerous bugs with basics like forms and text fields. So have fun with that.
 
 ### Decisions
 
 I plan to continue maintaining QRServ where necessary.
-If I were to create new applications that involve the Android platform (or Windows, for now), Flutter would be my go-to at this time only because it is the more convenient option. I know how to work with it far more than Kotlin or C++ with WinUI (I do not plan to develop anything with C# any time soon), although that side of things is far more likely to be done professionally for the time being.
-
-Tauri is what I aim to use for Windows GUI applications in the future, with none of the JavaScript or web views.
+There are no plans to use Flutter for new \(personal\) projects. Depending on the requirements, other UI frameworks are available, particularly for Windows and Linux platforms, where native app development tends to have more "suck" than on other platforms.
 
 ### Reconsidering the approach
 
-Mainly by using very different desktop and mobile platforms, I have a clearer view of how to avoid making the same mistakes. I will use a platform’s native language and tooling to begin with (Swift, SwiftUI-despite hearing UIKit is a bit more mature; I am most definitely not touching Objective-C).
+Mainly by using very different desktop and mobile platforms, I have a clearer view of how to avoid making the same mistakes. I will use a platform's native language and tooling to begin with (Swift, SwiftUI-despite hearing UIKit is a bit more mature; I am most definitely not touching Objective-C).
 
-I probably should have scrapped the desktop app idea for QRServ and instead focused on the Android app with the Jetpack Compose toolkit (which I entirely forgot was a thing at the time) with Kotlin. I may go that route for Android projects far into the future so that I have far more control and predictability over behavior.
+I probably should have scrapped the desktop app idea for QRServ and instead focused on the Android app using the Jetpack Compose UI framework (which I entirely forgot was a thing at the time) with Kotlin. I may go that route for Android projects far into the future so that I have more control and predictability over behavior.
 
-The Windows app does work and has been useful, but it feels half-baked-at least in appearance. Or that could just be the Windows native UI elements in general. Either way, not great. Plus, that unusual aforementioned bug with at least the Windows build doesn’t do any favors.
+The Windows app does work and has been useful, but it feels half-baked-at least in appearance. Or that could just be the Windows native UI elements in general. Either way, not great. Plus, that unusual aforementioned bug-at least in the Windows build-doesn't do any favors.
 
 ## Concluding thoughts
 
-This sort of experience with Flutter has been interesting, but ultimately I feel discouraged from making serious use of it in the future. Which really is a shame.
+This sort of experience with Flutter has been interesting, but ultimately I feel discouraged from making serious use of it in the future, which really is a shame.
 
 Whether you should use the Flutter framework is not up to me.
 The information I present here is intended as a heads-up on the sort of things to expect-to adjust expectations. Depending on the approach taken, it might be worth it. Maybe dependencies will not be as much of a concern if you can write native platform code yourself. Perhaps some issues can be worked around without too much inconvenience.
 
-Make use of the information as you will, and draw your own conclusions.
+Use the information as you wish, and draw your own conclusions.
 
-I have not given myself much of an opportunity to explore other avenues again for some time. Usually, this comes down to a lack of ideas about what to produce. Maybe I just need to look around for more inspiration, as I did for graphical illustrations in the past.
+I have been exploring other programming languages and technologies. One I have been very satisfied with is Rust. Yes, it's as good as many are making it out to be. "Rust Analyzer" can be a bit buggy at times, but it is nowhere near as much of a pain to deal with. All in all, it's a gift that keeps on giving.
 
-~~There might be 'test' music I had thrown together on my main website.~~
-
-I have been exploring other programming languages and technologies. One I have been very satisfied with is Rust. Yes, it is as good as many are making it out to be. 'Rust Analyzer' can be a bit buggy at times, but it is nowhere near as much of a pain to deal with. Overall, it is a gift that keeps on giving.
-
-Our past mistakes make us who we are today. We may not be able to change the past, but we can learn from it and change future outcomes. Do what will give you satisfaction, happiness, and better results in the long run.
+Strive for better experiences.
