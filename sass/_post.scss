@@ -69,6 +69,10 @@ article {
     }
 
     .post_body {
+        p:first-child {
+            margin-block-start: 0em;
+        }
+
         blockquote {
             background-color: rgba(var(--color-article-block), 0.2);
             color: rgba(var(--color-primary), 1);
