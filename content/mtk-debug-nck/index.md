@@ -2,6 +2,7 @@
 title = "Network Unlocking without Carrier or OEM Intervention on MediaTek"
 description = "Low-end MediaTek-powered device meets reverse-engineering"
 date = 2022-11-24
+updated = 2024-03-18
 
 [extra]
 feature_image = true
@@ -12,10 +13,6 @@ unlisted = false
 This information is for educational research purposes only.
 <br>
 Needless to say, if your device is not supposed to be network-unlocked yet (i.e., ongoing contract), refrain from doing so.
-{% end %}
-
-{% callout(type="note") %}
-This post was updated on 2024-03-18 with a follow-up at the end.
 {% end %}
 
 While I was on holiday in Hungary to stay with a friend, one idea that came up was to go to a technology store to see the terrible-quality products that would be around. There were a lot.

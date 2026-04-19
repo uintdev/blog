@@ -2,15 +2,12 @@
 title = "QRServ Development and Inconveniences of a Cross-platform Framework"
 description = "Cross-platform framework misadventures"
 date = 2023-04-03
+updated = 2026-04-16
 
 [extra]
 feature_image = true
 unlisted = false
 +++
-
-{% callout(type="note") %}
-This post was updated on 2026-04-16.
-{% end %}
 
 QRServ is a Flutter application that hosts an HTTP server, and presents a QR code for a URL that, by default, allows a browser or download client to download the selected files. It is officially available via [GitHub](https://github.com/uintdev/qrserv), [Google Play Store](https://play.google.com/store/apps/details?id=dev.uint.qrserv), and the [IzzyOnDroid F-Droid repository](https://apt.izzysoft.de/fdroid/index/apk/dev.uint.qrserv).
 

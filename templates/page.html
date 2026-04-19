@@ -24,8 +24,8 @@
         <div class="post_description">{{ page.description }}</div>
         {% endif %}
         {% if page.date %}
-        <label class="post_date_read">
-            <time datetime="{{ page.date | date(format="%+") }}">{{ page.date | date(format="%Y-%m-%d") }}</time><span class="separator">•</span><span class="readtime">{{ page.reading_time }} minute read</span> {% if page.extra.unlisted %}<span class="separator">•</span><span class="unlisted">Unlisted</span>{% endif %}
+        <label class="post_metadata">
+            <time datetime="{{ page.date | date(format="%+") }}">{{ page.date | date(format="%Y-%m-%d") }}</time><span class="separator">•</span><span class="readtime">{{ page.reading_time }} min</span>{% if page.updated %}<span class="separator">•</span><span class="meta_container"><span>Updated: </span><time datetime="{{ page.updated | date(format="%+") }}">{{ page.updated | date(format="%Y-%m-%d") }}</time></span>{% endif %}{% if page.extra.unlisted %}<span class="separator">•</span><span class="unlisted">Unlisted</span>{% endif %}
         </label>
         {% endif %}
     </div>
