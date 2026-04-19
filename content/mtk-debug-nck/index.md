@@ -14,7 +14,7 @@ This information is for educational research purposes only.
 Needless to say, if your device is not supposed to be network-unlocked yet (i.e., ongoing contract), refrain from doing so.
 {% end %}
 
-{% callout(type="info") %}
+{% callout(type="note") %}
 This post was updated on 2024-03-18 with a follow-up at the end.
 {% end %}
 

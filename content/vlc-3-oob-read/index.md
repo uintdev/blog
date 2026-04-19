@@ -8,7 +8,7 @@ feature_image = true
 unlisted = false
 +++
 
-{% callout(type="info") %}
+{% callout(type="note") %}
 References to `secstotimestr` are from before it was renamed to `vlc_tick_to_str` as a result of a commit found [here](https://code.videolan.org/videolan/vlc/-/commit/3475f8e972a2d54343ec36c2b35424f5406f7d56).
 `i_seconds` was also renamed to `ticks`, with the type `vlc_tick_t`, in [this commit](https://code.videolan.org/videolan/vlc/-/commit/a59cb66257cfee50568fd4868c795f4e25f1fe98). For simplicity, the parameter change will not be reflected here.
 {% end %}

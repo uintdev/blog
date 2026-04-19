@@ -1,13 +1,17 @@
 <div class="callout callout-type-{{type}}">
     <div class="callout-title">
-        {% if type == "warn" %}
-            Warning
-        {% endif %}
-        {% if type == "important" %}
+        {% if type == "caution" %}
+            Caution
+        {% elif type == "important" %}
             Important
-        {% endif %}
-        {% if type != "warn" and type != "important" %}
-            Info
+        {% elif type == "warn" %}
+            Warning
+        {% elif type == "note" %}
+            Note
+        {% elif type == "tip" %}
+            Tip
+        {% else %}
+            Unknown
         {% endif %}
     </div>
     <div class="callout-body">

@@ -8,7 +8,7 @@ feature_image = true
 unlisted = false
 +++
 
-{% callout(type="info") %}
+{% callout(type="note") %}
 This post was updated on 2026-04-16.
 {% end %}
 

@@ -159,21 +159,20 @@ article {
         }
 
         .callout {
-            background-color: rgba(119, 194, 255, 0.5);
-            border: 1px solid rgba(119, 194, 255, 0.6);
-            color: rgba(218, 230, 241, 1);
-            padding: 20px 25px;
-            border-radius: 10px;
+            border-left: 4px solid rgba(119, 194, 255, 1);
+            padding: 10px 20px;
             font-size: 0.87em;
             margin-bottom: 30px;
 
             .callout-title {
+                color: rgba(129, 204, 255, 1);
                 margin-bottom: 10px;
                 display: inline-block;
                 font-weight: 600;
                 font-size: 1.2em;
             }
             .callout-body {
+                color: rgba(218, 230, 241, 1);
                 line-height: 1.5em;
                 p:first-of-type {
                     margin-block-start: 0;
@@ -181,15 +180,35 @@ article {
                 }
             }
         }
+        .callout-type-tip {
+            border-left-color: rgba(77, 191, 82, 1);
+            .callout-title {
+                color: rgba(97, 211, 102, 1);
+            }
+        }
+        .callout-type-note {
+            border-left-color: rgba(119, 194, 255, 1);
+            .callout-title {
+                color: rgba(129, 204, 255, 1);
+            }
+        }
         .callout-type-warn {
-            background-color: rgba(255, 249, 89, 0.5);
-            border: 1px solid rgba(255, 249, 89, 0.6);
-            color: rgba(238, 238, 215, 1);
+            border-left-color: rgba(214, 209, 69, 1);
+            .callout-title {
+                color: rgba(234, 229, 89, 1);
+            }
         }
         .callout-type-important {
-            background-color: rgba(255, 84, 84, 0.5);
-            border: 1px solid rgba(255, 84, 84, 0.6);
-            color: rgba(244, 226, 226, 1);
+            border-left-color: rgba(179, 81, 222, 1);
+            .callout-title {
+                color: rgba(209, 111, 252, 1);
+            }
+        }
+        .callout-type-caution {
+            border-left-color: rgba(255, 84, 84, 1);
+            .callout-title {
+                color: rgba(255, 84, 84, 1);
+            }
         }
     }
 }
