@@ -4,7 +4,7 @@ description = "Low-end MediaTek-powered device meets reverse-engineering"
 date = 2022-11-24
 
 [extra]
-image = true
+feature_image = true
 unlisted = false
 +++
 

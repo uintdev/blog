@@ -4,7 +4,7 @@ description = "Cross-platform framework misadventures"
 date = 2023-04-03
 
 [extra]
-image = true
+feature_image = true
 unlisted = false
 +++
 

@@ -4,7 +4,7 @@ description = "A slip up in time"
 date = 2022-12-07
 
 [extra]
-image = true
+feature_image = true
 unlisted = false
 +++
 
