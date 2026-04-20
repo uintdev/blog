@@ -125,7 +125,9 @@ Lines mentioning `println` will be printed upon build if conditions are met.
 
 For the first half of the code that has prints relating to the NDK path, that is for debugging purposes, and you can remove it if the output would be too noisy for your taste.
 
-That said, at least keep the `Build ID strip skipped` message, as failures related to determining a valid path to the NDK will be silent, and builds may still have the build ID included.
+{% callout(type="caution") %}
+A `println` should at least be left within the `objcopy` conditional check in the code above to indicate whether there was an issue. Failures are not fatal, so on failure your builds would proceed successfully, but with build IDs still intact.
+{% end %}
 
 ## Validation
 
