@@ -165,6 +165,10 @@ article {
             }
         }
 
+        pre + .callout {
+            margin-top: 20px;
+        }
+
         .callout {
             border-left: 4px solid rgba(119, 194, 255, 1);
             padding: 10px 20px;

@@ -126,7 +126,6 @@ afterEvaluate {
 }
 ```
 
-<br>
 {% callout(type="tip") %}
 While the code could be placed directly within the `afterEvaluate` code block, this approach is cleaner and also works if you use `build.gradle.kts` rather than `build.gradle`.
 {% end %}
