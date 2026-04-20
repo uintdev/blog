@@ -51,6 +51,8 @@ The only difference is the build ID.
 
 Usually, there are various methods to deal with this. However, in this case, they had not made a dent.
 
+### The magic sauce
+
 GitHub user [ffiltech](https://github.com/ffiltech) put together a working solution. There are several commits, but the code in this tutorial is heavily based on the code introduced in commit [48bd3a0](https://github.com/ffiltech/Simple-Badminton/commit/48bd3a0a9902da2bcc9ada61143752c6691c20ed) of their project repository. Kudos to them for the solution.
 
 We will start by creating a `no-build-id.gradle` file under `android/`. Then enter the following code:
@@ -97,6 +99,16 @@ tasks.matching { it.name.startsWith("merge") && it.name.endsWith("NativeLibs") }
         }
     }
 ```
+
+### Hooking it in
+
+For the next part, we need the script to run as part of the build process.
+
+#### Execution order
+
+To ensure it works as expected, we also need to use `afterEvaluate` to ensure that any automatic Android NDK downloads have been completed before proceeding. This is especially crucial for containerized automations, where setting up the environment and building from scratch is part of the process to verify whether the build is reproducible.
+
+#### Applying changes
 
 Under `android/app/`, add the following to the end of `build.gradle.kts`:
 
