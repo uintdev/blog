@@ -9,7 +9,7 @@ feature_image = true
 unlisted = false
 +++
 
-{% callout(type="important") %}
+{% callout(type="warn") %}
 This information is for educational research purposes only.
 <br>
 Needless to say, if your device is not supposed to be network-unlocked yet (i.e., ongoing contract), refrain from doing so.
