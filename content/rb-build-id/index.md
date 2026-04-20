@@ -53,7 +53,7 @@ Usually, there are various methods to deal with this. However, in this case, the
 
 GitHub user [ffiltech](https://github.com/ffiltech) put together a working solution. There are several commits, but the code in this tutorial is heavily based on the code introduced in commit [48bd3a0](https://github.com/ffiltech/Simple-Badminton/commit/48bd3a0a9902da2bcc9ada61143752c6691c20ed) of their project repository. Kudos to them for the solution.
 
-We will start by creating a `no-build-id.gradle` file under `android/app/`. Then enter the following code:
+We will start by creating a `no-build-id.gradle` file under `android/`. Then enter the following code:
 
 ```java, linenos
 // MIT License - Copyright (c) 2026 Simple Badminton Contributors
