@@ -1,10 +1,9 @@
 {% macro post_in_list(post) %}
-{% if post.extra.unlisted %}
-{% else %}
+{% if not post.extra.unlisted %}
 <a href="{{post.permalink | safe}}" class="card">
     <div class="title">{{ post.title }}</div>
     <div class="description">{{ post.description }}</div>
-    <div class="metadata"><time datetime="{{ post.date | date(format="%+") }}">{{ post.date | date(format="%Y-%m-%d") }}</time><span class="separator">•</span><span class="readtime">{{ post.reading_time }} min</span></div>
+    <div class="metadata"><time datetime="{{ post.date | date(format="%+") }}">{{ post.date | date(format="%Y-%m-%d") }}</time><span class="separator">•</span><span class="readtime">{{ post.reading_time }} min</span>{% if post.updated %}<span class="separator">•</span><span>Updated: <time datetime="{{ post.updated | date(format="%+") }}">{{ post.updated | date(format="%Y-%m-%d") }}</time></span>{% endif %}</div>
 </a>
 {% endif %}
 {% endmacro post_in_list %}
