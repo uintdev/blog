@@ -1,8 +1,8 @@
 +++
 title = "QRServ Development and Inconveniences of a Cross-platform Framework"
-description = "Cross-platform framework misadventures"
+description = "Cross-platform misadventures"
 date = 2023-04-03
-updated = 2026-04-16
+updated = 2026-05-04
 
 [extra]
 feature_image = true
@@ -193,20 +193,20 @@ There are no plans to use Flutter for new \(personal\) projects. Depending on th
 
 ### Reconsidering the approach
 
-Mainly by using very different desktop and mobile platforms, I have a clearer view of how to avoid making the same mistakes. I will use a platform's native language and tooling to begin with (Swift, SwiftUI-despite hearing UIKit is a bit more mature; I am most definitely not touching Objective-C).
+Mainly by using very different desktop and mobile platforms, I have a clearer view of how to avoid making the same mistakes. I will use a platform's native language and tooling to begin with (Swift, SwiftUI -- despite hearing UIKit is a bit more mature; I am not inclined to use Objective-C).
 
 I probably should have scrapped the desktop app idea for QRServ and instead focused on the Android app using the Jetpack Compose UI framework (which I entirely forgot was a thing at the time) with Kotlin. I may go that route for Android projects far into the future so that I have more control and predictability over behavior.
 
-The Windows app does work and has been useful, but it feels half-baked-at least in appearance. Or that could just be the Windows native UI elements in general. Either way, not great. Plus, that unusual aforementioned bug-at least in the Windows build-doesn't do any favors.
+The Windows app does work and has been useful, but it feels half-baked-at least in appearance. Or that could just be the Windows native UI elements in general. Either way, not great. Plus, that unusual aforementioned bug, at least in the Windows build, doesn't do any favors.
 
 ## Concluding thoughts
 
 This sort of experience with Flutter has been interesting, but ultimately I feel discouraged from making serious use of it in the future, which really is a shame.
 
 Whether you should use the Flutter framework is not up to me.
-The information I present here is intended as a heads-up on the sort of things to expect-to adjust expectations. Depending on the approach taken, it might be worth it. Maybe dependencies will not be as much of a concern if you can write native platform code yourself. Perhaps some issues can be worked around without too much inconvenience.
+The information I present here is intended as a heads-up on the sort of things to expect -- to adjust expectations. Depending on the approach taken, it might be worth it. Maybe dependencies will not be as much of a concern if you can write native platform code yourself. Perhaps some issues can be worked around without too much inconvenience.
 
-Use the information as you wish, and draw your own conclusions.
+Use the information as you wish and draw your own conclusions. Note that the information presented here is from 2023, and some points may have been addressed to different extents by the time you are reading this.
 
 I have been exploring other programming languages and technologies. One I have been very satisfied with is Rust. Yes, it's as good as many are making it out to be. "Rust Analyzer" can be a bit buggy at times, but it is nowhere near as much of a pain to deal with. All in all, it's a gift that keeps on giving.
 
