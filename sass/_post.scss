@@ -222,6 +222,14 @@ article {
             }
         }
 
+        .footnote-reference a {
+            &::before {
+                content: "[";
+            }
+            &::after {
+                content: "]";
+            }
+        }
         .footnote-definition {
             display: flex;
             align-items: flex-start;
