@@ -159,7 +159,65 @@ Navon was a brand by `Hungaro Flotta KFT.` ([privacy policy](https://smartnavon.
 
 `Hungaro Flotta KFT.` (an LLC) filed for bankruptcy in late Q2 2023. This was noted, among other information about the proceedings, on their now-defunct website.
 <br>
-The archived copy can be found [here](https://web.archive.org/web/20231128115509/http://hungaroflotta.hu/). The archive is broken, so search for the mention of `FELHÍVÁS` on the page to find the relevant section.
+The archived copy can be found [here](https://web.archive.org/web/20231128115509/http://hungaroflotta.hu/). The archive is broken (text is hidden styling-wise), so search for the mention of `FELHÍVÁS` on the page to find the relevant section, and use `inspect element` in your browser of choice to find the hidden text.
+
+For convenience and accessibility, the following is what was written.
+
+Original:
+
+> FELHÍVÁS
+> <br>
+> <br>
+> A Budapest Környéki Törvényszék 10.Cspk.1/2023/11. számú végzésével a Hungaro Flotta Kereskedelmi és Szolgáltató Korlátolt Felelősségű Társaság „csődeljárás alatt” (székhely: 2040 Budaörs, Baross utca 165.; cégjegyzékszáma: 13-09-200451, adószáma: 13787008-2-13) adós csődeljárását elrendelte.
+> <br>
+> <br>
+> A csődeljárás közzététele: 2023. június 17.
+> <br>
+> <br>
+> Vagyonfelügyelő: LAPIDIUM Reorg Felszámoló, Végelszámoló, Vagyonrendező és Csődkezelő Kft. (székhely: 1051 Budapest, Október 6. utca 17. félemelet) Kókai Zsuzsa vagyonfelügyelő.
+> <br>
+> <br>
+> Ezúton hívom fel a csődeljárás alá került adós társaság Hitelezőit, hogy követeléseiket a csődeljárás cégközlönyben való közzétételétől számított 30 napon belül, azaz legkésőbb 2023. július 16. napjáig jelentsék be az adós társaság és közvetlenül a vagyonfelügyelő felé.
+> <br>
+> <br>
+> Kérem, hogy a követeléseket megalapozó okiratokat bejelentésükhöz csatolják.
+> <br>
+> <br>
+> Tájékoztatom Tisztelt Hitelezőket, hogy jelen csődeljárásban a hitelezői igények után fizetendő nyilvántartásba vételi díjat a vagyonfelügyelő számlájára kell megfizetni
+> <br>
+> <br>
+> Vagyonfelügyelő számlaszáma: MBH Bank Nyrt. 10103661-51436800-02005004 – közlemény: „Hungaro Flotta Kft. csa nyilvántartásba vételi díj”.
+> <br>
+> <br>
+> A bejelentésre megadott határidő elmulasztása esetén a követelés nem kerül nyilvántartásba vételre.
+
+Translated:
+
+> APPEAL
+> <br>
+> <br>
+> By its order No. 10.Cspk.1/2023/11., the Budapest Environs Regional Court ordered the bankruptcy proceedings of the debtor Hungaro Flotta Kereskedelmi és Szolgáltató Korlátolt Felelősségű Társaság "under bankruptcy proceedings" (registered office: 2040 Budaörs, Baross utca 165.; company registration number: 13-09-200451, tax number: 13787008-2-13).
+> <br>
+> <br>
+> Publication of bankruptcy proceedings: June 17, 2023.
+> <br>
+> <br>
+> Administrator: LAPIDIUM Reorg Felszámoló, Végelszámoló, Vagyonrendező és Csődkezelő Kft. (registered office: 1051 Budapest, Október 6. utca 17. mezzanine) Zsuzsa Kókai, administrator.
+> <br>
+> <br>
+> I hereby call upon the Creditors of the debtor company undergoing bankruptcy proceedings to submit their claims within 30 days from the publication of the bankruptcy proceedings in the Company Gazette, i.e., no later than July 16, 2023, to the debtor company and directly to the administrator.
+> <br>
+> <br>
+> Please attach the documents substantiating the claims to your submission.
+> <br>
+> <br>
+> I hereby inform the Creditors that in the current bankruptcy proceedings, the registration fee payable on creditor claims must be paid to the administrator's account
+> <br>
+> <br>
+> Administrator's account number: MBH Bank Plc. 10103661-51436800-02005004 – reference: "Hungaro Flotta Kft. csa registration fee".
+> <br>
+> <br>
+> If the deadline for notification is missed, the claim will not be registered.
 
 Some company information regarding liquidation can be found [here](https://www.nemzeticegtar.hu/hungaro-flotta-kft-c1909509036.html).
 
