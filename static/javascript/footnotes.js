@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", (_event) => {
     const id = footnote.getAttribute("id");
     const backReference = document.createElement("a");
     backReference.setAttribute("href", `#${id}_ref`);
-    backReference.textContent = "↩";
+    backReference.textContent = "↩\uFE0E";
     const footnoteParagraph = footnote.getElementsByTagName("p")[0];
     footnoteParagraph.append(backReference);
   }
