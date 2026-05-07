@@ -2,7 +2,7 @@
 title = "Network Unlocking without Carrier or OEM Intervention on MediaTek"
 description = "Low-end MediaTek-powered device meets reverse-engineering"
 date = 2022-11-24
-updated = 2024-03-18
+updated = 2025-05-07
 
 [extra]
 feature_image = true
