@@ -2,6 +2,7 @@
 title = "Reproducible Builds and Build IDs"
 description = "Inconveniently placed information"
 date = 2026-04-20
+updated = 2026-05-07
 
 [extra]
 feature_image = true
@@ -13,7 +14,7 @@ Native libraries can include build IDs, which can be a problem if a build reprod
 
 ## Checking for Build IDs
 
-On a Linux system, we will need to use a command named `readelf`.
+On a Linux system,[^1] we will need to use a command named `readelf`.
 
 1. Open the `.apk` build using an archive utility (it is a ZIP archive)
 2. Extract the `.so` files from `lib/{arch}/`
@@ -49,7 +50,7 @@ The only difference is the build ID.
 
 ## Removing Build IDs
 
-Usually, there are various methods to deal with this. However, in this case, they had not made a dent.
+Usually, there are various methods to deal with this.[^2] However, in this case, they had not made a dent.
 
 ### The magic sauce
 
@@ -151,3 +152,9 @@ Displaying notes found in: .note.android.ident
   Owner                Data size     Description
   Android              0x00000084        NT_VERSION (version)        description data: 15 00 00 00 72 32 38 63 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 31 33 36 37 36 33 35 38 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 ```
+
+## Footnotes
+
+[^1]: In this case, an Arch-based Linux distribution was used
+
+[^2]: The methods would normally involve the NDK block under `android.defaultConfig`
