@@ -221,5 +221,31 @@ article {
                 color: rgba(255, 84, 84, 1);
             }
         }
+
+        .footnote-definition {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5em;
+
+            .footnote-definition-label {
+                vertical-align: unset;
+                font-size: unset;
+                flex-shrink: 0;
+
+                &::after {
+                    content: ". ";
+                }
+            }
+
+            p {
+                display: inline;
+                overflow-wrap: anywhere;
+                margin: 0;
+
+                a[href$="_ref"] {
+                    margin-left: 6px;
+                }
+            }
+        }
     }
 }
