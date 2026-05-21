@@ -2,7 +2,7 @@
 title = "Reproducible Builds and Build IDs"
 description = "Inconveniently placed information"
 date = 2026-04-20
-updated = 2026-05-07
+updated = 2026-05-21
 
 [extra]
 feature_image = true
@@ -57,6 +57,60 @@ Usually, there are various methods to deal with this.[^2] However, in this case,
 GitHub user [ffiltech](https://github.com/ffiltech) put together a working solution. There are several commits, but the code in this tutorial is heavily based on the code introduced in commit [48bd3a0](https://github.com/ffiltech/Simple-Badminton/commit/48bd3a0a9902da2bcc9ada61143752c6691c20ed) of their project repository. Kudos to them for the solution.
 
 We will start by creating a `no-build-id.gradle` file under `android/`. Then enter the following code:
+
+Gradle 9 and later:
+
+```java, linenos
+// MIT License - Copyright (c) 2026 Simple Badminton Contributors
+
+def home = System.getenv("ANDROID_HOME") ?: ""
+println "[no-build-id] ANDROID_HOME environment variable value: ${home}"
+def objcopy = null
+if (home) {
+    def ndkRoot = new File("${home}/ndk")
+    if (ndkRoot.isDirectory()) {
+        ndkRoot.eachDir { ver ->
+            if (objcopy) return
+            println "[no-build-id] first path to check for llvm-objcopy: ${ver}/toolchains/llvm/prebuilt"
+            def prebuilt = new File("${ver}/toolchains/llvm/prebuilt")
+            if (!prebuilt.isDirectory()) return
+            prebuilt.eachDir { platform ->
+                if (objcopy) return
+                println "[no-build-id] second path to check for llvm-objcopy: ${platform}/bin/llvm-objcopy"
+                def c = new File("${platform}/bin/llvm-objcopy")
+                if (c.exists()) objcopy = c.absolutePath
+            }
+        }
+    }
+}
+if (!objcopy) {
+    println "[no-build-id] llvm-objcopy not found - Build ID strip skipped"
+    return
+}
+final String oc = objcopy
+
+interface InjectedExecOps {
+    @Inject
+    ExecOperations getExecOps()
+}
+
+tasks.matching { it.name.startsWith("merge") && it.name.endsWith("NativeLibs") }
+    .configureEach { t ->
+        t.doLast {
+            def injected = project.objects.newInstance(InjectedExecOps)
+            t.outputs.files.each { dir ->
+                if (!(dir instanceof File) || !dir.isDirectory()) return
+                dir.eachFileRecurse { f ->
+                    if (!f.name.endsWith('.so')) return
+                    injected.execOps.exec { commandLine oc, '--remove-section', '.note.gnu.build-id', f.absolutePath }
+                    println "[no-build-id] stripped Build ID: ${f.name}"
+                }
+            }
+        }
+    }
+```
+
+Gradle 8 and earlier:
 
 ```java, linenos
 // MIT License - Copyright (c) 2026 Simple Badminton Contributors
