@@ -2,7 +2,7 @@
 title = "QRServ Development and Inconveniences of a Cross-platform Framework"
 description = "Cross-platform misadventures"
 date = 2023-04-03
-updated = 2026-05-04
+updated = 2026-05-22
 
 [extra]
 feature_image = true
@@ -121,7 +121,7 @@ One of the major issues that I am not willing to deal with involves the file imp
 
 Some users have noticed that QRServ can take time to import large files.
 
-#### Yes, I know
+#### Hands tied
 
 During initial development, the intent was to access files directly from their current storage locations. However, due to the move to scoped storage and the preexisting Flutter packages (even at the time of writing) used to facilitate file selection, the selected files were copied from Android's built-in documents/files picker UI and sharesheet into the application's cache folder.
 
@@ -159,7 +159,7 @@ I would rather have that time go toward implementing functionality and fixing bu
 
 For something that is supposed to ease cross-platform application development, sure, it is easy to put together a basic app that runs right out of the gate on various platforms, and the UI is not difficult to customize. However, it certainly does not put me at ease when it comes to the functional side of things. The amount of time I spent dealing with issues that should not be happening in the first place... it is ridiculous.
 
-#### I did not sign up to this
+#### Unexpected challenges
 
 When I began working on QRServ, I expected challenges. That is exactly what I got. But it was also far more than I bargained for-the sort that causes too much friction and really puts a hold on things from every corner. Occasional issues to iron out that were not issues before. Or I use something I have not used before (in a certain way), only to find out it does not work correctly.
 
@@ -184,12 +184,12 @@ There is a bit of "jack of all trades, master of none" if I were to exclude soft
 
 ### Good in some cases
 
-I would say it's more suitable for applications that aren't so method-channel-reliant (unless you're willing to write some platform-native code) or for something complex, but apparently there are numerous bugs with basics like forms and text fields. So have fun with that.
+I would say it's more suitable for applications that aren't so method-channel-reliant (unless you're expecting to write some platform-native code) or for something complex, but apparently there are numerous bugs with basics like forms and text fields. So have fun with that.
 
 ### Decisions
 
 I plan to continue maintaining QRServ where necessary.
-There are no plans to use Flutter for new \(personal\) projects. Depending on the requirements, other UI frameworks are available, particularly for Windows and Linux platforms, where native app development tends to have more "suck" than on other platforms.
+There are no plans to use Flutter for new (personal) projects, unless it would make perfect sense to do so. Depending on the requirements, other UI frameworks are available, particularly for Windows and Linux, where native app development tends to have more "suck" than on other platforms.
 
 ### Reconsidering the approach
 

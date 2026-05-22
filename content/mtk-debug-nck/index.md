@@ -2,7 +2,7 @@
 title = "Network Unlocking without Carrier or OEM Intervention on MediaTek"
 description = "Low-end MediaTek-powered device meets reverse-engineering"
 date = 2022-11-24
-updated = 2025-05-07
+updated = 2026-05-22
 
 [extra]
 feature_image = true
@@ -15,7 +15,7 @@ This information is for educational research purposes only.
 Needless to say, if your device is not supposed to be network-unlocked yet (i.e., ongoing contract), refrain from doing so.
 {% end %}
 
-While I was on holiday in Hungary to stay with a friend, one idea that came up was to go to a technology store to see the terrible-quality products that would be around. There were a lot.
+While I was on vacation in Hungary to stay with a friend, one idea that came up was to go to a technology store to see the terrible-quality products that would be around. There were a lot.
 
 Initially, it was the poorly performing Windows laptops, with the common theme of demo software crashing in a loop. Meanwhile, in the Apple section, things were far more sane. I wonder why that was.
 
@@ -79,7 +79,7 @@ Having done some digging, I made a few discoveries:
 
 What I was mainly looking for involves the network unlock code. Validity is determined entirely offline and is calculated based on the device's own information.
 
-## It does not get any better
+## It gets worse
 
 I noticed that the app was setting a preference in the device's settings app regarding the unlock status (`slu_unlocked`). Shortly after, it would send a broadcast to the MTK Engineering Mode application to send an `AT+EGMR` command to the modem. The device would then reboot.
 
