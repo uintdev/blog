@@ -8,10 +8,10 @@ feature_image = true
 unlisted = false
 +++
 
-{% callout(type="note") %}
+{% <callout type="note"> %}
 References to `secstotimestr` are from before it was renamed to `vlc_tick_to_str` as a result of a commit found [here](https://code.videolan.org/videolan/vlc/-/commit/3475f8e972a2d54343ec36c2b35424f5406f7d56).
 `i_seconds` was also renamed to `ticks`, with the type `vlc_tick_t`, in [this commit](https://code.videolan.org/videolan/vlc/-/commit/a59cb66257cfee50568fd4868c795f4e25f1fe98). For simplicity, the parameter change will not be reflected here.
-{% end %}
+{% </callout> %}
 
 Like any other day on Discord, I come across specially crafted WEBM files that mess with the video’s duration.
 This usually results in media players:
@@ -25,23 +25,23 @@ This usually results in media players:
 On January 14, 2021, I came across a video named `chinax.webm` (it can be downloaded [here](assets/chinax.webm)).
 When playing back the video on Discord in the Electron desktop application, it presented something I had never seen before: the times shown were in the negatives.
 
-{% figure(src="assets/discord_playback.webp", alt="Discord media player") %}
+{% <figure src="assets/discord_playback.webp" alt="Discord media player"> %}
 Discord media player duration looking a little out of wack
-{% end %}
+{% </figure> %}
 
 In Google Chrome, this showed slightly different behavior.
 
-{% figure(src="assets/chrome_playback.webp", alt="Chrome media player") %}
+{% <figure src="assets/chrome_playback.webp" alt="Chrome media player"> %}
 Chrome's media player behaves similarly in comparison
-{% end %}
+{% </figure> %}
 
 It is worth noting that Discord uses a modified version of the media player. This resulted in some unique bugs that went so far as to crash the entire client.
 
 Now, what about VLC media player? Lets check that one ou--
 
-{% figure(src="assets/vlc_crash.webp", alt="VLC media player crash") %}
+{% <figure src="assets/vlc_crash.webp" alt="VLC media player crash"> %}
 VLC media player crashed
-{% end %}
+{% </figure> %}
 
 Ah, right.
 
@@ -51,25 +51,25 @@ My first attempt at debugging this was running VLC via CMD with the verbose flag
 
 I spun up an Ubuntu virtual machine and tried again. It said nothing new-just that there was a segmentation fault.
 
-{% figure(src="assets/vlc_seg1.webp", alt="VLC media player segfault 1") %}
+{% <figure src="assets/vlc_seg1.webp" alt="VLC media player segfault 1"> %}
 Segmentation faults in the first few attempts
-{% end %}
+{% </figure> %}
 
-{% figure(src="assets/vlc_seg2.webp", alt="VLC media player segfault 2") %}
+{% <figure src="assets/vlc_seg2.webp" alt="VLC media player segfault 2"> %}
 And again...
-{% end %}
+{% </figure> %}
 
 Evidently, not very useful. Plan B? GDB. That is the correct approach to debugging such software.
 
-{% figure(src="assets/gdb_1.webp", alt="GDB outputted responsible function") %}
+{% <figure src="assets/gdb_1.webp" alt="GDB outputted responsible function"> %}
 GDB to the rescue!
-{% end %}
+{% </figure> %}
 
 This revealed that at the time, `secstotimestr` was causing the application to crash.
 
-{% figure(src="assets/gdb_2.webp", alt="GDB outputted the meta duration") %}
+{% <figure src="assets/gdb_2.webp" alt="GDB outputted the meta duration"> %}
 The duration in the negatives
-{% end %}
+{% </figure> %}
 
 GDB also helped reveal the fake duration that would have been shown first.
 
@@ -109,17 +109,17 @@ To better understand the issue, I decided to compile a few builds.
 
 My initial assumption was that the long-unreleased VLC 4 dev build would be affected, as it appeared to have the same code. Au contraire, mon ami.
 
-{% figure(src="assets/vlc4_compilation.webp", alt="VLC 4 dev compilation") %}
+{% <figure src="assets/vlc4_compilation.webp" alt="VLC 4 dev compilation"> %}
 Compiling VLC 4 dev
-{% end %}
+{% </figure> %}
 
-{% figure(src="assets/vlc4_playback.webp", alt="VLC 4 dev playback") %}
+{% <figure src="assets/vlc4_playback.webp" alt="VLC 4 dev playback"> %}
 Testing playback on VLC 4 dev
-{% end %}
+{% </figure> %}
 
-{% figure(src="assets/vlc4_duration.webp", alt="VLC 4 dev duration") %}
+{% <figure src="assets/vlc4_duration.webp" alt="VLC 4 dev duration"> %}
 Nothing appeared to have changed in terms of the meta duration
-{% end %}
+{% </figure> %}
 
 VLC 4 appeared to be unaffected. This may have been a result of the adjustments made under [this commit](https://code.videolan.org/videolan/vlc/-/commit/a59cb66257cfee50568fd4868c795f4e25f1fe98).
 
@@ -127,9 +127,9 @@ VLC 4 appeared to be unaffected. This may have been a result of the adjustments 
 
 After compiling the most recent VLC 3 build (unoptimized) at the time, I tested the video again, and it still crashed. I then used GDB, which painted a clear picture of what was happening.
 
-{% figure(src="assets/gdb_unopt.webp", alt="VLC 3 unoptimized build GDB with crash presented") %}
+{% <figure src="assets/gdb_unopt.webp" alt="VLC 3 unoptimized build GDB with crash presented"> %}
 Buffer out-of-bounds read in action
-{% end %}
+{% </figure> %}
 
 ## The bug
 

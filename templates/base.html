@@ -1,4 +1,3 @@
-{% import "macros.html" as macros %}
 <!DOCTYPE html>
 <html lang="{{ lang }}">
 <head>
@@ -6,15 +5,15 @@
 
     {% block title %}
     <title>{{ config.title }}</title>
-    {% endblock content %}
+    {% endblock title %}
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ get_url(path="main.css", trailing_slash=false) | safe }}">
 
-    <meta property="og:url" content="{{ config.extra.base_domain | safe }}{%if page.path %}{{ page.path | safe}}{% endif %}">
+    <meta property="og:url" content="{{ config.extra.base_domain | safe }}{%if page is defined and page.path %}{{ page.path | safe}}{% endif %}">
     <meta property="og:site_name" content="{{ config.title }}">
 
-    {% if page.title %}
+    {% if page is defined and page.title %}
     <meta name="twitter:title" content="{{ page.title }}">
     <meta property="og:title" content="{{ page.title }}">
     {% else %}
@@ -23,7 +22,7 @@
     {% endif %}
 
     <meta name="robots" content="max-snippet:0">
-    {% if page.description %}
+    {% if page is defined and page.description %}
     <meta name="description" content="{{ page.description | safe }}" />
     <meta name="twitter:description" content="{{ page.description | safe }}">
     <meta property="og:description" content="{{ page.description | safe }}">

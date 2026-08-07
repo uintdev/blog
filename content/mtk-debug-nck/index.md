@@ -9,11 +9,11 @@ feature_image = true
 unlisted = false
 +++
 
-{% callout(type="warning") %}
+{% <callout type="warning"> %}
 This information is for educational research purposes only.
 <br>
 Needless to say, if your device is not supposed to be network-unlocked yet (i.e., ongoing contract), refrain from doing so.
-{% end %}
+{% </callout> %}
 
 While I was on vacation in Hungary to stay with a friend, one idea that came up was to go to a technology store to see the terrible-quality products that would be around. There were a lot.
 
@@ -33,23 +33,23 @@ A lot was done, such as using [MTKClient](https://github.com/bkerler/mtkclient) 
 
 While using [Activity Launcher](https://play.google.com/store/apps/details?id=de.szalkowski.activitylauncher) to find any hidden applications, we came across an application named `NCK` (com.forest.simlock, 1.0).
 
-{% figure(src="assets/activity_launcher.webp", alt="Activity Launcher entry") %}
+{% <figure src="assets/activity_launcher.webp" alt="Activity Launcher entry"> %}
 Quite the package name
-{% end %}
+{% </figure> %}
 
 This was a basic network (un)lock tool that asked for a network code key. It offered five attempts.
 
-{% figure(src="assets/nck.webp", alt="NCK application UI") %}
+{% <figure src="assets/nck.webp" alt="NCK application UI"> %}
 Relatively straight-forward UI
-{% end %}
+{% </figure> %}
 
 ## Unintentional network lock
 
 This was a strange one because the phone should not have been network-locked in the first place. Yettel could not network-unlock it themselves and would need to contact the OEM for that information.
 
-{% figure(src="assets/carrier_resp.webp", alt="Carrier response") %}
+{% <figure src="assets/carrier_resp.webp" alt="Carrier response"> %}
 Carrier was not prepared for this one
-{% end %}
+{% </figure> %}
 
 > Dear Customer!
 > Currently we don't have Network Code Key available for [redacted] IMEI number.
@@ -135,9 +135,9 @@ This is not the sort of tool that should be left around in release builds, espec
 
 At the end of the day, like the hardware, it is the sort of thing that is just thrown together cheaply, without much consideration for user experience and how hardened the device should be. It just has to do the bare minimum.
 
-{% figure(src="assets/phone_internals.webp", alt="Phone internals") %}
+{% <figure src="assets/phone_internals.webp" alt="Phone internals"> %}
 Generic main board and low-end components
-{% end %}
+{% </figure> %}
 
 If you want a device to play around with and get familiar with the world of old and low-end MediaTek SoCs, it is a nice little playground. Just make sure to do a full backup before doing anything else. The device in this case has some test and engineering tools scattered around, and you can recover all or individual partitions should something break. USB 2.0 must be used when using the MTKClient tool, or there will be connection dropouts.
 

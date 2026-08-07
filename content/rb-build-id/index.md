@@ -181,9 +181,9 @@ afterEvaluate {
 }
 ```
 
-{% callout(type="tip") %}
+{% <callout type="tip"> %}
 While the code could be placed directly within the `afterEvaluate` code block, this approach is cleaner and also works if you use `build.gradle.kts` rather than `build.gradle`.
-{% end %}
+{% </callout> %}
 
 ### Notes on included print lines
 
@@ -191,9 +191,9 @@ Lines mentioning `println` will be printed upon build if conditions are met.
 
 For the first half of the code that has prints relating to the NDK path, that is for debugging purposes, and you can remove it if the output would be too noisy for your taste.
 
-{% callout(type="caution") %}
+{% <callout type="caution"> %}
 A `println` should at least be left within the `objcopy` conditional check in the code above to indicate whether there was an issue. Failures are not fatal, so on failure your builds would proceed successfully, but with build IDs still intact.
-{% end %}
+{% </callout> %}
 
 ## Validation
 

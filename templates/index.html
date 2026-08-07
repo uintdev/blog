@@ -1,11 +1,9 @@
 {% extends "base.html" %}
 
-{% import "macros.html" as macros %}
-
 {% block content %}
 <div class="listing">
     {% for post in section.pages %}
-    {{ macros::post_in_list(post=post) }}
+        {{<post_in_list post />}}
     {% endfor %}
 </div>
 {% endblock content %}
