@@ -10,4 +10,4 @@ main() {
     ./zola build
 }
 
-set -euo pipe
+main
