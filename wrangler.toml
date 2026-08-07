@@ -9,7 +9,7 @@ workers_dev = false
 preview_urls = false
 
 [build]
-command = "./build.sh"
+command = "chmod +x ./build.sh && ./build.sh"
 
 [assets]
 directory = "./public/"
