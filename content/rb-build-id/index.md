@@ -2,7 +2,7 @@
 title = "Reproducible Builds and Build IDs"
 description = "Inconveniently placed information"
 date = 2026-04-20
-updated = 2026-05-21
+updated = 2026-08-30
 
 [extra]
 feature_image = true
@@ -56,12 +56,80 @@ Usually, there are various methods to deal with this.[^2] However, in this case,
 
 GitHub user [ffiltech](https://github.com/ffiltech) put together a working solution. There are several commits, but the code in this tutorial is heavily based on the code introduced in commit [48bd3a0](https://github.com/ffiltech/Simple-Badminton/commit/48bd3a0a9902da2bcc9ada61143752c6691c20ed) of their project repository. Kudos to them for the solution.
 
-We will start by creating a `no-build-id.gradle` file under `android/`. Then enter the following code:
+We will start by creating a file under `android/`.
 
-Gradle 9 and later:
+#### Kotlin DSL
+
+If you wish to use Kotlin, ensure that you are using Gradle 9 or later, create a file named `no-build-id.gradle.kts`, and then enter the following code:
+
+```kotlin, linenos
+// MIT License - Copyright (c) 2026 Simple Badminton Contributors
+
+import org.gradle.process.ExecOperations
+import javax.inject.Inject
+
+interface InjectedExecOps {
+    @get:Inject
+    val execOps: ExecOperations
+}
+
+fun findObjcopy(home: String): String? {
+    if (home.isEmpty()) return null
+    val ndkRoot = File("$home/ndk")
+    if (!ndkRoot.isDirectory) return null
+    ndkRoot.listFiles { f -> f.isDirectory }?.sortedBy { it.name }?.forEach { ver ->
+        println("[no-build-id] first path to check for llvm-objcopy: $ver/toolchains/llvm/prebuilt")
+        val prebuilt = File(ver, "toolchains/llvm/prebuilt")
+        if (!prebuilt.isDirectory) return@forEach
+        prebuilt.listFiles { f -> f.isDirectory }?.sortedBy { it.name }?.forEach { platform ->
+            println("[no-build-id] second path to check for llvm-objcopy: $platform/bin/llvm-objcopy")
+            val c = File(platform, "bin/llvm-objcopy")
+            if (c.exists()) return c.absolutePath
+        }
+    }
+    return null
+}
+
+val home = System.getenv("ANDROID_HOME") ?: ""
+println("[no-build-id] ANDROID_HOME environment variable value: $home")
+
+val objcopy = findObjcopy(home)
+if (objcopy == null) {
+    println("[no-build-id] llvm-objcopy not found - Build ID strip skipped")
+} else {
+    tasks.matching { it.name.startsWith("merge") && it.name.endsWith("NativeLibs") }
+        .configureEach task@{
+            doLast {
+                val injected = project.objects.newInstance(InjectedExecOps::class.java)
+                this@task.outputs.files.forEach { dir ->
+                    if (!dir.isDirectory) return@forEach
+                    dir.walkTopDown()
+                        .filter { it.isFile && it.name.endsWith(".so") }
+                        .forEach { f ->
+                            injected.execOps.exec {
+                                commandLine(objcopy, "--remove-section", ".note.gnu.build-id", f.absolutePath)
+                            }
+                            println("[no-build-id] stripped Build ID: ${f.name}")
+                        }
+                }
+            }
+        }
+}
+```
+
+#### Groovy DSL
+
+If you prefer to use Groovy, we can instead create a file named `no-build-id.gradle`, and then enter the following code:
+
+Gradle 9 or later:
 
 ```java, linenos
 // MIT License - Copyright (c) 2026 Simple Badminton Contributors
+
+interface InjectedExecOps {
+    @Inject
+    ExecOperations getExecOps()
+}
 
 def home = System.getenv("ANDROID_HOME") ?: ""
 println "[no-build-id] ANDROID_HOME environment variable value: ${home}"
@@ -89,11 +157,6 @@ if (!objcopy) {
 }
 final String oc = objcopy
 
-interface InjectedExecOps {
-    @Inject
-    ExecOperations getExecOps()
-}
-
 tasks.matching { it.name.startsWith("merge") && it.name.endsWith("NativeLibs") }
     .configureEach { t ->
         t.doLast {
@@ -110,7 +173,7 @@ tasks.matching { it.name.startsWith("merge") && it.name.endsWith("NativeLibs") }
     }
 ```
 
-Gradle 8 and earlier:
+Gradle 8 or earlier:
 
 ```java, linenos
 // MIT License - Copyright (c) 2026 Simple Badminton Contributors
@@ -165,7 +228,17 @@ To ensure it works as expected, we also need to use `afterEvaluate` to ensure th
 
 #### Applying changes
 
-Under `android/app/`, add the following to the end of `build.gradle.kts`:
+Under `android/app/`, add the following to the end of the `build.gradle.kts` file:
+
+If you are using Kotlin DSL for the `no-build-id` script ...
+
+```kotlin
+afterEvaluate {
+    apply(from = "../no-build-id.gradle.kts")
+}
+```
+
+... or if you are using Groovy DSL ...
 
 ```kotlin
 afterEvaluate {
@@ -173,17 +246,13 @@ afterEvaluate {
 }
 ```
 
-or to `build.gradle`:
+If you are working with a `build.gradle` file, add the following to the end of the file:
 
 ```java
 afterEvaluate {
     apply from: '../no-build-id.gradle'
 }
 ```
-
-{% <callout type="tip"> %}
-While the code could be placed directly within the `afterEvaluate` code block, this approach is cleaner and also works if you use `build.gradle.kts` rather than `build.gradle`.
-{% </callout> %}
 
 ### Notes on included print lines
 
