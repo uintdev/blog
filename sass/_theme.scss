@@ -1,0 +1,22 @@
+:root {
+    color-scheme: dark;
+
+    --color-primary: 205, 215, 240;
+    --color-secondary: 24, 24, 42;
+    --color-elevated: 160, 150, 250;
+    --color-accent: 199, 176, 222;
+
+    --opacity-muted: 0.65;
+    --opacity-border: 0.1;
+
+    --radius-card: 8px;
+    --radius-tag: 4px;
+
+    --max-width-ui: 800px;
+
+    --gutter: 20px;
+
+    --interactive-transition-speed: 0.15s;
+
+    --font-stack: "Nunito", sans-serif;
+}

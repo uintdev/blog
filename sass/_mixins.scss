@@ -1,0 +1,10 @@
+@mixin unselectable {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+@mixin content-width {
+    width: 100%;
+    max-width: var(--max-width-ui);
+    margin-inline: auto;
+}

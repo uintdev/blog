@@ -1,13 +1,37 @@
 footer {
-    box-sizing: border-box;
-    font-size: 1em;
-    padding-bottom: calc(40px + env(safe-area-inset-bottom)) !important;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 80px;
-    text-align: center;
     width: 100%;
-    .heart {
-        color: rgba(255, 94, 94, 1);
+    box-sizing: border-box;
+    padding: 32px var(--gutter);
+    padding-bottom: calc(32px + env(safe-area-inset-bottom));
+    font-size: 0.85rem;
+    color: rgba(var(--color-primary), var(--opacity-muted));
+    border-top: 1px solid rgba(var(--color-primary), var(--opacity-border));
+
+    .content {
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 10px 20px;
+        justify-content: space-between;
+
+        .label .heart {
+            color: rgba(255, 120, 120, 1);
+        }
+
+        a {
+            color: rgba(var(--color-primary), var(--opacity-muted));
+
+            @media (hover: hover) {
+                &:hover {
+                    color: rgba(var(--color-accent), 1);
+                }
+            }
+        }
+
+        .right {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
     }
 }

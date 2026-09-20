@@ -1,17 +1,13 @@
 @import "fonts";
+@import "mixins";
+@import "theme";
 
 @view-transition {
     navigation: auto;
 }
 
 :root {
-    --color-primary: 205, 215, 240;
-    --color-secondary: 30, 30, 45;
-    --color-secondary-focus: 35, 35, 50;
-    --color-secondary-hover: 40, 40, 55;
-    --color-accent: 199, 176, 222;
-    --color-article-text: 220, 220, 220;
-    --color-article-block: 0, 0, 0;
+    accent-color: rgba(var(--color-accent), 1);
 }
 
 ::selection {
@@ -21,52 +17,56 @@
 
 html {
     max-width: 100%;
-    height: 99%;
     overflow: overlay;
     -webkit-text-size-adjust: 100%;
 }
 
 body {
-    height: 100%;
-    background-color: rgba(var(--color-secondary), 1);
-    color: rgba(var(--color-primary), 1);
-    font-family: "Nunito", sans-serif;
+    min-height: 100dvh;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 720px;
-    width: 85%;
-    font-size: 90%;
+    margin: 0;
+    font-family: var(--font-stack);
+    color: rgba(var(--color-primary), 1);
+    background-color: rgba(var(--color-secondary), 1);
+    @include content-width;
 
+    @import "header";
     @import "footer";
 }
 
-header {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    a {
-        color: rgba(var(--color-primary), 1);
-        text-decoration: none;
-        div {
-            h1 {
-                margin: 0;
-            }
+a {
+    color: rgba(var(--color-primary), 1);
+    text-decoration: none;
+    transition: color var(--interactive-transition-speed);
+
+    @media (hover: hover) {
+        &:hover {
+            color: rgba(var(--color-accent), 1);
         }
     }
 }
 
+:focus-visible {
+    outline: 2px solid rgba(var(--color-accent), 1);
+    outline-offset: 2px;
+}
+
 main {
     flex: 1;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    box-sizing: border-box;
+    padding: 48px var(--gutter);
 
     @import "index";
     @import "post";
+}
 
-    a {
-        color: rgba(var(--color-primary), 1);
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0s !important;
+        animation-duration: 0s !important;
     }
 }

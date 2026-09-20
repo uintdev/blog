@@ -1,0 +1,62 @@
+header {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 28px var(--gutter);
+    border-bottom: 1px solid rgba(var(--color-primary), var(--opacity-border));
+    @include unselectable;
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+    }
+
+    .title {
+        display: block;
+
+        h1 {
+            margin: 0;
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: 0.01em;
+        }
+
+        .tagline {
+            display: block;
+            margin-top: 4px;
+            font-size: 0.85rem;
+            color: rgba(var(--color-primary), var(--opacity-muted));
+        }
+
+        @media (hover: hover) {
+            &:hover .tagline {
+                color: inherit;
+            }
+        }
+    }
+
+    .options {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 6px 14px;
+        font-size: 0.85rem;
+
+        a {
+            color: rgba(var(--color-primary), var(--opacity-muted));
+
+            @media (hover: hover) {
+                &:hover {
+                    color: rgba(var(--color-accent), 1);
+                }
+            }
+        }
+
+        .separator {
+            color: rgba(var(--color-primary), 0.25);
+        }
+    }
+}
