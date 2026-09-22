@@ -115,6 +115,7 @@ article {
         }
 
         code {
+            font-size: 0.9em;
             padding: 1px 6px;
             background-color: rgba(var(--color-elevated), 0.14);
             border-radius: var(--radius-tag);
@@ -131,6 +132,7 @@ article {
 
             code {
                 filter: saturate(200%);
+                font-size: inherit;
                 padding: 0;
                 background-color: unset;
             }
