@@ -34,7 +34,8 @@
         {% endif %}
     </div>
     {% if page.extra.feature_image %}
-        <img src="image.webp" alt="{{ page.title | safe }}" class="post_image">
+        {%- set feature_image = get_image_metadata(path=page.colocated_path ~ "image.webp") %}
+        <img src="image.webp" alt="{{ page.title | safe }}" width="{{ feature_image.width }}" height="{{ feature_image.height }}" class="post_image">
     {% endif %}
     <div class="post_body">
         {{ page.content | safe }}

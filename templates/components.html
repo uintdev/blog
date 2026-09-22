@@ -30,6 +30,7 @@
 </div>
 {% endcomponent callout %}
 
-{% component figure(src, alt) %}
-<figure><img src="{{ src }}"{% if alt %} alt="{{ alt }}"{% endif %} loading="lazy" decoding="async">{% if body %}<figcaption>{{ body | markdown(inline=true) | safe }}</figcaption>{% endif %}</figure>
+{% component figure(src, alt, @page) %}
+{%- set meta = get_image_metadata(path=page.colocated_path ~ src) %}
+<figure><img src="{{ src }}" width="{{ meta.width }}" height="{{ meta.height }}"{% if alt %} alt="{{ alt }}"{% endif %} loading="lazy" decoding="async">{% if body %}<figcaption>{{ body | markdown(inline=true) | safe }}</figcaption>{% endif %}</figure>
 {% endcomponent figure %}
