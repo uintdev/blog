@@ -8,7 +8,8 @@
 <meta property="og:type" content="article">
 
 {% if page.extra.feature_image %}
-    {%- set feature_image_url = config.extra.base_domain ~ page.path ~ "image.webp" %}
+    {%- set feature_image_src = "image.webp?h=" ~ get_hash(path=page.colocated_path ~ "image.webp", sha_type=256, base64=false) | truncate(length=20, end="") %}
+    {%- set feature_image_url = config.extra.base_domain ~ page.path ~ feature_image_src %}
     <meta name="twitter:image" content="{{ feature_image_url | safe }}">
     <meta property="og:image" content="{{ feature_image_url | safe }}">
     <meta name="twitter:card" content="summary_large_image">
@@ -16,7 +17,7 @@
     <meta name="twitter:card" content="summary">
 {% endif %}
 {% if "footnote-definition" in page.content %}
-    <script defer src="{{ get_url(path="javascript/footnotes.js", trailing_slash=false) }}"></script>
+    <script defer src="{{ get_url(path="javascript/footnotes.js", cachebust=true) }}"></script>
 {% endif %}
 {% endblock meta_content %}
 
@@ -35,7 +36,7 @@
     </div>
     {% if page.extra.feature_image %}
         {%- set feature_image = get_image_metadata(path=page.colocated_path ~ "image.webp") %}
-        <img src="image.webp" alt="{{ page.title | safe }}" width="{{ feature_image.width }}" height="{{ feature_image.height }}" class="post_image">
+        <img src="{{ feature_image_src }}" alt="{{ page.title | safe }}" width="{{ feature_image.width }}" height="{{ feature_image.height }}" class="post_image">
     {% endif %}
     <div class="post_body">
         {{ page.content | safe }}

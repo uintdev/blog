@@ -15,7 +15,7 @@
     {% endblock title %}
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ get_url(path="main.css", trailing_slash=false) | safe }}">
+    <link rel="stylesheet" href="{{ get_url(path="main.css", cachebust=true) | safe }}">
 
     <meta property="og:url" content="{{ config.extra.base_domain | safe }}{% if page is defined and page.path %}{{ page.path | safe}}{% endif %}">
     <meta property="og:site_name" content="{{ config.title }}">
@@ -34,8 +34,8 @@
     {% endblock meta_content %}
 
     <meta name="theme-color" content="#18182a">
-    <link rel="icon" href="{{ get_url(path="images/favicon.png") }}">
-    <link rel="apple-touch-icon" href="{{ get_url(path="images/favicon.png") }}">
+    <link rel="icon" href="{{ get_url(path="images/favicon.png", cachebust=true) }}">
+    <link rel="apple-touch-icon" href="{{ get_url(path="images/favicon.png", cachebust=true) }}">
 
     {% block rss %}
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ rss_url }}">

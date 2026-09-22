@@ -32,5 +32,6 @@
 
 {% component figure(src, alt, @page) %}
 {%- set meta = get_image_metadata(path=page.colocated_path ~ src) %}
-<figure><img src="{{ src }}" width="{{ meta.width }}" height="{{ meta.height }}"{% if alt %} alt="{{ alt }}"{% endif %} loading="lazy" decoding="async">{% if body %}<figcaption>{{ body | markdown(inline=true) | safe }}</figcaption>{% endif %}</figure>
+{%- set hash = get_hash(path=page.colocated_path ~ src, sha_type=256, base64=false) | truncate(length=20, end="") %}
+<figure><img src="{{ src }}?h={{ hash }}" width="{{ meta.width }}" height="{{ meta.height }}"{% if alt %} alt="{{ alt }}"{% endif %} loading="lazy" decoding="async">{% if body %}<figcaption>{{ body | markdown(inline=true) | safe }}</figcaption>{% endif %}</figure>
 {% endcomponent figure %}
