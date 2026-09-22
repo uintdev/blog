@@ -8,13 +8,13 @@
 <meta property="og:type" content="article">
 
 {% if page.extra.feature_image %}
-    <meta property="twitter:image" content="{{ config.extra.base_domain | safe }}{% if page.path %}{{ page.path | safe}}{% endif %}image.webp">
+    <meta name="twitter:image" content="{{ config.extra.base_domain | safe }}{% if page.path %}{{ page.path | safe}}{% endif %}image.webp">
     <meta property="og:image" content="{{ config.extra.base_domain | safe }}{% if page.path %}{{ page.path | safe}}{% endif %}image.webp">
     <meta name="twitter:card" content="summary_large_image">
 {% else %}
     <meta name="twitter:card" content="summary">
 {% endif %}
-    <script defer src="/javascript/footnotes.js"></script>
+    <script defer src="{{ get_url(path="javascript/footnotes.js", trailing_slash=false) }}"></script>
 {% endblock meta_content %}
 
 {% block content %}
@@ -25,9 +25,9 @@
         <div class="post_description">{{ page.description }}</div>
         {% endif %}
         {% if page.date %}
-        <label class="post_metadata">
+        <div class="post_metadata">
             <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%Y-%m-%d") }}</time><span class="separator">•</span><span class="readtime">{{ page.reading_time }} min</span>{% if page.updated %}<span class="separator">•</span><span class="meta_container"><span>Updated: </span><time datetime="{{ page.updated | date(format="%Y-%m-%d") }}">{{ page.updated | date(format="%Y-%m-%d") }}</time></span>{% endif %}{% if page.extra.unlisted %}<span class="separator">•</span><span class="unlisted">Unlisted</span>{% endif %}
-        </label>
+        </div>
         {% endif %}
     </div>
     {% if page.extra.feature_image %}

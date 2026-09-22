@@ -53,7 +53,7 @@
                 <span class="separator">•</span>
                 <a aria-label="Link to Github account" href="https://github.com/{{ config.extra.github_account }}">github</a>
                 <span class="separator">•</span>
-                <a aria-label="Link to RSS feed" href="/rss.xml" rel="alternate" type="application/rss+xml">rss</a>
+                <a aria-label="Link to RSS feed" href="{{ get_url(path='rss.xml', trailing_slash=false) }}" rel="alternate" type="application/rss+xml">rss</a>
             </span>
         </nav>
         {% endblock nav %}

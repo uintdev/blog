@@ -56,7 +56,7 @@ header {
         }
 
         .separator {
-            color: rgba(var(--color-primary), 0.25);
+            color: rgba(var(--color-primary), var(--opacity-separator));
         }
     }
 }

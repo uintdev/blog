@@ -31,5 +31,5 @@
 {% endcomponent callout %}
 
 {% component figure(src, alt) %}
-<figure>{% if link %} <a href="{{ link }}"> {% endif %}<img src="{{ src }}" {%- if alt %}alt="{{ alt }}"{% endif %}>{% if link %} </a> {% endif %}{% if body %}<figcaption>{{ body | markdown(inline=true) | safe }}</figcaption>{% endif %}</figure>
+<figure>{% if link %} <a href="{{ link }}"> {% endif %}<img src="{{ src }}"{% if alt %} alt="{{ alt }}"{% endif %}>{% if link %} </a> {% endif %}{% if body %}<figcaption>{{ body | markdown(inline=true) | safe }}</figcaption>{% endif %}</figure>
 {% endcomponent figure %}

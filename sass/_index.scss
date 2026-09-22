@@ -37,13 +37,13 @@
         .metadata {
             font-size: 0.78rem;
             margin-top: 12px;
-            color: rgba(var(--color-primary), 0.5);
+            color: rgba(var(--color-primary), var(--opacity-subtle));
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
 
             .separator {
-                color: rgba(var(--color-primary), 0.25);
+                color: rgba(var(--color-primary), var(--opacity-separator));
             }
         }
     }
