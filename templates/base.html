@@ -51,11 +51,11 @@
                 <span class="tagline">{{ config.description }}</span>
             </a>
             <span class="options">
-                <a aria-label="Link to main website" href="{{ config.extra.main_website }}">main website</a>
+                <a href="{{ config.extra.main_website }}">main website</a>
                 <span class="separator">•</span>
-                <a aria-label="Link to Github account" href="https://github.com/{{ config.extra.github_account }}">github</a>
+                <a href="https://github.com/{{ config.extra.github_account }}">github</a>
                 <span class="separator">•</span>
-                <a aria-label="Link to RSS feed" href="{{ rss_url }}" rel="alternate" type="application/rss+xml">rss</a>
+                <a href="{{ rss_url }}" rel="alternate" type="application/rss+xml">rss</a>
             </span>
         </nav>
         {% endblock nav %}
