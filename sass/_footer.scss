@@ -18,16 +18,6 @@ footer {
             color: rgba(255, 120, 120, 1);
         }
 
-        a {
-            color: rgba(var(--color-primary), var(--opacity-muted));
-
-            @media (hover: hover) {
-                &:hover {
-                    color: rgba(var(--color-accent), 1);
-                }
-            }
-        }
-
         .right {
             display: flex;
             flex-wrap: wrap;

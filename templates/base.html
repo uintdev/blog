@@ -7,6 +7,7 @@
         {%- if page.title %}{% set_global meta_title = page.title %}{% endif -%}
         {%- if page.description %}{% set_global meta_description = page.description %}{% endif -%}
     {%- endif %}
+    {%- set rss_url = get_url(path="rss.xml", trailing_slash=false) %}
     <meta charset="utf-8">
 
     {% block title %}
@@ -37,7 +38,7 @@
     <link rel="apple-touch-icon" href="{{ get_url(path="images/favicon.png") }}">
 
     {% block rss %}
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml', trailing_slash=false) }}">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ rss_url }}">
     {% endblock %}
 </head>
 <body>
@@ -53,7 +54,7 @@
                 <span class="separator">•</span>
                 <a aria-label="Link to Github account" href="https://github.com/{{ config.extra.github_account }}">github</a>
                 <span class="separator">•</span>
-                <a aria-label="Link to RSS feed" href="{{ get_url(path='rss.xml', trailing_slash=false) }}" rel="alternate" type="application/rss+xml">rss</a>
+                <a aria-label="Link to RSS feed" href="{{ rss_url }}" rel="alternate" type="application/rss+xml">rss</a>
             </span>
         </nav>
         {% endblock nav %}

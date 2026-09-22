@@ -1,6 +1,7 @@
-@import "fonts";
-@import "mixins";
-@import "theme";
+@use "sass:meta";
+@use "fonts";
+@use "mixins" as *;
+@use "theme";
 
 @view-transition {
     navigation: auto;
@@ -30,8 +31,8 @@ body {
     background-color: rgba(var(--color-secondary), 1);
     @include content-width;
 
-    @import "header";
-    @import "footer";
+    @include meta.load-css("header");
+    @include meta.load-css("footer");
 }
 
 a {
@@ -56,8 +57,8 @@ main {
     box-sizing: border-box;
     padding: 48px var(--gutter);
 
-    @import "index";
-    @import "post";
+    @include meta.load-css("index");
+    @include meta.load-css("post");
 }
 
 @media (prefers-reduced-motion: reduce) {

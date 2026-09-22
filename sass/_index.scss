@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 .listing {
     display: flex;
     flex-direction: column;
@@ -7,7 +9,6 @@
         box-sizing: border-box;
         display: block;
         width: 100%;
-        cursor: pointer;
         border-radius: var(--radius-card);
         background-color: rgba(var(--color-elevated), 0.07);
         padding: 20px;

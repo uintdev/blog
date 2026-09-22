@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 article {
     line-height: 1.7;
     color: rgba(var(--color-primary), 0.85);
@@ -41,7 +43,6 @@ article {
 
     .post_header {
         margin-bottom: 40px;
-        text-align: left;
 
         .post_title {
             color: rgba(var(--color-primary), 1);
@@ -204,12 +205,6 @@ article {
             border-left-color: rgba(77, 191, 82, 1);
             .callout-title {
                 color: rgba(97, 211, 102, 1);
-            }
-        }
-        .callout-type-note {
-            border-left-color: rgba(119, 194, 255, 1);
-            .callout-title {
-                color: rgba(129, 204, 255, 1);
             }
         }
         .callout-type-warning {
