@@ -11,6 +11,9 @@ compile_sass = true
 # When set to "true", the HTML output files will be minified
 minify_html = true
 
+# Keep macOS Finder metadata out of the build
+ignored_static = ["**/.DS_Store"]
+
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
 
