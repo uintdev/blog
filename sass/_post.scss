@@ -29,6 +29,65 @@
     }
 }
 
+.toc {
+    display: none;
+
+    @media (min-width: 1280px) {
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: calc(100% + 32px);
+        width: 200px;
+        padding-top: 48px;
+    }
+
+    .toc_inner {
+        position: sticky;
+        top: 48px;
+        max-height: calc(100dvh - 96px);
+        overflow-y: auto;
+    }
+
+    .toc_title {
+        margin-bottom: 12px;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(var(--color-primary), 1);
+        @include unselectable;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0 0 0 16px;
+        list-style: none;
+        border-left: 1px solid rgba(var(--color-primary), var(--opacity-border));
+    }
+
+    li + li {
+        margin-top: 10px;
+    }
+
+    a {
+        display: block;
+        font-size: 0.85rem;
+        line-height: 1.4;
+        color: rgba(var(--color-primary), var(--opacity-muted));
+
+        &:focus-visible {
+            color: rgba(var(--color-accent), 1);
+        }
+
+        @media (hover: hover) {
+            &:hover {
+                color: rgba(var(--color-accent), 1);
+            }
+        }
+    }
+}
+
 article {
     line-height: 1.7;
     color: rgba(var(--color-primary), 0.85);
@@ -108,12 +167,7 @@ article {
     }
 
     .post_image {
-        // bleeds past the reading column once the viewport has room to spare,
-        // tapering back to flush before it can reach the screen edge
-        --banner-bleed: clamp(0px, (100vw - var(--max-width-ui)) / 2, 40px);
-        width: calc(100% + var(--banner-bleed) * 2);
-        max-width: none;
-        margin-inline: calc(var(--banner-bleed) * -1);
+        width: 100%;
         margin-bottom: 40px;
     }
 

@@ -53,6 +53,7 @@ a {
 }
 
 main {
+    position: relative;
     flex: 1;
     box-sizing: border-box;
     padding: 48px var(--gutter);

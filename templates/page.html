@@ -23,6 +23,18 @@
 
 {% block content %}
 <div class="scroll_progress" aria-hidden="true"></div>
+{% if page.toc | length > 1 %}
+<nav class="toc" aria-labelledby="toc_title">
+    <div class="toc_inner">
+        <div class="toc_title" id="toc_title">On this page</div>
+        <ul>
+            {% for heading in page.toc %}
+            <li><a href="#{{ heading.id }}">{{ heading.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>
+{% endif %}
 <article>
     <div class="post_header">
         <h1 class="post_title">{{ page.title }}</h1>
