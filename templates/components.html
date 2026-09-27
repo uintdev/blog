@@ -4,18 +4,14 @@
     <div class="title">{{ post.title }}</div>
     <div class="description">{{ post.description }}</div>
     <div class="metadata">
-        <time datetime="{{ post.date | date(format="%Y-%m-%d") }}">
-            {{ post.date | date(format="%Y-%m-%d") }}
-        </time>
+        {{<date_time value={post.date} />}}
         <span class="separator">•</span>
         <span class="readtime">{{ post.reading_time }} min</span>
         {% if post.updated %}
             <span class="separator">•</span>
             <span>
-                Updated:
-                <time datetime="{{ post.updated | date(format="%Y-%m-%d") }}">
-                    {{ post.updated | date(format="%Y-%m-%d") }}
-                </time>
+                updated
+                {{<date_time value={post.updated} />}}
             </span>
         {% endif %}
     </div>
@@ -35,3 +31,9 @@
 {%- set hash = get_hash(path=page.colocated_path ~ src, sha_type=256, base64=false) | truncate(length=20, end="") %}
 <figure><img src="{{ src }}?h={{ hash }}" width="{{ meta.width }}" height="{{ meta.height }}"{% if alt %} alt="{{ alt }}"{% endif %} loading="lazy" decoding="async">{% if body %}<figcaption>{{ body | markdown(inline=true) | safe }}</figcaption>{% endif %}</figure>
 {% endcomponent figure %}
+
+{% component date_time(value) %}
+{%- set month = value | date(format="%B") -%}
+{%- set short = value | date(format="%b") -%}
+<time datetime="{{ value | date(format="%Y-%m-%d") }}">{{ short }}<span class="month_rest">{{ month | replace(from=short, to="") }}</span> {{ value | date(format="%-d, %Y") }}</time>
+{%- endcomponent date_time %}

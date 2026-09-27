@@ -37,15 +37,12 @@
 {% endif %}
 <article>
     <div class="post_header">
-        <h1 class="post_title">{{ page.title }}</h1>
-        {% if page.description %}
-        <div class="post_description">{{ page.description }}</div>
-        {% endif %}
         {% if page.date %}
         <div class="post_metadata">
-            <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%Y-%m-%d") }}</time><span class="separator">•</span><span class="readtime">{{ page.reading_time }} min</span>{% if page.updated %}<span class="separator">•</span><span class="meta_container"><span>Updated: </span><time datetime="{{ page.updated | date(format="%Y-%m-%d") }}">{{ page.updated | date(format="%Y-%m-%d") }}</time></span>{% endif %}{% if page.extra.unlisted %}<span class="separator">•</span><span class="unlisted">Unlisted</span>{% endif %}
+            <span class="published">{{<date_time value={page.date} />}}</span><span class="separator">•</span><span class="readtime">{{ page.reading_time }} min</span>{% if page.updated %}<span class="separator">•</span><span class="meta_container"><span>updated</span>{{<date_time value={page.updated} />}}</span>{% endif %}{% if page.extra.unlisted %}<span class="unlisted">Unlisted</span>{% endif %}
         </div>
         {% endif %}
+        <h1 class="post_title">{{ page.title }}</h1>
     </div>
     {% if page.extra.feature_image %}
         {%- set feature_image = get_image_metadata(path=page.colocated_path ~ "image.webp") %}

@@ -139,33 +139,45 @@ article {
 
         .post_title {
             color: rgba(var(--color-primary), 1);
-            margin-top: 0;
-            margin-bottom: 12px;
-        }
-
-        .post_description {
-            color: rgba(var(--color-primary), var(--opacity-muted));
-            font-size: 1.05rem;
-            line-height: 1.5;
-            margin-bottom: 14px;
+            margin: 0;
         }
 
         .post_metadata {
             color: rgba(var(--color-primary), var(--opacity-subtle));
-            font-size: 0.78rem;
+            font-size: 0.85rem;
             display: flex;
             flex-wrap: wrap;
+            align-items: baseline;
             gap: 8px;
+            margin-bottom: 12px;
             line-height: 1.4;
 
             .separator {
                 color: rgba(var(--color-primary), var(--opacity-separator));
             }
 
+            .published {
+                font-weight: 700;
+                color: rgba(var(--color-primary), var(--opacity-muted));
+            }
+
             .meta_container {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 4px;
+            }
+
+            .unlisted {
+                align-self: center;
+                padding: 4px 7px;
+                font-size: 0.7rem;
+                line-height: 1;
+                font-weight: 700;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                color: rgba(var(--color-accent), 1);
+                background-color: rgba(var(--color-elevated), 0.14);
+                border-radius: var(--radius-tag);
             }
         }
     }
@@ -200,6 +212,7 @@ article {
         }
 
         code {
+            font-family: monospace, monospace;
             font-size: 0.9em;
             padding: 1px 6px;
             background-color: rgba(var(--color-elevated), 0.14);
