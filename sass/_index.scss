@@ -26,6 +26,7 @@
             font-size: 1.05rem;
             font-weight: 700;
             line-height: 1.35;
+            text-wrap-style: balance;
         }
 
         .description {
@@ -33,6 +34,7 @@
             line-height: 1.5;
             margin-top: 10px;
             color: rgba(var(--color-primary), var(--opacity-muted));
+            text-wrap-style: pretty;
         }
 
         .metadata {
