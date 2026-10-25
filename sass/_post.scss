@@ -282,7 +282,9 @@ article {
         }
 
         .callout {
-            border-left: 4px solid rgba(119, 194, 255, 1);
+            --callout-border: 119, 194, 255;
+            --callout-title: 129, 204, 255;
+            border-left: 4px solid rgba(var(--callout-border), 1);
             border-radius: var(--radius-tag);
             background-color: rgba(var(--color-elevated), 0.05);
             padding: 12px 20px;
@@ -290,7 +292,7 @@ article {
             margin-bottom: 30px;
 
             .callout-title {
-                color: rgba(129, 204, 255, 1);
+                color: rgba(var(--callout-title), 1);
                 margin-bottom: 10px;
                 display: inline-block;
                 font-weight: 700;
@@ -309,28 +311,20 @@ article {
         }
 
         .callout-type-tip {
-            border-left-color: rgba(77, 191, 82, 1);
-            .callout-title {
-                color: rgba(97, 211, 102, 1);
-            }
+            --callout-border: 77, 191, 82;
+            --callout-title: 97, 211, 102;
         }
         .callout-type-warning {
-            border-left-color: rgba(214, 209, 69, 1);
-            .callout-title {
-                color: rgba(234, 229, 89, 1);
-            }
+            --callout-border: 214, 209, 69;
+            --callout-title: 234, 229, 89;
         }
         .callout-type-important {
-            border-left-color: rgba(179, 81, 222, 1);
-            .callout-title {
-                color: rgba(209, 111, 252, 1);
-            }
+            --callout-border: 179, 81, 222;
+            --callout-title: 209, 111, 252;
         }
         .callout-type-caution {
-            border-left-color: rgba(255, 84, 84, 1);
-            .callout-title {
-                color: rgba(255, 84, 84, 1);
-            }
+            --callout-border: 255, 84, 84;
+            --callout-title: 255, 84, 84;
         }
 
         .footnote-reference a {
