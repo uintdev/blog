@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ lang }}">
+<html lang="{{ lang }}" class="loading">
 <head>
     {%- set meta_title = config.title -%}
     {%- set meta_description = config.description -%}
@@ -73,5 +73,6 @@
             </span>
         </div>
     </footer>
+    <script>requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.remove("loading")));</script>
 </body>
 </html>

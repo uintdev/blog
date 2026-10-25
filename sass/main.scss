@@ -72,6 +72,15 @@ main {
     @include meta.load-css("post");
 }
 
+// Safari transitions from UA defaults on the first style pass (links fade in from blue), so hold transitions until the first frame
+@media (scripting: enabled) {
+    .loading *,
+    .loading *::before,
+    .loading *::after {
+        transition: none !important;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
