@@ -3,7 +3,7 @@ description = "a few technical insights"
 author = "uintdev"
 
 # The URL the site will be built for
-base_url = "/"
+base_url = "https://blog.uint.dev"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
@@ -26,7 +26,6 @@ theme = "github-dark-default"
 
 [extra]
 # Put all your custom variables here
-base_domain = "https://blog.uint.dev"
 author = "uintdev"
 github_account = "uintdev"
 main_website = "https://uint.dev/"

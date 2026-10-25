@@ -9,7 +9,7 @@
 
 {% if page.extra.feature_image %}
     {%- set feature_image_src = "image.webp?h=" ~ get_hash(path=page.colocated_path ~ "image.webp", sha_type=256, base64=false) | truncate(length=20, end="") %}
-    {%- set feature_image_url = config.extra.base_domain ~ page.path ~ feature_image_src %}
+    {%- set feature_image_url = config.base_url ~ page.path ~ feature_image_src %}
     <meta name="twitter:image" content="{{ feature_image_url | safe }}">
     <meta property="og:image" content="{{ feature_image_url | safe }}">
     <meta name="twitter:card" content="summary_large_image">

@@ -18,7 +18,7 @@
     <link rel="preload" href="{{ get_url(path="fonts/nunito_latin.woff2") }}" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="{{ get_url(path="main.css", cachebust=true) | safe }}">
 
-    <meta property="og:url" content="{{ config.extra.base_domain | safe }}{% if page is defined and page.path %}{{ page.path | safe}}{% endif %}">
+    <meta property="og:url" content="{{ config.base_url | safe }}{% if page is defined and page.path %}{{ page.path | safe}}{% endif %}">
     <meta property="og:site_name" content="{{ config.title }}">
 
     <meta name="twitter:title" content="{{ meta_title }}">
