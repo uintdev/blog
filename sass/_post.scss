@@ -74,7 +74,7 @@
         display: block;
         font-size: 0.85rem;
         line-height: 1.4;
-        color: rgba(var(--color-primary), var(--opacity-muted));
+        color: var(--color-muted);
         text-wrap-style: balance;
 
         &:focus-visible {
@@ -161,7 +161,7 @@ article {
 
             .published {
                 font-weight: 700;
-                color: rgba(var(--color-primary), var(--opacity-muted));
+                color: var(--color-muted);
             }
 
             .meta_container {
@@ -270,7 +270,7 @@ article {
             figcaption {
                 margin-top: 15px;
                 text-align: center;
-                color: rgba(var(--color-primary), var(--opacity-muted));
+                color: var(--color-muted);
                 font-size: 0.8em;
                 line-height: 1.4;
                 text-wrap-style: balance;

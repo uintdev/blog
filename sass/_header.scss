@@ -30,7 +30,7 @@ header {
             display: block;
             margin-top: 4px;
             font-size: 0.85rem;
-            color: rgba(var(--color-primary), var(--opacity-muted));
+            color: var(--color-muted);
         }
 
         @media (hover: hover) {
@@ -48,7 +48,7 @@ header {
         font-size: 0.85rem;
 
         a {
-            color: rgba(var(--color-primary), var(--opacity-muted));
+            color: var(--color-muted);
 
             @media (hover: hover) {
                 &:hover {
