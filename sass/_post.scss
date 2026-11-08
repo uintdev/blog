@@ -9,6 +9,7 @@
         width: 100%;
         height: 4px;
         background-color: rgba(var(--color-accent), 1);
+        transform: scaleX(0);
         transform-origin: left;
         pointer-events: none;
         animation: scroll-progress linear both;
