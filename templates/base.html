@@ -47,7 +47,7 @@
         {% block nav %}
         <nav>
             <a class="title" href="/">
-                <h1>{{ config.title }}</h1>
+                {% if page is defined %}<div class="site_name">{{ config.title }}</div>{% else %}<h1 class="site_name">{{ config.title }}</h1>{% endif %}
                 <span class="tagline">{{ config.description }}</span>
             </a>
             <span class="options">
