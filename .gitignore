@@ -1,5 +1,8 @@
 # Build Output Directory
 public/
 
+# Zola binary downloaded by build.sh
+/zola
+
 # macOS Desktop Services Store
 .DS_Store
