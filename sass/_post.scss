@@ -329,37 +329,20 @@ article {
             --callout-title: 255, 84, 84;
         }
 
-        .footnote-reference a {
-            &::before {
-                content: "[";
-            }
-            &::after {
-                content: "]";
-            }
-        }
-
-        .footnote-definition {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.5em;
-
-            .footnote-definition-label {
-                vertical-align: unset;
-                font-size: unset;
-                flex-shrink: 0;
-
-                &::after {
-                    content: ". ";
-                }
-            }
+        .footnotes-list {
+            margin: 0;
+            padding-inline-start: 1.33em;
 
             p {
-                display: inline;
                 overflow-wrap: anywhere;
                 margin: 0;
 
-                a[href$="_ref"] {
-                    margin-left: 6px;
+                + p {
+                    margin-top: 0.5em;
+                }
+
+                a[href*="#fr-"] {
+                    margin-left: 2px;
                 }
             }
         }
