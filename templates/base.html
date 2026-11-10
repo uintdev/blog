@@ -35,7 +35,8 @@
     {% endblock meta_content %}
 
     <meta name="theme-color" content="#18182a">
-    <link rel="icon" href="{{ get_url(path="images/favicon.png", cachebust=true) }}">
+    <link rel="icon" href="{{ get_url(path="images/favicon.png", cachebust=true) }}" type="image/png" sizes="180x180">
+    <link rel="icon" href="{{ get_url(path="images/favicon.svg", cachebust=true) }}" type="image/svg+xml">
     <link rel="apple-touch-icon" href="{{ get_url(path="images/favicon.png", cachebust=true) }}">
 
     {% block rss %}
