@@ -62,7 +62,7 @@ We will start by creating a file under `android/`.
 
 If you wish to use Kotlin, ensure that you are using Gradle 9 or later, create a file named `no-build-id.gradle.kts`, and then enter the following code:
 
-```kotlin, linenos
+```kotlin, linenos, name=no-build-id.gradle.kts
 // MIT License - Copyright (c) 2026 Simple Badminton Contributors
 
 import org.gradle.process.ExecOperations
@@ -123,7 +123,7 @@ If you prefer to use Groovy, we can instead create a file named `no-build-id.gra
 
 Gradle 9 or later:
 
-```java, linenos
+```java, linenos, name=no-build-id.gradle
 // MIT License - Copyright (c) 2026 Simple Badminton Contributors
 
 interface InjectedExecOps {
@@ -175,7 +175,7 @@ tasks.matching { it.name.startsWith("merge") && it.name.endsWith("NativeLibs") }
 
 Gradle 8 or earlier:
 
-```java, linenos
+```java, linenos, name=no-build-id.gradle
 // MIT License - Copyright (c) 2026 Simple Badminton Contributors
 
 def home = System.getenv("ANDROID_HOME") ?: ""
@@ -232,7 +232,7 @@ Under `android/app/`, add the following to the end of the `build.gradle.kts` fil
 
 If you are using Kotlin DSL for the `no-build-id` script ...
 
-```kotlin
+```kotlin, name=build.gradle.kts
 afterEvaluate {
     apply(from = "../no-build-id.gradle.kts")
 }
@@ -240,7 +240,7 @@ afterEvaluate {
 
 ... or if you are using Groovy DSL ...
 
-```kotlin
+```kotlin, name=build.gradle.kts
 afterEvaluate {
     apply(from = "../no-build-id.gradle")
 }
@@ -248,7 +248,7 @@ afterEvaluate {
 
 If you are working with a `build.gradle` file, add the following to the end of the file:
 
-```java
+```java, name=build.gradle
 afterEvaluate {
     apply from: '../no-build-id.gradle'
 }
