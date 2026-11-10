@@ -2,6 +2,7 @@
 {% if not post.extra.unlisted %}
 <li>
     <a href="{{ post.permalink | safe }}" class="card">
+        <span class="arrow"></span>
         <h2 class="title">{{ post.title }}</h2>
         <div class="description">{{ post.description }}</div>
         <div class="metadata">

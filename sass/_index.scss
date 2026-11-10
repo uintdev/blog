@@ -9,24 +9,34 @@
     list-style: none;
 
     .card {
-        box-sizing: border-box;
-        display: block;
-        width: 100%;
-        border-radius: var(--radius-card);
-        background-color: fade(elevated, 7%);
-        padding: 20px;
-        color: var(--color-primary);
-        transition: background-color var(--interactive-transition-speed);
-        @include unselectable;
+        position: relative;
+        @include card;
+
+        .arrow {
+            position: absolute;
+            top: 24px;
+            right: 20px;
+            width: 14px;
+            height: 14px;
+            color: fade(primary, 35%);
+            background-color: currentColor;
+            forced-color-adjust: preserve-parent-color;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 3.5h6.5V10M12.5 3.5l-9 9'/%3E%3C/svg%3E") no-repeat;
+            transition:
+                color var(--interactive-transition-speed),
+                translate var(--interactive-transition-speed);
+        }
 
         @media (hover: hover) {
-            &:hover {
-                background-color: fade(elevated, 12%);
+            &:hover .arrow {
+                color: var(--color-accent);
+                translate: 2px -2px;
             }
         }
 
         .title {
             margin: 0;
+            padding-right: 28px;
             font-size: 1.05rem;
             font-weight: 700;
             line-height: 1.35;
