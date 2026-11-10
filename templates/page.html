@@ -48,6 +48,11 @@
     <div class="post_body">
         {{ page.content | replace(from="↩", to="↩&#xFE0E;") | safe }}
     </div>
-
+    {% if page.lower or page.higher %}
+    <nav class="post_nav" aria-label="More posts">
+        {{<post_link post={page.higher} label="Older post" rel="prev" />}}
+        {{<post_link post={page.lower} label="Newer post" rel="next" />}}
+    </nav>
+    {% endif %}
 </article>
 {% endblock content %}
