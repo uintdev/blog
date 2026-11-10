@@ -47,11 +47,14 @@
         {% block nav %}
         <nav>
             <a class="title" href="/">
-                {% if page is defined %}<div class="site_name">{{ config.title }}</div>{% else %}<h1 class="site_name">{{ config.title }}</h1>{% endif %}
-                <span class="tagline">{{ config.description }}</span>
+                {{<logo />}}
+                <div>
+                    {% if page is defined %}<div class="site_name">{{ config.title }}</div>{% else %}<h1 class="site_name">{{ config.title }}</h1>{% endif %}
+                    <span class="tagline">{{ config.description }}</span>
+                </div>
             </a>
             <span class="options">
-                <a href="{{ config.extra.main_website }}">main website</a>
+                <a href="{{ config.extra.main_website }}">website</a>
                 <a href="https://github.com/{{ config.extra.github_account }}">github</a>
                 <a href="{{ rss_url }}" rel="alternate" type="application/rss+xml">rss</a>
             </span>
