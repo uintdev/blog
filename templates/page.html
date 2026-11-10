@@ -14,7 +14,7 @@
     <meta property="og:image" content="{{ feature_image_url | safe }}">
     <meta name="twitter:card" content="summary_large_image">
 {% else %}
-    <meta name="twitter:card" content="summary">
+    {{<preview_image />}}
 {% endif %}
 {% endblock meta_content %}
 
