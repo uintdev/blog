@@ -36,7 +36,7 @@
     <div class="post_header">
         {% if page.date %}
         <div class="post_metadata">
-            <span class="published">{{<date_time value={page.date} />}}</span><span class="separator">•</span><span class="readtime">{{ page.reading_time }} min</span>{% if page.updated %}<span class="separator">•</span><span class="meta_container"><span>updated</span>{{<date_time value={page.updated} />}}</span>{% endif %}{% if page.extra.unlisted %}<span class="unlisted">Unlisted</span>{% endif %}
+            <span class="published">{{<date_time value={page.date} />}}</span><span class="readtime">{{ page.reading_time }} min</span>{% if page.updated %}<span class="meta_container"><span>updated</span>{{<date_time value={page.updated} />}}</span>{% endif %}{% if page.extra.unlisted %}<span class="unlisted">Unlisted</span>{% endif %}
         </div>
         {% endif %}
         <h1 class="post_title">{{ page.title }}</h1>

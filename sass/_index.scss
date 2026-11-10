@@ -45,13 +45,7 @@
             font-size: 0.78rem;
             margin-top: 12px;
             color: var(--color-subtle);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-
-            .separator {
-                color: var(--color-separator);
-            }
+            @include bullet-separated;
         }
     }
 

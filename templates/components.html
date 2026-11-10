@@ -6,10 +6,8 @@
         <div class="description">{{ post.description }}</div>
         <div class="metadata">
             {{<date_time value={post.date} />}}
-            <span class="separator">•</span>
             <span class="readtime">{{ post.reading_time }} min</span>
             {% if post.updated %}
-                <span class="separator">•</span>
                 <span>
                     updated
                     {{<date_time value={post.updated} />}}

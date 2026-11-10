@@ -57,7 +57,9 @@ header {
             }
         }
 
-        .separator {
+        a + a::before {
+            content: "•";
+            margin-right: 14px;
             color: var(--color-separator);
         }
     }

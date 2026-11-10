@@ -150,16 +150,10 @@ article {
         .post_metadata {
             color: var(--color-subtle);
             font-size: 0.85rem;
-            display: flex;
-            flex-wrap: wrap;
+            @include bullet-separated;
             align-items: baseline;
-            gap: 8px;
             margin-bottom: 12px;
             line-height: 1.4;
-
-            .separator {
-                color: var(--color-separator);
-            }
 
             .published {
                 font-weight: 700;
@@ -173,6 +167,10 @@ article {
             }
 
             .unlisted {
+                &::before {
+                    content: none;
+                }
+
                 align-self: center;
                 padding: 4px 7px;
                 font-size: 0.7rem;

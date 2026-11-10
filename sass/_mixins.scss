@@ -12,3 +12,22 @@
 @function fade($color, $opacity) {
     @return color-mix(in srgb, var(--color-#{$color}) $opacity, transparent);
 }
+
+@mixin bullet-separated {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    overflow: clip;
+
+    > * {
+        position: relative;
+
+        &::before {
+            content: "•";
+            position: absolute;
+            left: -10px;
+            translate: -50%;
+            color: var(--color-separator);
+        }
+    }
+}
