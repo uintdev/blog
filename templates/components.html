@@ -1,21 +1,23 @@
 {% component post_in_list(post) %}
 {% if not post.extra.unlisted %}
-<a href="{{ post.permalink | safe }}" class="card">
-    <div class="title">{{ post.title }}</div>
-    <div class="description">{{ post.description }}</div>
-    <div class="metadata">
-        {{<date_time value={post.date} />}}
-        <span class="separator">•</span>
-        <span class="readtime">{{ post.reading_time }} min</span>
-        {% if post.updated %}
+<li>
+    <a href="{{ post.permalink | safe }}" class="card">
+        <h2 class="title">{{ post.title }}</h2>
+        <div class="description">{{ post.description }}</div>
+        <div class="metadata">
+            {{<date_time value={post.date} />}}
             <span class="separator">•</span>
-            <span>
-                updated
-                {{<date_time value={post.updated} />}}
-            </span>
-        {% endif %}
-    </div>
-</a>
+            <span class="readtime">{{ post.reading_time }} min</span>
+            {% if post.updated %}
+                <span class="separator">•</span>
+                <span>
+                    updated
+                    {{<date_time value={post.updated} />}}
+                </span>
+            {% endif %}
+        </div>
+    </a>
+</li>
 {% endif %}
 {% endcomponent post_in_list %}
 
