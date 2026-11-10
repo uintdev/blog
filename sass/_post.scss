@@ -208,7 +208,8 @@ article {
             font-size: 0.9em;
             line-height: 1.6;
             padding: 16px 20px;
-            border-radius: var(--radius-card);
+            border-left: 4px solid var(--color-separator);
+            border-radius: var(--radius-tag);
             margin: 0;
 
             p {
@@ -265,7 +266,8 @@ article {
             }
         }
 
-        ul {
+        ul,
+        ol {
             display: flex;
             flex-direction: column;
             gap: 10px;
