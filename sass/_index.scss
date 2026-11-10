@@ -10,15 +10,15 @@
         display: block;
         width: 100%;
         border-radius: var(--radius-card);
-        background-color: rgba(var(--color-elevated), 0.07);
+        background-color: fade(elevated, 7%);
         padding: 20px;
-        color: rgba(var(--color-primary), 1);
+        color: var(--color-primary);
         transition: background-color var(--interactive-transition-speed);
         @include unselectable;
 
         @media (hover: hover) {
             &:hover {
-                background-color: rgba(var(--color-elevated), 0.12);
+                background-color: fade(elevated, 12%);
             }
         }
 
@@ -33,20 +33,20 @@
             font-size: 0.9rem;
             line-height: 1.5;
             margin-top: 10px;
-            color: rgba(var(--color-primary), 0.72);
+            color: fade(primary, 72%);
             text-wrap-style: pretty;
         }
 
         .metadata {
             font-size: 0.78rem;
             margin-top: 12px;
-            color: rgba(var(--color-primary), var(--opacity-subtle));
+            color: var(--color-subtle);
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
 
             .separator {
-                color: rgba(var(--color-primary), var(--opacity-separator));
+                color: var(--color-separator);
             }
         }
     }

@@ -4,7 +4,7 @@ header {
     box-sizing: border-box;
     width: 100%;
     padding: 28px var(--gutter);
-    border-bottom: 1px solid rgba(var(--color-primary), var(--opacity-border));
+    border-bottom: 1px solid var(--color-border);
     @include unselectable;
 
     nav {
@@ -52,13 +52,13 @@ header {
 
             @media (hover: hover) {
                 &:hover {
-                    color: rgba(var(--color-accent), 1);
+                    color: var(--color-accent);
                 }
             }
         }
 
         .separator {
-            color: rgba(var(--color-primary), var(--opacity-separator));
+            color: var(--color-separator);
         }
     }
 }
